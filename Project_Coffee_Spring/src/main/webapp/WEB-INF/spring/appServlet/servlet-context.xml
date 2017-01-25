@@ -67,6 +67,7 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.spring.coffee" />
+	<context:component-scan base-package="com.spring.coffee.users.*" />
 	
 	
    <!-- Spring Transaction Manager 설정 -->
