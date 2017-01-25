@@ -1,6 +1,8 @@
 package com.spring.coffee.users.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,9 +17,9 @@ public class UsersServiseImpl implements UsersService {
 	private UsersDao usersDao;
 	
 	@Override
-	public boolean insert(UsersDto dto) {
-		// TODO Auto-generated method stub
-		return false;
+	public void insert(UsersDto dto) {
+		usersDao.insert(dto);
+
 	}
 
 	@Override
@@ -51,9 +53,13 @@ public class UsersServiseImpl implements UsersService {
 	}
 
 	@Override
-	public boolean canUseId(String id) {
-		// TODO Auto-generated method stub
-		return false;
+	public Map<String, Object> canUseId(String id) {
+		boolean canUse =  usersDao.canUseId(id);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("canUse", canUse);
+		return map;
+		
 	}
 
 }

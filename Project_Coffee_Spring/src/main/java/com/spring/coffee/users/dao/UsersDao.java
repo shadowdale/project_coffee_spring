@@ -5,7 +5,7 @@ import java.util.List;
 import com.spring.coffee.users.dto.UsersDto;
 
 public interface UsersDao {
-	public boolean insert(UsersDto dto);
+	public void insert(UsersDto dto);
 	public boolean isValid(UsersDto dto);
 	public UsersDto getData(String id);
 	public void update(UsersDto dto);

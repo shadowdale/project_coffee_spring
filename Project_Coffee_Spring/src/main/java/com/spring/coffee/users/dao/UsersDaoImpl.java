@@ -15,9 +15,9 @@ public class UsersDaoImpl implements UsersDao{
 	private SqlSession session;
 	
 	@Override
-	public boolean insert(UsersDto dto) {
-		// TODO Auto-generated method stub
-		return false;
+	public void insert(UsersDto dto) {
+		session.insert("users.insert", dto);
+		
 	}
 
 	@Override
@@ -52,8 +52,13 @@ public class UsersDaoImpl implements UsersDao{
 
 	@Override
 	public boolean canUseId(String id) {
-		// TODO Auto-generated method stub
-		return false;
+		String result = session.selectOne("users.isExistId", id);
+		
+		if(result == null) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }
