@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+	<sql id="boardColumns">
+		num,writer,title,content,viewCount,good,imgAddr,
+		TO_CHAR(regdate, 'YY.MM.DD HH24:MI') AS regdate
+	</sql>
+	<select id="getList" parameterType="boardDto" resultType="boardDto">
+      SELECT *
+      FROM
+         (SELECT result1.*, ROWNUM rnum
+           FROM
+              (SELECT <include refid="boardColumns"/>
+               FROM coffee_board
+               <where>
+                  <if test="writer != null">
+                     OR writer LiKE '%'||#{writer}||'%'
+                  </if>
+                  <if test="title != null">
+                     OR title LiKE '%'||#{title}||'%'
+                  </if>
+                  <if test="content != null">
+                     OR content LiKE '%'||#{content}||'%'
+                  </if>
+               </where>
+                ORDER BY num DESC
+             ) result1 
+         )
+      WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}
+   </select>
+	<insert id="insert" parameterType="boardDto">
+		INSERT INTO coffee_board
+		(num, writer, title, content, imgAddr, regdate)
+		VALUES(coffee_board_seq.NEXTVAL, 
+		#{writer}, #{title}, #{content}, #{imgAddr}, SYSDATE)
+	</insert>
+	
+	<select id="getData" parameterType="int" resultType="boardDto">
+		SELECT result1.*
+		FROM 
+			(SELECT num, writer, title, content, regdate, viewCount, good, imgAddr,
+			LAG(num, 1, 0) OVER(ORDER BY num DESC) AS prevNum,
+			LEAD(num, 1, 0) OVER(ORDER BY num DESC) AS nextNum
+			FROM coffee_board
+			<where>
+			   	<if test="writer != null">
+			   		OR writer LiKE '%'||#{writer}||'%'
+			   	</if>
+			   	<if test="title != null">
+			   		OR title LiKE '%'||#{title}||'%'
+			   	</if>
+			   	<if test="content != null">
+			   		OR content LiKE '%'||#{content}||'%'
+			   	</if>
+			</where>
+			ORDER BY num DESC) result1
+		WHERE num=#{num}
+	</select>
+	
+	<update id="increaseViewCount" parameterType="int">
+		UPDATE coffee_board
+		SET viewCount = viewCount+1
+		WHERE num=#{num}
+	</update>
+	
+	<update id="update" parameterType="boardDto">
+		UPDATE coffee_board
+		SET title=#{title}, content=#{content}
+		WHERE num=#{num}
+	</update>
+	
+	<update id="delete" parameterType="int">
+		DELETE FROM coffee_board
+		WHERE num = #{num}
+	</update>
+	
+	<select id="getCount" parameterType="boardDto" resultType="int">
+   		SELECT nvl(max(ROWNUM), 0)
+		FROM coffee_board
+		<where>
+		   	<if test="writer != null">
+		   		OR writer LiKE '%'||#{writer}||'%'
+		   	</if>
+		   	<if test="title != null">
+		   		OR title LiKE '%'||#{title}||'%'
+		   	</if>
+		   	<if test="content != null">
+		   		OR content LiKE '%'||#{content}||'%'
+		   	</if>
+		</where>
+   	</select>
+</mapper>
