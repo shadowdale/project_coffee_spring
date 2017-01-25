@@ -36,13 +36,10 @@ public class BoardServiceImpl implements BoardService {
 			if(condition.equals("titlecontent")) { // 제목+내용 검색
 				dto.setTitle(keyword);
 				dto.setContent(keyword);
-				System.out.println("title content로 검색함");
 			} else if(condition.equals("title")) { // 제목 검색
 				dto.setTitle(keyword);
-				System.out.println("title로 검색함");
 			} else if(condition.equals("writer")) { // 작성자 검색
 				dto.setWriter(keyword);
-				System.out.println("작성자로 검색함");
 			}
 			request.setAttribute("condition", condition);
 			request.setAttribute("keyword", keyword);
@@ -108,7 +105,6 @@ public class BoardServiceImpl implements BoardService {
 		BoardDto dto = new BoardDto();
 		if(keyword != null) { // 검색어가 전달된경우
 			if(condition.equals("titlecontent")) { // 제목+내용 검색
-				System.out.println("전달");
 				dto.setTitle(keyword);
 				dto.setContent(keyword);
 			} else if(condition.equals("title")) { // 제목 검색

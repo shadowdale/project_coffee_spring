@@ -117,7 +117,7 @@
 			<ul class="pagination">
 			<c:choose>
 				<c:when test="${startPageNum ne 1 }">
-			   		<li><a href="board_list.do?pageNum=${startPageNum-1 }&condition=${condition }&keyword=${keyword }">&laquo;</a></li>
+			   		<li><a href="list.do?pageNum=${startPageNum-1 }&condition=${condition }&keyword=${keyword }">&laquo;</a></li>
 				</c:when>
 				<c:otherwise>
 			   		<li class="disabled"><a href="javascript:">&laquo;</a></li>
@@ -126,16 +126,16 @@
 			<c:forEach var="i" begin="${startPageNum }" end="${endPageNum }">
 				<c:choose>
 					<c:when test="${i eq pageNum }">
-						<li class="active"><a href="board_list.do?pageNum=${i }&condition=${condition }&keyword=${keyword }">${i }</a></li>
+						<li class="active"><a href="list.do?pageNum=${i }&condition=${condition }&keyword=${keyword }">${i }</a></li>
 					</c:when>
 					<c:otherwise>
-						<li><a href="board_list.do?pageNum=${i }&condition=${condition }&keyword=${keyword }">${i }</a></li>
+						<li><a href="list.do?pageNum=${i }&condition=${condition }&keyword=${keyword }">${i }</a></li>
 					</c:otherwise>
 				</c:choose>
 			</c:forEach>
 			<c:choose>
 				<c:when test="${endPageNum lt totalPageCount }">
-			  		<li><a href="board_list.do?pageNum=${endPageNum+1 }&condition=${condition }&keyword=${keyword }">&raquo;</a></li>
+			  		<li><a href="list.do?pageNum=${endPageNum+1 }&condition=${condition }&keyword=${keyword }">&raquo;</a></li>
 				</c:when>
 				<c:otherwise>
 			  		<li class="disabled"><a href="javascript:">&raquo;</a></li>
@@ -147,7 +147,7 @@
 	<br />
 	<br />
 	<div class="col-xs-6 col-xs-push-3">
-		<form action="board_list.do" method="post" id="keywordForm">
+		<form action="list.do" method="post" id="keywordForm">
 			<div class="input-group">
 				<select class="form-control input-group" style="width:30%" name="condition" id="condition"><c:if test=""></c:if>
 					<option value="titlecontent" <c:if test="${condition eq 'titlecontent' }">selected</c:if>>제목+내용</option>
@@ -168,7 +168,6 @@
 	<script>
 	
 		$(".upDeleteBtn").hide();
-	
 	
 		// 검색기능 정보 저장
 		var condition = "${condition}";
@@ -217,7 +216,6 @@
 						$(".upDeleteBtn").hide();
 					}
 					$("#imgpop").modal("show");
-					
 					
 					$(".modalScoll").scrollTop(9999999);
 				}
