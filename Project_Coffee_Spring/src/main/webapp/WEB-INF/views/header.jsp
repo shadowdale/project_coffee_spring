@@ -26,7 +26,7 @@
 						<button class="enterance_idClick_contents submit" id="" type="submit">SUBMIT</button>
 						<input type="password" name="pwd" class="enterance_idClick_contents passInput col col-xs-7" placeholder="Password">
 					</form>
-					<form action="../users/signup_form.do" method="post">
+					<form action="../users/signupform.do" method="post">
 						<button class="enterance_idClick_contents join" id="signinForm2"> JOINUS </button>
 					</form>
 					<div id="info">
