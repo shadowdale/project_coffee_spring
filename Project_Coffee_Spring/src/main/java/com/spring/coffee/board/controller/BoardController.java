@@ -16,11 +16,12 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 	
+	// 게시글 목록 불러오기 요청 처리
 	@RequestMapping("/board/list")
 	public ModelAndView list(HttpServletRequest request, @RequestParam(defaultValue="1") int pageNum) {
-		boardService.getList(request, pageNum);
 		
-		ModelAndView mView = new ModelAndView();
+		// 서비스에 객체를 전달하고 전달받은 모델을 가지고 뷰페이지로 forword 시킨다.
+		ModelAndView mView = boardService.getList(request, pageNum);
 		mView.setViewName("/board/list");
 		return mView;
 	}

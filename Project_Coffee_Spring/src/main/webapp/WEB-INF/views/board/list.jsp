@@ -10,6 +10,7 @@
 	
 </head>
 <body>
+	<jsp:include page="/WEB-INF/views/header.jsp"/>
 	<div class="container">
 		<div class="row">
 			<h2 style="padding-left: 30px; margin-top:0">Coffee Board</h2>
