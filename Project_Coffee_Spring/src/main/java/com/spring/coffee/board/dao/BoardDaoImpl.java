@@ -48,12 +48,13 @@ public class BoardDaoImpl implements BoardDao {
 	@Override
 	public int getCount(BoardDto dto) {
 		return session.selectOne("board.getCount", dto);
+		
 	}
 
 	@Override
 	public BoardDto getData(BoardDto dto) {
-		// TODO Auto-generated method stub
-		return null;
+		return session.selectOne("board.getData", dto);
+		
 	}
 
 }

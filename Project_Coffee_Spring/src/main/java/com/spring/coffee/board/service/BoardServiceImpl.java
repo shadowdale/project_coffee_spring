@@ -1,6 +1,8 @@
 package com.spring.coffee.board.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -91,6 +93,54 @@ public class BoardServiceImpl implements BoardService {
 		mView.addObject("totalPageCount", totalPageCount);
 		
 		return mView;
+	}
+
+	@Override
+	public Map<String, Object> getData(HttpServletRequest request, int num) {
+		// 세션에서 id를 읽어 온다.
+		String id = (String)request.getSession().getAttribute("id");
+		
+		// 검색과 관련된 파라미터를 읽어와 본다.
+		String keyword = request.getParameter("keyword");
+		String condition = request.getParameter("condition");
+		
+		// boardDto 객체를 생성해서
+		BoardDto dto = new BoardDto();
+		if(keyword != null) { // 검색어가 전달된경우
+			if(condition.equals("titlecontent")) { // 제목+내용 검색
+				System.out.println("전달");
+				dto.setTitle(keyword);
+				dto.setContent(keyword);
+			} else if(condition.equals("title")) { // 제목 검색
+				dto.setTitle(keyword);
+			} else if(condition.equals("writer")) { // 작성자 검색
+				dto.setWriter(keyword);
+			}
+			request.setAttribute("condition", condition);
+			request.setAttribute("keyword", keyword);
+		}
+		
+		dto.setNum(num);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		BoardDto resultDto = boardDao.getData(dto);
+
+		// List<CafeCommentDto> commentList = CafeCommentDao.getInstance().getList(num);
+		
+		// 자신이 쓴 글인지 확인
+		boolean isWriter = false;
+		if(id != null && id.equals(resultDto.getWriter())) {
+			isWriter = true;				
+		}
+		
+		map.put("dto", resultDto);
+		map.put("isWriter", isWriter);
+		// request.setAttribute("commentList", commentList);
+		
+		boardDao.getData(dto);
+		
+		return map;
 	}
 
 	

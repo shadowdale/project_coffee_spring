@@ -166,7 +166,7 @@
 	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.1.1.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.js"></script>
 	<script>
-	/*
+	
 		$(".upDeleteBtn").hide();
 	
 	
@@ -177,26 +177,27 @@
 		// 글 자세히보기 이벤트 처리
 		function modal(num){
 			$.ajax({
-				url:"board_detail.do",
+				url:"detail.do",
 				method:"get",
 				dataType:"Json",
 				data:{num:num, condition:"${condition}", keyword:"${keyword}"},
 				success:function(data){
-					$("#modalTilte").text(data.title);
-					$("#modalContent").text(data.content);
-					$("#modalImg").attr("src","${pageContext.request.contextPath}/upload/"+data.imgAddr);
-					if(data.prevNum != 0){
-						$("#move-left").attr("href","javascript:modal("+data.prevNum+")").show();
+					console.log(data);
+					$("#modalTilte").text(data.dto.title);
+					$("#modalContent").text(data.dto.content);
+					$("#modalImg").attr("src","${pageContext.request.contextPath}/upload/"+data.dto.imgAddr);
+					if(data.dto.prevNum != 0){
+						$("#move-left").attr("href","javascript:modal("+data.dto.prevNum+")").show();
 					} else {
 						$("#move-left").attr("href","javascript:").hide();
 					}
-					if(data.nextNum != 0){
-						$("#move-right").attr("href","javascript:modal("+data.nextNum+")").show();
+					if(data.dto.nextNum != 0){
+						$("#move-right").attr("href","javascript:modal("+data.dto.nextNum+")").show();
 					} else {
 						$("#move-right").attr("href","javascript:").hide();
 					}
-					condition = data.condition;
-					keyword = data.keyword;
+					condition = data.dto.condition;
+					keyword = data.dto.keyword;
 					
 					$("#modal-comment").find("p").remove();
 					
@@ -308,7 +309,6 @@
 			
 			$("#signinForm").find("input[name=id]").focus();
 		} 
-		*/
 	</script>
 </body>
 </html>
