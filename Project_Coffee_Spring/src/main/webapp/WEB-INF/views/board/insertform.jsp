@@ -36,7 +36,7 @@
 					<div class="form-group">
 						<div id="holder" class="picture col col-xs-12"></div>
 						<label class="control-label pic-label" for="pic">사진</label>
-						<input class="form-control" type="file" id="pic" name="myFile"/>
+						<input class="form-control" type="file" id="pic" name="file"/>
 					</div>
 					<div class="form-group">
 						<label class="control-label" for="title">제목</label>
