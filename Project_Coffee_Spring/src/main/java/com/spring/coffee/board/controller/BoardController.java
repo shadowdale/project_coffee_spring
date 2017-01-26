@@ -27,8 +27,10 @@ public class BoardController {
 	@RequestMapping("/board/list")
 	public ModelAndView list(HttpServletRequest request, @RequestParam(defaultValue="1") int pageNum) {
 		
-		// 서비스에 객체를 전달하고 전달받은 모델을 가지고 뷰페이지로 forword 시킨다.
+		// 서비스에 파라미터로 전송된 값을 전달하고 모델을 리턴 받는다.
 		ModelAndView mView = boardService.getList(request, pageNum);
+		
+		// 뷰페이지로 이동한다.
 		mView.setViewName("/board/list");
 		return mView;
 	}
@@ -38,18 +40,27 @@ public class BoardController {
 	@ResponseBody
 	public Map<String, Object> detail(HttpServletRequest request, @RequestParam int num) {
 		
+		// Map 객체를 생성한다.
 		Map<String, Object> map = new HashMap<String, Object>();
+		
+		// ModelAndView 객체를 생성한다.
 		ModelAndView mView = new ModelAndView();
+		
+		// 서비스에 파라미터로 전달된 값을 전달하고 ModelAndView 객체를 리턴 받는다.
 		mView = boardService.getData(request, num);
 		
+		// ModelAndView 객체를 Map형태로 변환하여 담는다
 		map = mView.getModel();
 		
+		// Map 객체를 리턴한다.
 		return map;
 	}
 	
 	// 새글 작성 폼 요청 처리
 	@RequestMapping("/board/insertform")
 	public ModelAndView authInsertFrom() {
+		
+		// ModelAndView 객체를 생성하여 뷰페이지로 이동한다.
 		ModelAndView mView = new ModelAndView();
 		mView.setViewName("/board/insertform");
 		return mView;
@@ -59,8 +70,10 @@ public class BoardController {
 	@RequestMapping("/board/insert")
 	public ModelAndView authInsert(HttpServletRequest request, @ModelAttribute BoardDto dto) {
 		
+		// 전송된 파라미터값을 전달한다.
 		boardService.insert(request, dto);
 		
+		// ModelAndView 객체를 생성하여 뷰페이지로 이동한다.
 		ModelAndView mView = new ModelAndView();
 		mView.setViewName("redirect:/board/list.do");
 		
@@ -71,7 +84,10 @@ public class BoardController {
 	@RequestMapping("/board/delete")
 	public ModelAndView authDelete(HttpServletRequest request, @ModelAttribute BoardDto dto) {
 		
+		// 전송된 파라미터값을 전달한다.
 		boardService.delete(request, dto);
+		
+		// ModelAndView 객체를 생성하여 뷰페이지로 이동한다.
 		ModelAndView mView = new ModelAndView();
 		mView.setViewName("redirect:/board/list.do");
 		return mView;
@@ -81,10 +97,28 @@ public class BoardController {
 	@RequestMapping("/board/updateform")
 	public ModelAndView authUpdateForm(HttpServletRequest request, @RequestParam int num) {
 		
-		
+		// ModelAndView 객체를 생성한다.
 		ModelAndView mView = new ModelAndView();
 		
+		// 파라미터로 전송된 값을 전달하고 ModelAndView 객체로 리턴 받는다.
+		mView = boardService.getData(request, num);
+		
+		// 뷰페이지로 이동한다.
 		mView.setViewName("/board/updateform");
+		return mView;
+	}
+	
+	// 게시글 수정 요청 처리
+	@RequestMapping("/board/update")
+	public ModelAndView authUpdate(HttpServletRequest request, @ModelAttribute BoardDto dto) {
+		
+		
+		// 파라미터로 전송된 값을 전달한다.
+		boardService.update(request, dto);
+		
+		// ModelAndView 객체를 생성한다.
+		ModelAndView mView = new ModelAndView();
+		mView.setViewName("redirect:/board/list.do");
 		
 		return mView;
 	}

@@ -28,7 +28,7 @@ public class BoardDaoImpl implements BoardDao {
 
 	@Override
 	public void update(BoardDto dto) {
-		// TODO Auto-generated method stub
+		session.update("board.update", dto);
 		
 	}
 

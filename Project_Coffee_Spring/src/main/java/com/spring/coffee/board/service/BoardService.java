@@ -11,4 +11,5 @@ public interface BoardService {
 	public ModelAndView getData(HttpServletRequest request, int num);
 	public void insert(HttpServletRequest request, BoardDto dto);
 	public void delete(HttpServletRequest request, BoardDto dto);
+	public void update(HttpServletRequest request, BoardDto dto);
 }

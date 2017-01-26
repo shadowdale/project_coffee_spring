@@ -65,7 +65,13 @@
 	
 	<update id="update" parameterType="boardDto">
 		UPDATE coffee_board
-		SET title=#{title}, content=#{content}
+		SET
+		<if test="imgAddr != null">
+			title=#{title}, content=#{content}, imgAddr=#{imgAddr}
+		</if>
+		<if test="imgAddr == null">
+			title=#{title}, content=#{content}
+		</if>
 		WHERE num=#{num}
 	</update>
 	

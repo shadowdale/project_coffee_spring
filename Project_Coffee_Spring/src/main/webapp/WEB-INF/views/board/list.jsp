@@ -98,7 +98,7 @@
 							</div>
 							<!-- 게시글 수정 삭제 버튼 -->
 							<div class="upDeleteBtn" style="magin-top:5px;">
-								<!--  <button class="btn btn-primary btn-xs" id="contentUpdateBtn">수정</button>	-->
+								<button class="btn btn-primary btn-xs" id="contentUpdateBtn">수정</button>
 								<button class="btn btn-danger btn-xs" id="contentDeleteBtn">삭제</button>
 		      				</div>
 		      			</div>
@@ -283,7 +283,7 @@
 		// 게시글 수정 
 		$("#contentUpdateBtn").click(function() {
 			var ref_group = $("#commentRef").val();
-			location.href="private/update_form.do?num="+ref_group;
+			location.href="updateform.do?num="+ref_group;
 		})
 		
 		

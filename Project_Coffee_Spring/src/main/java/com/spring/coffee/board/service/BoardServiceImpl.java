@@ -1,9 +1,7 @@
 package com.spring.coffee.board.service;
 
 import java.io.File;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +16,7 @@ import com.spring.coffee.board.dto.BoardDto;
 
 @Component
 public class BoardServiceImpl implements BoardService {
+	
 	//한 페이지에 나타낼 로우의 갯수
 	private static final int PAGE_ROW_COUNT=6;
 	
@@ -48,12 +47,6 @@ public class BoardServiceImpl implements BoardService {
 			request.setAttribute("keyword", keyword);
 		}
 
-		
-		// 보여줄 페이지의 번호가 파라미터로 전달되는지 읽어온다.
-		String strPageNum = request.getParameter("pageNum");
-		if(strPageNum != null) { //페이지 번호가 파라미터로 넘어온다면
-			pageNum = Integer.parseInt(strPageNum);
-		}
 		//보여줄 페이지 데이터의 시작 ResultSet row 번호
 		int startRowNum = 1 + (pageNum - 1) * PAGE_ROW_COUNT;
 		
@@ -146,20 +139,22 @@ public class BoardServiceImpl implements BoardService {
 	public void insert(HttpServletRequest request, BoardDto dto) {
 		// 파일을 저장할 폴더의 절대 경로를 얻어온다.
 		String realPath = request.getSession().getServletContext().getRealPath("/upload");
-		System.out.println(realPath);
 		
 		// MultipartFile 객체의 참조값 얻어오기
 		MultipartFile mFile = dto.getFile();
+		
 		// 원본 파일명
 		String orgFileName = mFile.getOriginalFilename();
-		// 파일 사이즈
+		
 		// 저장할 파일의 상세 경로
 		String filePath = realPath + File.separator;
+		
 		// 디렉토리를 만들 파일 객체 생성
 		File file = new File(filePath);
 		if(!file.exists()){ // 디렉토리가 존재하지 않는다면
 			file.mkdir(); // 디렉토리를 만든다.
 		}
+		
 		// 파일 시스템에 저장할 파일명을 만든다. (겹치치 않게)
 		String imgAddr = System.currentTimeMillis() + orgFileName;
 		try {
@@ -168,12 +163,12 @@ public class BoardServiceImpl implements BoardService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 		// FileDto 객체에 추가 정보를 담는다.
 		dto.setImgAddr(imgAddr);
 		
 		//임의의 작성자 추가//
 		dto.setWriter("gura");
-		
 
 		// FileDao 객체를 이용해서 DB 에 저장하기
 		boardDao.insert(dto);
@@ -190,9 +185,68 @@ public class BoardServiceImpl implements BoardService {
 		boardDao.delete(dto.getNum());
 		// CafeCommentDao.deleteRefgroup(num);
 		
+		// 삭제할 파일의 실제 경로를 얻어온다.
 		String path = application.getRealPath("/upload") + File.separator+saveFileName;
-		//파일객체 생성해서 삭제한다. 
+		
+		// 파일객체 생성해서 삭제한다. 
 		new File(path).delete();
+		
+	}
+
+	@Override
+	public void update(HttpServletRequest request, BoardDto dto) {
+		// 파일을 저장할 폴더의 절대 경로를 얻어온다.
+		String realPath = request.getSession().getServletContext().getRealPath("/upload");
+		
+		// MultipartFile 객체의 참조값 얻어오기
+		MultipartFile mFile = dto.getFile();
+		
+		// 전송된 파일이 있는지 확인해보고
+		if(mFile.isEmpty()) { // 새로 입력받은 파일이 없을 경우
+			
+
+		} else { // 새로 입력 받은 파일이 있을 경우
+			ServletContext application = request.getServletContext();
+			
+			// 삭제할 파일 이름을 불러온다.
+			String saveFileName = boardDao.getData(dto).getImgAddr();
+			
+			// 삭제할 파일의 실제 경로를 얻어온다.
+			String path = application.getRealPath("/upload") + File.separator+saveFileName;
+			
+			// 파일객체 생성해서 삭제한다. 
+			new File(path).delete();
+			
+			// 원본 파일명
+			String orgFileName = mFile.getOriginalFilename();
+			
+			// 저장할 파일의 상세 경로
+			String filePath = realPath + File.separator;
+			
+			// 디렉토리를 만들 파일 객체 생성
+			File file = new File(filePath);
+			if(!file.exists()){ // 디렉토리가 존재하지 않는다면
+				file.mkdir(); // 디렉토리를 만든다.
+			}
+			
+			// 파일 시스템에 저장할 파일명을 만든다. (겹치치 않게)
+			String imgAddr = System.currentTimeMillis() + orgFileName;
+			try {
+				// upload 폴더에 파일을 저장한다.
+				mFile.transferTo(new File(filePath + imgAddr));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			// FileDto 객체에 추가 정보를 담는다.
+			dto.setImgAddr(imgAddr);
+		}
+		
+		//임의의 작성자 추가//
+		dto.setWriter("gura");
+
+		// FileDao 객체를 이용해서 DB 에 저장하기
+		boardDao.update(dto);
 		
 	}
 

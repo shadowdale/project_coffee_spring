@@ -2,11 +2,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8"/>
-<title>views/users/insertform.jsp</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.css" />
-
-<style>
+	<meta charset="UTF-8"/>
+	<title>views/users/board_insertform.jsp</title>
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.css" />
+	<style>
 		.help-block{
 			display: none;
 		}
@@ -21,7 +20,7 @@
 		.pic-label{
 			width:100%;
 		}
-</style>
+	</style>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"/>
@@ -30,21 +29,23 @@
 		<header style="height:95px;"></header>
 		<div class="container">
 			<div class="row col-xs-6 col-xs-push-3">
-				<h3>새 글 페이지 입니다.</h3>
-				<form action="insert.do" method="post" enctype="multipart/form-data">
-					<input type="hidden" name="writer" value="${id }" />
+				<h3>글 수정 페이지 입니다.</h3>
+				<form action="update.do" method="post" enctype="multipart/form-data">
+					<input type="hidden" name="num" value="${dto.num }" />
 					<div class="form-group">
-						<div id="holder" class="picture col col-xs-12"></div>
+						<div id="holder" class="picture col col-xs-12">
+							<img id="img" style="width:300px; height:300;" src="${pageContext.request.contextPath}/upload/${dto.imgAddr}"/>
+						</div>
 						<label class="control-label pic-label" for="pic">사진</label>
 						<input class="form-control" type="file" id="pic" name="file"/>
 					</div>
 					<div class="form-group">
 						<label class="control-label" for="title">제목</label>
-						<input class="form-control" type="text" id="title" name="title" value=""/>
+						<input class="form-control" type="text" id="title" name="title" value="${dto.title }"/>
 					</div>
 					<div class="form-group">
 						<label class="control-label" for="content">설명</label>
-						<textarea class="form-control" id="content" name="content"></textarea>
+						<textarea class="form-control" id="content" name="content" >${dto.content }</textarea>
 					</div>
 					<button type="submit">등록</button>
 				</form>
@@ -58,7 +59,8 @@
 
 		upload.onchange = function (e) {
 		  e.preventDefault();
-		
+		  $("#img").remove();
+		  
 		  var file = upload.files[0],
 		      reader = new FileReader();
 		  reader.onload = function (event) {
