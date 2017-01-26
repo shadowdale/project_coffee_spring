@@ -35,4 +35,14 @@ public class BoardController {
 	public Map<String, Object> detail(HttpServletRequest request, @RequestParam int num) {
 		return boardService.getData(request, num);
 	}
-}
+	
+	// 새글 작성 폼 요청 처리
+	@RequestMapping("/board/insertform")
+	public ModelAndView authInsertFrom() {
+		ModelAndView mView = new ModelAndView();
+		mView.setViewName("/board/insertform");
+		return mView;
+	}
+	
+
+} 

@@ -18,7 +18,7 @@
 			<!-- 동적으로 띄울 Modal 준비 -->
 
 			<!-- 새글 작성 버튼 만들기 -->
-			<a href="#" id="newContentForm" class="btn btn_shape button1" 
+			<a href="insertform.do" id="newContentForm" class="btn btn_shape button1" 
 			data-stat="<c:choose>
 						<c:when test="${empty id }">
 							0
@@ -256,7 +256,7 @@
 			return false;
 		});
 		
-		
+/*		
 		// 글쓰기 이벤트 처리
 		$("#newContentForm").click(function() {
 			$.ajax({
@@ -264,14 +264,14 @@
 				method: "get",
 				success: function(data){
 					if(data.isLoginCheck) {
-						location.href = "private/insert_form.do";
+						location.href = "private/insertform.do";
 					} else {
 						loginBoxMove();
 					}
 				}
 			})
 		})
-		
+*/
 		// 게시글 삭제
 		$("#contentDeleteBtn").click(function() {
 			var isDelete=confirm("글을 삭제 하시겠습니까?");
