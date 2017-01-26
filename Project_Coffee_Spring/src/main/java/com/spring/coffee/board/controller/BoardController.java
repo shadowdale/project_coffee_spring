@@ -3,6 +3,7 @@ package com.spring.coffee.board.controller;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.coffee.board.dto.BoardDto;
@@ -55,6 +57,16 @@ public class BoardController {
 		ModelAndView mView = new ModelAndView();
 		mView.setViewName("redirect:/board/list.do");
 		
+		return mView;
+	}
+	
+	// 게시글 삭제 요청 처리
+	@RequestMapping("/board/delete")
+	public ModelAndView authDelete(HttpServletRequest request, @ModelAttribute BoardDto dto) {
+		
+		boardService.delete(request, dto);
+		ModelAndView mView = new ModelAndView();
+		mView.setViewName("redirect:/board/list.do");
 		return mView;
 	}
 

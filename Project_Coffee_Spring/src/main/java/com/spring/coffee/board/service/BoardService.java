@@ -12,4 +12,5 @@ public interface BoardService {
 	public ModelAndView getList(HttpServletRequest request, int pageNum);
 	public Map<String, Object> getData(HttpServletRequest request, int num);
 	public void insert(HttpServletRequest request, BoardDto dto);
+	public void delete(HttpServletRequest request, BoardDto dto);
 }

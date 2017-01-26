@@ -167,7 +167,7 @@
 	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.js"></script>
 	<script>
 	
-		$(".upDeleteBtn").hide();
+		// $(".upDeleteBtn").hide();
 	
 		// 검색기능 정보 저장
 		var condition = "${condition}";
@@ -209,12 +209,11 @@
 					$("#commentRef").val(num)
 					$("#commentTarget").val(data.writer)
 					$("#commentWriter").val(data.loginId)
-					console.log(data.isWriter);
-					if(data.isWriter) {
-						$(".upDeleteBtn").show();
-					} else {
-						$(".upDeleteBtn").hide();
-					}
+//					if(data.isWriter) {
+//						$(".upDeleteBtn").show();
+//					} else {
+//						$(".upDeleteBtn").hide();
+//					}
 					$("#imgpop").modal("show");
 					
 					$(".modalScoll").scrollTop(9999999);
@@ -277,7 +276,7 @@
 			var isDelete=confirm("글을 삭제 하시겠습니까?");
 			if(isDelete){
 				var ref_group = $("#commentRef").val();
-				location.href="private/delete.do?num="+ref_group;
+				location.href="delete.do?num="+ref_group;
 			}
 		})
 		

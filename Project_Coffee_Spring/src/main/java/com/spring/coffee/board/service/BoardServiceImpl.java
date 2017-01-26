@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -179,6 +180,20 @@ public class BoardServiceImpl implements BoardService {
 		
 	}
 
+	@Override
+	public void delete(HttpServletRequest request, BoardDto dto) {
+		ServletContext application = request.getServletContext();
+		
+		// 삭제할 파일 이름을 불러온다.
+		String saveFileName = boardDao.getData(dto).getImgAddr();
+		
+		boardDao.delete(dto.getNum());
+		// CafeCommentDao.deleteRefgroup(num);
+		
+		String path = application.getRealPath("/upload") + File.separator+saveFileName;
+		//파일객체 생성해서 삭제한다. 
+		new File(path).delete();
+		
+	}
 
-	
 }
