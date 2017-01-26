@@ -1,5 +1,6 @@
 package com.spring.coffee.board.controller;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,7 +12,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.coffee.board.dto.BoardDto;
@@ -37,7 +37,14 @@ public class BoardController {
 	@RequestMapping("/board/detail")
 	@ResponseBody
 	public Map<String, Object> detail(HttpServletRequest request, @RequestParam int num) {
-		return boardService.getData(request, num);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		ModelAndView mView = new ModelAndView();
+		mView = boardService.getData(request, num);
+		
+		map = mView.getModel();
+		
+		return map;
 	}
 	
 	// 새글 작성 폼 요청 처리
@@ -69,5 +76,16 @@ public class BoardController {
 		mView.setViewName("redirect:/board/list.do");
 		return mView;
 	}
-
+	
+	// 게시글 수정 폼 요청 처리
+	@RequestMapping("/board/updateform")
+	public ModelAndView authUpdateForm(HttpServletRequest request, @RequestParam int num) {
+		
+		
+		ModelAndView mView = new ModelAndView();
+		
+		mView.setViewName("/board/updateform");
+		
+		return mView;
+	}
 } 

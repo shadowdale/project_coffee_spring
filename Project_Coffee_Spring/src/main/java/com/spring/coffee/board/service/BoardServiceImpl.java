@@ -96,7 +96,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public Map<String, Object> getData(HttpServletRequest request, int num) {
+	public ModelAndView getData(HttpServletRequest request, int num) {
 		// 세션에서 id를 읽어 온다.
 		String id = (String)request.getSession().getAttribute("id");
 		
@@ -121,7 +121,7 @@ public class BoardServiceImpl implements BoardService {
 		
 		dto.setNum(num);
 		
-		Map<String, Object> map = new HashMap<String, Object>();
+		ModelAndView mView = new ModelAndView();
 		
 		BoardDto resultDto = boardDao.getData(dto);
 
@@ -133,13 +133,13 @@ public class BoardServiceImpl implements BoardService {
 			isWriter = true;				
 		}
 		
-		map.put("dto", resultDto);
-		map.put("isWriter", isWriter);
+		mView.addObject("dto", resultDto);
+		mView.addObject("isWriter", isWriter);
 		// request.setAttribute("commentList", commentList);
 		
 		boardDao.getData(dto);
 		
-		return map;
+		return mView;
 	}
 
 	@Override
