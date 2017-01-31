@@ -32,20 +32,18 @@ public class UsersDaoImpl implements UsersDao{
 
 	@Override
 	public UsersDto getData(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		UsersDto dto = session.selectOne("users.getData", id);
+		return dto;
 	}
 
 	@Override
 	public void update(UsersDto dto) {
-		// TODO Auto-generated method stub
-		
+		session.update("users.update", dto);
 	}
 
 	@Override
 	public void delete(String id) {
-		// TODO Auto-generated method stub
-		
+		session.delete("users.delete", id);
 	}
 
 	@Override

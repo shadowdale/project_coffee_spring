@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.coffee.users.dao.UsersDao;
 import com.spring.coffee.users.dto.UsersDto;
@@ -29,21 +30,21 @@ public class UsersServiseImpl implements UsersService {
 	}
 
 	@Override
-	public UsersDto getData(String id) {
-		// TODO Auto-generated method stub
-		return null;
+	public ModelAndView getData(String id) {
+		UsersDto dto = usersDao.getData(id);
+		ModelAndView mView = new ModelAndView();
+		mView.addObject("dto", dto);
+		return mView;	
 	}
 
 	@Override
 	public void update(UsersDto dto) {
-		// TODO Auto-generated method stub
-		
+		usersDao.update(dto);
 	}
 
 	@Override
 	public void delete(String id) {
-		// TODO Auto-generated method stub
-		
+		usersDao.delete(id);
 	}
 
 	@Override

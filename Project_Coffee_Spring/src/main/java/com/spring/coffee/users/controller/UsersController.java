@@ -86,4 +86,46 @@ public class UsersController{
 		
 		return map;
 	}
+	
+	//회원정보 요청 처리
+	@RequestMapping("/users/private/info")
+	public ModelAndView info(HttpSession session){
+		String id = (String)session.getAttribute("id");
+		ModelAndView mView = usersService.getData(id);
+		mView.setViewName("users/private/info");
+		return mView;
+	}
+	
+	//회원정보 수정 form 요청 처리
+	@RequestMapping("/users/private/updateform")
+	public ModelAndView updateForm(HttpSession session){
+		String id = (String)session.getAttribute("id");
+		ModelAndView mView = usersService.getData(id);
+		mView.setViewName("/users/private/updateform");	
+		return mView;
+	}
+	//회원정보 수정 요청 처리
+	@RequestMapping("/users/private/update")
+	public ModelAndView update(@ModelAttribute UsersDto dto, HttpServletRequest request){
+		usersService.update(dto);
+		ModelAndView mView = new ModelAndView();
+		mView.addObject("msg", dto.getId()+"님 회원정보 수정했습니다.");
+		String path=request.getContextPath()+"/users/private/info.do";
+		mView.addObject("redirectUri",path);
+		mView.setViewName("users/alert");
+		return mView;
+	}
+	
+	//회원 탈퇴 기능 구현
+	@RequestMapping("/users/private/delete")
+	public ModelAndView delete(HttpSession session){
+		String id = (String)session.getAttribute("id");
+		usersService.delete(id);
+		session.invalidate();
+		ModelAndView mView = new ModelAndView();
+		mView.addObject("msg","회원 탈퇴 처리 되었습니다.");
+		mView.addObject("redirectUri", session.getServletContext().getContextPath());
+		mView.setViewName("users/alert");
+		return mView;
+	}
 }
