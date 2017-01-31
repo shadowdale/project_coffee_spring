@@ -79,7 +79,7 @@
 								</div>
 								<!-- 게시글 덧글 입력 폼 -->
 								<div>
-									<form id="comment_form" action="board/comment_insert.do" method="post">
+									<form id="commentform" action="board/commentinsert.do" method="post">
 										<!-- 덧글 작성자 -->
 										<input type="hidden" name="writer" id="commentWriter"/>
 										<!-- 덧글 그룹 -->
@@ -181,7 +181,6 @@
 				dataType:"Json",
 				data:{num:num, condition:"${condition}", keyword:"${keyword}"},
 				success:function(data){
-					console.log(data);
 					$("#modalTilte").text(data.dto.title);
 					$("#modalContent").text(data.dto.content);
 					$("#modalImg").attr("src","${pageContext.request.contextPath}/upload/"+data.dto.imgAddr);
@@ -223,19 +222,20 @@
 		}
 		
 		// 덧글 달기 이벤트 처리
-		$("#comment_form").submit(function() {
+		$("#commentform").submit(function() {
 			var comment = $(this).serialize();
-			$.ajax({
-				url: "../users/logincheck.do",
-				method: "get",
-				success: function(data){
-					if(data.isLoginCheck) {
+//			$.ajax({
+//				url: "../users/logincheck.do",
+//				method: "get",
+//				success: function(data){
+//					if(data.isLoginCheck) {
 						$.ajax({
-							url: "private/comment_insert.do",
+							url: "commentinsert.do",
 							method: "post",
 							dataType: "Json",
 							data: comment,
 							success:function(data){
+								console.log(data);
 								$("#commentInput").val("");
 								console.log(data);
 								var $writer = $("<strong/>").text(data.writer);
@@ -246,12 +246,12 @@
 								$(".modalScoll").scrollTop(9999999);
 							}
 						});
-					} else {
-						loginBoxMove();
-						$("#imgpop").modal("hide");
-					}
-				}
-			});
+//					} else {
+//						loginBoxMove();
+//						$("#imgpop").modal("hide");
+//					}
+//				}
+//			});
 			return false;
 		});
 		

@@ -2,13 +2,21 @@ package com.spring.coffee.comment.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import com.spring.coffee.comment.dto.CommentDto;
 
+@Repository
 public class CommentDaoImpl implements CommentDao {
 
+	@Autowired
+	private SqlSession session;
+	
 	@Override
 	public void insert(CommentDto dto) {
-		// TODO Auto-generated method stub
+		session.insert("comment.insert", dto);
 		
 	}
 
@@ -20,8 +28,8 @@ public class CommentDaoImpl implements CommentDao {
 
 	@Override
 	public int getSequence() {
-		// TODO Auto-generated method stub
-		return 0;
+		return session.selectOne("comment.getSequence");
+		
 	}
 
 	@Override

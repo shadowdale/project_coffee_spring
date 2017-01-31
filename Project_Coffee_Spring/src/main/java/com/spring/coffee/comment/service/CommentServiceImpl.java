@@ -2,13 +2,28 @@ package com.spring.coffee.comment.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.spring.coffee.comment.dao.CommentDao;
 import com.spring.coffee.comment.dto.CommentDto;
 
+@Component
 public class CommentServiceImpl implements CommentService {
 
+	@Autowired
+	private CommentDao commentDao;
+	
 	@Override
 	public void insert(CommentDto dto) {
-		// TODO Auto-generated method stub
+		int seq = commentDao.getSequence();
+		dto.setNum(seq);
+		System.out.println(seq);
+		if(dto.getComment_group() == 0) {//원글에 대한 덧글인 경우
+			//덧글의 그룹번호를 덧글의 글번호와 같게 설정한다.
+			dto.setComment_group(seq);
+		}
+		commentDao.insert(dto);
 		
 	}
 
@@ -20,8 +35,8 @@ public class CommentServiceImpl implements CommentService {
 
 	@Override
 	public int getSequence() {
-		// TODO Auto-generated method stub
-		return 0;
+		return commentDao.getSequence();
+		
 	}
 
 	@Override
