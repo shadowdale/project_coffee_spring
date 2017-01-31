@@ -54,12 +54,35 @@ public class UsersController{
 	@RequestMapping("/users/signin")
 	@ResponseBody
 	public Map<String, Object> signin(HttpSession session, @ModelAttribute UsersDto dto) {
+		// 세션을 초기화 한다
+		session.invalidate();
+		
+		// 입력된 아이디와 비밀번호를 확인한다.
 		boolean isValid = usersService.isValid(dto);
+		
+		// 입력된 값이 참이라면
 		if(isValid) {
+			// 세션에 아이디를 저장한다.
 			session.setAttribute("id", dto.getId());
 		}
+		// Map에 담아서
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("isValid", isValid);
+		
+		// 리턴해준다.
+		return map;
+	}
+	
+	// 로그아웃 요청 처리
+	@RequestMapping("/users/signout")
+	@ResponseBody
+	public Map<String, Object> signout(HttpSession session) {
+		// 세션을 초기화 한다.
+		session.invalidate();
+		
+		// 아무값이나 응답해준다.
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("isValid", false);
 		
 		return map;
 	}

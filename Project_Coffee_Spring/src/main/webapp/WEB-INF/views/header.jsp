@@ -66,7 +66,6 @@
 				method:"post",
 				data:{id:id, pwd:pwd},
 				success:function(data){
-					console.log(data);
 					if(data.isValid){
 						alert(id+"님 로그인 되었습니다.");
 						$("#signinForm").hide();
@@ -88,7 +87,6 @@
 				url : "${pageContext.request.contextPath }/users/signout.do",
 				method : "get",
 				success : function(data){
-					console.log(data)
 					alert("로그아웃 되었습니다.");
 					$("#signinForm").show();
 					$("#signinForm2").show();
