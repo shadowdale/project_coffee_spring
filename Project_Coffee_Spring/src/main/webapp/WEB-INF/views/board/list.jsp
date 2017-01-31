@@ -224,34 +224,27 @@
 		// 덧글 달기 이벤트 처리
 		$("#commentform").submit(function() {
 			var comment = $(this).serialize();
-//			$.ajax({
-//				url: "../users/logincheck.do",
-//				method: "get",
-//				success: function(data){
-//					if(data.isLoginCheck) {
-						$.ajax({
-							url: "commentinsert.do",
-							method: "post",
-							dataType: "Json",
-							data: comment,
-							success:function(data){
-								console.log(data);
-								$("#commentInput").val("");
-								console.log(data);
-								var $writer = $("<strong/>").text(data.writer);
-								var $emptySpace = $("<span/>").text(" : ");
-								var $content = $("<span/>").text(data.content);
-								$("#modal-comment").append( $("<p/>").append($writer).append($emptySpace).append($content).addClass("comment-detail"));
-								
-								$(".modalScoll").scrollTop(9999999);
-							}
-						});
-//					} else {
-//						loginBoxMove();
-//						$("#imgpop").modal("hide");
-//					}
-//				}
-//			});
+			$.ajax({
+				url: "commentinsert.do",
+				method: "post",
+				dataType: "Json",
+				data: comment,
+				success:function(data){
+					if(data.isLoginCheck) {
+						$("#commentInput").val("");
+						var $writer = $("<strong/>").text(data.writer);
+						var $emptySpace = $("<span/>").text(" : ");
+						var $content = $("<span/>").text(data.content);
+						$("#modal-comment").append( $("<p/>").append($writer).append($emptySpace).append($content).addClass("comment-detail"));
+						
+						$(".modalScoll").scrollTop(9999999);
+						
+					} else {
+						loginBoxMove();
+						$("#imgpop").modal("hide");
+					}
+				}
+			});
 			return false;
 		});
 		

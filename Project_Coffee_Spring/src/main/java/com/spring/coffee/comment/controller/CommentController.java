@@ -29,6 +29,7 @@ public class CommentController {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("writer", dto.getWriter());
 		map.put("content", dto.getContent());
+		map.put("isLoginCheck", true);
 		return map;
 	}
 }
