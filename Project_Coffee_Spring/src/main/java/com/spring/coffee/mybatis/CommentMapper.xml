@@ -12,11 +12,10 @@
 		VALUES(#{num}, #{writer}, #{content},
 		#{target_id}, #{ref_group}, #{comment_group}, SYSDATE)
 	</insert>
-	<select id="getList" parameterType="int" 
-		resultType="commentDto">
+	<select id="getList" parameterType="int" resultType="commentDto">
 		SELECT num, writer, content, target_id, ref_group, comment_group, deleteContent, regdate
 		FROM coffee_board_comment
-		WHERE ref_group=#{num}
+		WHERE ref_group=#{ref_group}
 		ORDER BY comment_group ASC, num ASC
 	</select>
 	

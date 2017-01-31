@@ -1,5 +1,6 @@
 package com.spring.coffee.comment.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -22,8 +23,8 @@ public class CommentDaoImpl implements CommentDao {
 
 	@Override
 	public List<CommentDto> getList(int ref_group) {
-		// TODO Auto-generated method stub
-		return null;
+		List<CommentDto> list = session.selectList("comment.getList", ref_group);
+		return list;
 	}
 
 	@Override
