@@ -55,7 +55,7 @@ public class UsersController{
 	@ResponseBody
 	public Map<String, Object> signin(HttpSession session, @ModelAttribute UsersDto dto) {
 		// 세션을 초기화 한다
-		session.invalidate();
+		session.removeAttribute("id");
 		
 		// 입력된 아이디와 비밀번호를 확인한다.
 		boolean isValid = usersService.isValid(dto);

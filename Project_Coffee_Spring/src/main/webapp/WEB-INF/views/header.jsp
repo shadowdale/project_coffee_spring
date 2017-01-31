@@ -94,7 +94,7 @@
 					$("input[name=id]").val("");
 					$("input[name=pwd]").val("");
 					$("#newContentForm").attr("data-stat","0");
-					//$(".upDeleteBtn").hide();
+					$(".upDeleteBtn").hide();
 				}
 			});
 			return false;

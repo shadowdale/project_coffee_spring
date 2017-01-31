@@ -167,7 +167,7 @@
 	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.js"></script>
 	<script>
 	
-		// $(".upDeleteBtn").hide();
+		$(".upDeleteBtn").hide();
 	
 		// 검색기능 정보 저장
 		var condition = "${condition}";
@@ -285,7 +285,6 @@
 			var ref_group = $("#commentRef").val();
 			location.href="updateform.do?num="+ref_group;
 		})
-		
 		
 		// 로그인 박스 무브 
 		function loginBoxMove() {
