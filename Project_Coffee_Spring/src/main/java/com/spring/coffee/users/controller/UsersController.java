@@ -1,8 +1,10 @@
 package com.spring.coffee.users.controller;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -46,5 +48,19 @@ public class UsersController{
 		mView.setViewName("/users/alert");
 		
 		return mView;
+	}
+	
+	// 로그인 요청 처리
+	@RequestMapping("/users/signin")
+	@ResponseBody
+	public Map<String, Object> signin(HttpSession session, @ModelAttribute UsersDto dto) {
+		boolean isValid = usersService.isValid(dto);
+		if(isValid) {
+			session.setAttribute("id", dto.getId());
+		}
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("isValid", isValid);
+		
+		return map;
 	}
 }

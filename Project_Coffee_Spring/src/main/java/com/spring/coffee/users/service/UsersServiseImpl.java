@@ -24,8 +24,8 @@ public class UsersServiseImpl implements UsersService {
 
 	@Override
 	public boolean isValid(UsersDto dto) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean isValid = usersDao.isValid(dto);
+		return isValid;
 	}
 
 	@Override
