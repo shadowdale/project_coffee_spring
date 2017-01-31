@@ -31,5 +31,6 @@
 			</tr>
 		</tbody>
 	</table>
+	<a href="updateform.do">가입정보 수정폼</a>
 </body>
 </html>
