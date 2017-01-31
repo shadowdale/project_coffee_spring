@@ -30,7 +30,7 @@
 						<button class="enterance_idClick_contents join" id="signinForm2"> JOINUS </button>
 					</form>
 					<div id="info">
-						<p class="pop-text">Hello! <strong id="user"></strong></p>
+						<p class="pop-text"><a href="../users/private/info.do"><strong id="user"></strong></a> 님 로그인 중</p>
 						<a href="users/signout.do" id="signoutLink">Log-Out</a>
 					</div>
 				</div>

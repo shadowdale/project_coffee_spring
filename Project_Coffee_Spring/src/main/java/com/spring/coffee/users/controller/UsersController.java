@@ -86,4 +86,14 @@ public class UsersController{
 		
 		return map;
 	}
+	
+	//회원정보 요청 처리
+	@RequestMapping("/users/private/info")
+	public ModelAndView info(HttpSession session){
+		String id = (String)session.getAttribute("id");
+		ModelAndView mView = usersService.getData(id);
+		mView.setViewName("users/private/info");
+		return mView;
+	}
+	
 }
