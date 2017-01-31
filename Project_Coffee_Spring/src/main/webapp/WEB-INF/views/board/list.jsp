@@ -209,11 +209,11 @@
 					$("#commentRef").val(num)
 					$("#commentTarget").val(data.writer)
 					$("#commentWriter").val(data.loginId)
-//					if(data.isWriter) {
-//						$(".upDeleteBtn").show();
-//					} else {
-//						$(".upDeleteBtn").hide();
-//					}
+					if(data.isWriter) {
+						$(".upDeleteBtn").show();
+					} else {
+						$(".upDeleteBtn").hide();
+					}
 					$("#imgpop").modal("show");
 					
 					$(".modalScoll").scrollTop(9999999);

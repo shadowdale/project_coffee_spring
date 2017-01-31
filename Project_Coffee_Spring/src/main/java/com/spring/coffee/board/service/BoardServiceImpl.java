@@ -166,9 +166,6 @@ public class BoardServiceImpl implements BoardService {
 		
 		// FileDto 객체에 추가 정보를 담는다.
 		dto.setImgAddr(imgAddr);
-		
-		//임의의 작성자 추가//
-		dto.setWriter("gura");
 
 		// FileDao 객체를 이용해서 DB 에 저장하기
 		boardDao.insert(dto);
@@ -241,9 +238,6 @@ public class BoardServiceImpl implements BoardService {
 			// FileDto 객체에 추가 정보를 담는다.
 			dto.setImgAddr(imgAddr);
 		}
-		
-		//임의의 작성자 추가//
-		dto.setWriter("gura");
 
 		// FileDao 객체를 이용해서 DB 에 저장하기
 		boardDao.update(dto);
