@@ -115,4 +115,17 @@ public class UsersController{
 		mView.setViewName("users/alert");
 		return mView;
 	}
+	
+	//회원 탈퇴 기능 구현
+	@RequestMapping("/users/private/delete")
+	public ModelAndView delete(HttpSession session){
+		String id = (String)session.getAttribute("id");
+		usersService.delete(id);
+		session.invalidate();
+		ModelAndView mView = new ModelAndView();
+		mView.addObject("msg","회원 탈퇴 처리 되었습니다.");
+		mView.addObject("redirectUri", session.getServletContext().getContextPath());
+		mView.setViewName("users/alert");
+		return mView;
+	}
 }

@@ -32,5 +32,14 @@
 		</tbody>
 	</table>
 	<a href="updateform.do">가입정보 수정폼</a>
+	<a href="javascript:userConfirm()">회원 탈퇴</a>
+	<script>
+		function userConfirm(){
+			var isDelete=confirm("탈퇴 하시겠습니까?");
+			if(isDelete){
+				location.href="delete.do";
+			}
+		}
+	</script>
 </body>
 </html>

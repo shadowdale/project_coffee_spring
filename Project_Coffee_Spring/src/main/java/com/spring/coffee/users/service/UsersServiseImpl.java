@@ -44,8 +44,7 @@ public class UsersServiseImpl implements UsersService {
 
 	@Override
 	public void delete(String id) {
-		// TODO Auto-generated method stub
-		
+		usersDao.delete(id);
 	}
 
 	@Override
