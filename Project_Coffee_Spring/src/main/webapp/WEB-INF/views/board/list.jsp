@@ -18,7 +18,7 @@
 			<!-- 동적으로 띄울 Modal 준비 -->
 
 			<!-- 새글 작성 버튼 만들기 -->
-			<a href="#" id="newContentForm" class="btn btn_shape button1" 
+			<a href="insertform.do" id="newContentForm" class="btn btn_shape button1" 
 			data-stat="<c:choose>
 						<c:when test="${empty id }">
 							0
@@ -98,7 +98,7 @@
 							</div>
 							<!-- 게시글 수정 삭제 버튼 -->
 							<div class="upDeleteBtn" style="magin-top:5px;">
-								<!--  <button class="btn btn-primary btn-xs" id="contentUpdateBtn">수정</button>	-->
+								<button class="btn btn-primary btn-xs" id="contentUpdateBtn">수정</button>
 								<button class="btn btn-danger btn-xs" id="contentDeleteBtn">삭제</button>
 		      				</div>
 		      			</div>
@@ -167,7 +167,7 @@
 	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.js"></script>
 	<script>
 	
-		$(".upDeleteBtn").hide();
+		// $(".upDeleteBtn").hide();
 	
 		// 검색기능 정보 저장
 		var condition = "${condition}";
@@ -209,7 +209,6 @@
 					$("#commentRef").val(num)
 					$("#commentTarget").val(data.writer)
 					$("#commentWriter").val(data.loginId)
-					console.log(data.isWriter);
 					if(data.isWriter) {
 						$(".upDeleteBtn").show();
 					} else {
@@ -256,7 +255,7 @@
 			return false;
 		});
 		
-		
+/*		
 		// 글쓰기 이벤트 처리
 		$("#newContentForm").click(function() {
 			$.ajax({
@@ -264,27 +263,27 @@
 				method: "get",
 				success: function(data){
 					if(data.isLoginCheck) {
-						location.href = "private/insert_form.do";
+						location.href = "private/insertform.do";
 					} else {
 						loginBoxMove();
 					}
 				}
 			})
 		})
-		
+*/
 		// 게시글 삭제
 		$("#contentDeleteBtn").click(function() {
 			var isDelete=confirm("글을 삭제 하시겠습니까?");
 			if(isDelete){
 				var ref_group = $("#commentRef").val();
-				location.href="private/delete.do?num="+ref_group;
+				location.href="delete.do?num="+ref_group;
 			}
 		})
 		
 		// 게시글 수정 
 		$("#contentUpdateBtn").click(function() {
 			var ref_group = $("#commentRef").val();
-			location.href="private/update_form.do?num="+ref_group;
+			location.href="updateform.do?num="+ref_group;
 		})
 		
 		

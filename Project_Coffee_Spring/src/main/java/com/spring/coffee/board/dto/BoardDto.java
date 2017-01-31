@@ -1,5 +1,7 @@
 package com.spring.coffee.board.dto;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class BoardDto {
 	private int num;
 	private String writer;
@@ -9,6 +11,7 @@ public class BoardDto {
 	private String regdate;
 	private int good;
 	private String imgAddr;
+	private MultipartFile file;
 	
 	private int startRowNum; //시작 row 번호
 	private int endRowNum;   //끝 row 번호
@@ -18,7 +21,7 @@ public class BoardDto {
 	public BoardDto(){}
 
 	public BoardDto(int num, String writer, String title, String content, int viewCount, String regdate, int good,
-			String imgAddr, int startRowNum, int endRowNum, int prevNum, int nextNum) {
+			String imgAddr, MultipartFile file, int startRowNum, int endRowNum, int prevNum, int nextNum) {
 		super();
 		this.num = num;
 		this.writer = writer;
@@ -28,6 +31,7 @@ public class BoardDto {
 		this.regdate = regdate;
 		this.good = good;
 		this.imgAddr = imgAddr;
+		this.file = file;
 		this.startRowNum = startRowNum;
 		this.endRowNum = endRowNum;
 		this.prevNum = prevNum;
@@ -98,6 +102,14 @@ public class BoardDto {
 		this.imgAddr = imgAddr;
 	}
 
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+
 	public int getStartRowNum() {
 		return startRowNum;
 	}
@@ -129,6 +141,7 @@ public class BoardDto {
 	public void setNextNum(int nextNum) {
 		this.nextNum = nextNum;
 	}
+
 	
 	
 }
