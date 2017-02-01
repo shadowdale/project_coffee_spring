@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<meta charset="UTF-8"/>
-	<title>/views/users/alert.jsp</title>
+<meta charset="UTF-8"/>
+<title>/views/users/alert.jsp</title>
 </head>
 <body>
 	<h3>${msg }</h3>

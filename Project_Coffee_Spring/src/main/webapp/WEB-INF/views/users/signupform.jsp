@@ -74,7 +74,7 @@
 					<input class="form-control" type="text" 
 						id="email" name="email"/>
 				</div>
-				<button type="submit">가입</button>
+				<button type="submit" id="signup">가입</button>
 			</form>
 		</div>
 
@@ -117,6 +117,10 @@
 				}
 			}
 		});
+	});
+	
+	$("#signup").click(function(){
+		alert("회원가입을 축하합니다.");
 	});
 </script>
 </body>

@@ -5,24 +5,52 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/users/private/updateform.jsp</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.css" />
 </head>
 <body>
-<h3>회원정보 수정 페이지 입니다.</h3>
-<form action="update.do" method="post" id="updateForm">
-	<input type="hidden" name="id" value="${dto.id }"/>
-	<label for="id">아이디</label>
-	<input type="text" id="id" value="${dto.id }" 
-		disabled="disabled"/><br/>
-	<label for="pwd">비밀번호</label>
-	<input type="password" name="pwd" id="pwd"
-		value="${dto.pwd }"/><br/>
-	<label for="pwd2">비밀번호 확인</label>
-	<input type="password" id="pwd2" value="${dto.pwd }"/><br/>
-	<label for="email">이메일 주소</label>
-	<input type="text" name="email" id="email" 
-		value="${dto.email }"/><br/>
-	<button type="submit">수정 확인</button>
-</form>
+<jsp:include page="/WEB-INF/views/header.jsp"/>
+<div style="padding-top:100px">
+	<h3 style="text-align:center">&laquo; 회원정보 수정 &raquo; </h3>
+	<br /><br />
+	<div class="container" style="width:60%">
+		<form class="form-horizontal" action="update.do" method="post" id="updateForm">
+			<div class="form-group">
+				<input type="hidden" name="id" value="${dto.id }"/>
+				<label for="id" class="col-sm-4 control-label">아이디</label>
+				<div class="col-sm-8">
+					<input type="text" id="id" value="${dto.id }" disabled="disabled" style="display:inline-block; width:100%"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="pwd" class="col-sm-4 control-label">비밀번호</label>
+				<div class="col-sm-8">
+				<input type="password" name="pwd" id="pwd" value="${dto.pwd }" style="display:inline-block; width:100%"/>
+				</div>
+				<br/>
+			</div>
+			<div class="form-group">
+				<label for="pwd2" class="col-sm-4 control-label">비밀번호 확인</label>
+				<div class="col-sm-8">
+				<input type="password" id="pwd2" value="${dto.pwd }" style="display:inline-block; width:100%"/>
+				</div>
+				<br/>
+			</div>
+			<div class="form-group">
+				<label for="email" class="col-sm-4 control-label">이메일 주소</label>
+				<div class="col-sm-8">
+				<input type="text" name="email" id="email" value="${dto.email }" style="display:inline-block; width:100%"/>
+				</div>
+				<br/>
+			</div>
+			<div class="form-group">
+			    <div class="col-sm-offset-10 col-sm-2">
+			    	<br/>
+			      <button type="submit" class="btn" style="background-color:#3DB7CC; width:100%; color:white" id="update">저장</button>
+			    </div>
+			  </div>
+		</form>
+	</div>
+</div>
 <script>
 	document.querySelector("#updateForm")
 	.addEventListener("submit", function(event){
@@ -32,6 +60,10 @@
 			alert("비밀번호를 확인 하세요");
 			event.preventDefault();//폼전송 막기 
 		}
+	});
+
+	$("#update").click(function(){
+		alert("회원정보가 수정되었습니다.");
 	});
 </script>
 </body>
