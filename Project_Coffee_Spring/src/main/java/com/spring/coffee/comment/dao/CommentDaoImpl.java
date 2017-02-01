@@ -52,7 +52,7 @@ public class CommentDaoImpl implements CommentDao {
 
 	@Override
 	public boolean update(CommentDto dto) {
-		// TODO Auto-generated method stub
+		session.update("comment.update", dto);
 		return false;
 	}
 

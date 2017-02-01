@@ -45,4 +45,16 @@ public class CommentController {
 		
 		return map;
 	}
+	
+	// 댓글 수정 요청 처리
+	@RequestMapping("/board/commentupdate")
+	@ResponseBody
+	public Map<String, Object> commentUpdate(@ModelAttribute CommentDto dto) {
+		System.out.println(dto.getNum());
+		System.out.println(dto.getContent());
+		commentService.update(dto);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("isSuccess", true);
+		return map;
+	}
 }

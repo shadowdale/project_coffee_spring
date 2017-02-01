@@ -38,8 +38,8 @@
 		UPDATE coffee_board_comment SET content='삭제된 댓글입니다.', deleteContent=1 where num=#{num}
 	</update>
 	
-	<update id="update">
-		UPDATE coffee_board_comments SET content=#{content} where num=#{num}
+	<update id="update" parameterType="commentDto">
+		UPDATE coffee_board_comment SET content=#{content} where num=#{num}
 	</update>
 </mapper>
 

@@ -59,7 +59,7 @@ public class CommentServiceImpl implements CommentService {
 
 	@Override
 	public boolean update(CommentDto dto) {
-		// TODO Auto-generated method stub
+		commentDao.update(dto);
 		return false;
 	}
 
