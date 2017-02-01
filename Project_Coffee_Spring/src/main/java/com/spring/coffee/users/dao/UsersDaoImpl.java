@@ -17,17 +17,15 @@ public class UsersDaoImpl implements UsersDao{
 	@Override
 	public void insert(UsersDto dto) {
 		session.insert("users.insert", dto);
+		System.out.println(dto.getId());
+		System.out.println(dto.getPwd());
 		
 	}
 
 	@Override
-	public boolean isValid(UsersDto dto) {
-		UsersDto resultDto = session.selectOne("users.isValid", dto);
-		if(resultDto == null) {
-			return false;
-		} else {
-			return true;
-		}
+	public String getPassword(String id) {
+		String password = session.selectOne("users.getPwd", id);
+		return password;
 	}
 
 	@Override
