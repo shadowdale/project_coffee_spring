@@ -33,7 +33,6 @@ public class UsersController{
 	@RequestMapping("/users/checkid")
 	@ResponseBody
 	public Map<String, Object> checkId(@RequestParam String inputId) {
-		
 		return usersService.canUseId(inputId);
 	}
 	
@@ -41,12 +40,8 @@ public class UsersController{
 	@RequestMapping("/users/signup")
 	public ModelAndView signup(@ModelAttribute UsersDto dto, HttpServletRequest request) {
 		usersService.insert(dto);
-		
 		ModelAndView mView = new ModelAndView();
-		mView.addObject("msg", dto.getId()+"회원님 가입을 축하드립니다.");
-		mView.addObject("redirectUri", request.getContextPath());
-		mView.setViewName("/users/alert");
-		
+		mView.setViewName("redirect:/board/list.do");
 		return mView;
 	}
 	
@@ -56,10 +51,8 @@ public class UsersController{
 	public Map<String, Object> signin(HttpSession session, @ModelAttribute UsersDto dto) {
 		// 세션을 초기화 한다
 		session.removeAttribute("id");
-		
 		// 입력된 아이디와 비밀번호를 확인한다.
 		boolean isValid = usersService.isValid(dto);
-		
 		// 입력된 값이 참이라면
 		if(isValid) {
 			// 세션에 아이디를 저장한다.
@@ -68,7 +61,6 @@ public class UsersController{
 		// Map에 담아서
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("isValid", isValid);
-		
 		// 리턴해준다.
 		return map;
 	}
@@ -109,10 +101,7 @@ public class UsersController{
 	public ModelAndView update(@ModelAttribute UsersDto dto, HttpServletRequest request){
 		usersService.update(dto);
 		ModelAndView mView = new ModelAndView();
-		mView.addObject("msg", dto.getId()+"님 회원정보 수정했습니다.");
-		String path=request.getContextPath()+"/users/private/info.do";
-		mView.addObject("redirectUri",path);
-		mView.setViewName("users/alert");
+		mView.setViewName("redirect:/users/private/info.do");
 		return mView;
 	}
 	
@@ -123,9 +112,7 @@ public class UsersController{
 		usersService.delete(id);
 		session.invalidate();
 		ModelAndView mView = new ModelAndView();
-		mView.addObject("msg","회원 탈퇴 처리 되었습니다.");
-		mView.addObject("redirectUri", session.getServletContext().getContextPath());
-		mView.setViewName("users/alert");
+		mView.setViewName("redirect:/board/list.do");
 		return mView;
 	}
 }
