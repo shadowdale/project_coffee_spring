@@ -203,7 +203,9 @@
 						var $writer = $("<strong/>").text(item.writer);
 						var $emptySpace = $("<span/>").text(" : ");
 						var $content = $("<span/>").text(item.content);
-						$("#modal-comment").append($("<p/>").append($writer).append($emptySpace).append($content));
+						var $commentDeleteBtn = $("<a/>").text("삭제").attr("href","javascript:commentDelete("+item.num+")");
+						
+						$("#modal-comment").append($("<p/>").append($writer).append($emptySpace).append($content).append($commentDeleteBtn).attr("commentNum", item.num));
 					});
 					$("#commentRef").val(num)
 					$("#commentTarget").val(data.writer)
@@ -229,13 +231,14 @@
 				method: "post",
 				dataType: "Json",
 				data: comment,
-				success:function(data){
+				success:function(data) {
 					if(data.isLoginCheck) {
 						$("#commentInput").val("");
 						var $writer = $("<strong/>").text(data.writer);
 						var $emptySpace = $("<span/>").text(" : ");
-						var $content = $("<span/>").text(data.content);
-						$("#modal-comment").append( $("<p/>").append($writer).append($emptySpace).append($content).addClass("comment-detail"));
+						var $content = $("<span/>").text(data.content).addClass("comment-detail");
+						var $commentDeleteBtn = $("<a/>").text("삭제").attr("href","javascript:commentDelete("+data.num+")");
+						$("#modal-comment").append( $("<p/>").append($writer).append($emptySpace).append($content).append($commentDeleteBtn).attr("commentNum", item.num));
 						
 						$(".modalScoll").scrollTop(9999999);
 						
@@ -297,7 +300,21 @@
 			alert("로그인이 필요합니다");
 			
 			$("#signinForm").find("input[name=id]").focus();
-		} 
+		}
+		
+		//
+		function commentDelete(num) {
+			$.ajax({
+				url : "commentdelete.do",
+				method : "post",
+				data : {num:num},
+				success : function(data) {
+
+					$("p[commentNum="+num+"]").remove();
+				}
+			})
+			return false;
+		}
 	</script>
 </body>
 </html>

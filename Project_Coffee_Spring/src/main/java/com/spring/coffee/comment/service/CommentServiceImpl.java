@@ -15,7 +15,7 @@ public class CommentServiceImpl implements CommentService {
 	private CommentDao commentDao;
 	
 	@Override
-	public void insert(CommentDto dto) {
+	public int insert(CommentDto dto) {
 		int seq = commentDao.getSequence();
 		dto.setNum(seq);
 		System.out.println(seq);
@@ -24,7 +24,7 @@ public class CommentServiceImpl implements CommentService {
 			dto.setComment_group(seq);
 		}
 		commentDao.insert(dto);
-		
+		return seq;
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class CommentServiceImpl implements CommentService {
 
 	@Override
 	public void delete(int num) {
-		// TODO Auto-generated method stub
+		commentDao.delete(num);
 		
 	}
 

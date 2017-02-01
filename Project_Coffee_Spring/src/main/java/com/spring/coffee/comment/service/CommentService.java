@@ -5,7 +5,7 @@ import java.util.List;
 import com.spring.coffee.comment.dto.CommentDto;
 
 public interface CommentService {
-	public void insert(CommentDto dto);
+	public int insert(CommentDto dto);
 	public List<CommentDto> getList(int ref_group);
 	public int getSequence();
 	public void delete(int num);

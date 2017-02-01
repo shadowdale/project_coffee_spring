@@ -1,6 +1,5 @@
 package com.spring.coffee.comment.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -35,7 +34,7 @@ public class CommentDaoImpl implements CommentDao {
 
 	@Override
 	public void delete(int num) {
-		// TODO Auto-generated method stub
+		session.delete("comment.delete", num);
 		
 	}
 
