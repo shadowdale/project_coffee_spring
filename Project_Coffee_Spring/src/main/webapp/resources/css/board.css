@@ -29,7 +29,11 @@
 		#btn_close{
 			padding: 10px;
 		}
-
+		
+		hr{
+			margin: 10px;
+		}
+		
 		.modal-dialog.modal-size{
 			width: 60%;
 			max-width: 80%;
@@ -112,6 +116,8 @@
 		#modal-comment p{
 			
 		}
+		
+
 		
 		
 /*//////////////////////////////////////////////*/

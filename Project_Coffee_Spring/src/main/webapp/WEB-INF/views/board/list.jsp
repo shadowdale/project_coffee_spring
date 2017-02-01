@@ -79,7 +79,7 @@
 								</div>
 								<!-- 게시글 덧글 입력 폼 -->
 								<div>
-									<form id="comment_form" action="board/comment_insert.do" method="post">
+									<form id="commentform" action="board/commentinsert.do" method="post">
 										<!-- 덧글 작성자 -->
 										<input type="hidden" name="writer" id="commentWriter"/>
 										<!-- 덧글 그룹 -->
@@ -181,7 +181,6 @@
 				dataType:"Json",
 				data:{num:num, condition:"${condition}", keyword:"${keyword}"},
 				success:function(data){
-					console.log(data);
 					$("#modalTilte").text(data.dto.title);
 					$("#modalContent").text(data.dto.content);
 					$("#modalImg").attr("src","${pageContext.request.contextPath}/upload/"+data.dto.imgAddr);
@@ -198,13 +197,60 @@
 					condition = data.dto.condition;
 					keyword = data.dto.keyword;
 					
-					$("#modal-comment").find("p").remove();
+					$("#modal-comment").find("div").remove();
 					
 					$(data.commentList).each(function(index, item){
+						var commentSave = "";
 						var $writer = $("<strong/>").text(item.writer);
-						var $emptySpace = $("<span/>").text(" : ");
 						var $content = $("<span/>").text(item.content);
-						$("#modal-comment").append($("<p/>").append($writer).append($emptySpace).append($content));
+						var $commentUpdateformBtn = $("<a/>")
+													.text("수정")
+													.addClass("comUpBtn")
+													.attr("href","javascript:")
+													.click(function() {
+														if($(this).text() == "수정") {
+															commentSave = $(this).parent().find("span").text();
+															$(this).text("취소");
+															$(this).parent().find("span").remove();
+															$(this).parent().append("<input/>").find("input").val(commentSave); 
+															$(this).parent().append(
+																$("<a/>")
+																.text("확인")
+																.attr("href","javascript:")
+																.addClass("send")
+																.click(function(){
+																	var commentContent = $(this).parent().find("input").val();
+																	var commentnum = $(this).parent().attr("commentNum");
+																	$.ajax({
+								 										url: "commentupdate.do",
+								 										method: "post",
+								 										data: {num:commentnum, content:commentContent},
+								 										success:function(data) {
+																			$("div[commentNum="+commentnum+"]")
+																			.find(".comUpBtn")
+																			.text("수정")
+																			$("div[commentNum="+commentnum+"]").find("input").remove()
+																			$("div[commentNum="+commentnum+"]").find(".send").remove()
+																			$("div[commentNum="+commentnum+"]").append("<span/>").find("span").text(commentContent);
+								 										}
+								 									})
+							 									})
+							 								);
+														} else if($(this).text() == "취소"){
+															$(this).text("수정");
+															$(this).parent().find("input").remove();
+															$(this).parent().find(".send").remove();
+															$(this).parent().append("<span/>").find("span").text(commentSave); 
+														}
+													});
+						
+						var $commentDeleteBtn = $("<a/>").text("삭제").attr("href","javascript:commentDelete("+item.num+")");
+						
+						$("#modal-comment").append($("<div/>").append($writer)
+															  .append($commentUpdateformBtn)
+															  .append($commentDeleteBtn).append($("<br/>"))
+															  .append($content)
+															  .attr("commentNum", item.num));
 					});
 					$("#commentRef").val(num)
 					$("#commentTarget").val(data.writer)
@@ -219,33 +265,73 @@
 					$(".modalScoll").scrollTop(9999999);
 				}
 			});
-			return false;
+			//return false;
 		}
 		
 		// 덧글 달기 이벤트 처리
-		$("#comment_form").submit(function() {
+		$("#commentform").submit(function() {
 			var comment = $(this).serialize();
 			$.ajax({
-				url: "../users/logincheck.do",
-				method: "get",
-				success: function(data){
+				url: "commentinsert.do",
+				method: "post",
+				dataType: "Json",
+				data: comment,
+				success:function(data) {
 					if(data.isLoginCheck) {
-						$.ajax({
-							url: "private/comment_insert.do",
-							method: "post",
-							dataType: "Json",
-							data: comment,
-							success:function(data){
-								$("#commentInput").val("");
-								console.log(data);
-								var $writer = $("<strong/>").text(data.writer);
-								var $emptySpace = $("<span/>").text(" : ");
-								var $content = $("<span/>").text(data.content);
-								$("#modal-comment").append( $("<p/>").append($writer).append($emptySpace).append($content).addClass("comment-detail"));
-								
-								$(".modalScoll").scrollTop(9999999);
+						$("#commentInput").val("");
+						var $writer = $("<strong/>").text(data.writer);
+						var $content = $("<span/>").text(data.content).addClass("comment-detail");
+						var $commentUpdateformBtn = $("<a/>")
+						.text("수정")
+						.addClass("comUpBtn")
+						.attr("href","javascript:")
+						.click(function() {
+							if($(this).text() == "수정") {
+								commentSave = $(this).parent().find("span").text();
+								$(this).text("취소");
+								$(this).parent().find("span").remove();
+								$(this).parent().append("<input/>").find("input").val(commentSave); 
+								$(this).parent().append(
+									$("<a/>")
+									.text("확인")
+									.attr("href","javascript:")
+									.addClass("send")
+									.click(function(){
+										var commentContent = $(this).parent().find("input").val();
+										var commentnum = $(this).parent().attr("commentNum");
+										$.ajax({
+	 										url: "commentupdate.do",
+	 										method: "post",
+	 										data: {num:commentnum, content:commentContent},
+	 										success:function(data) {
+												$("div[commentNum="+commentnum+"]")
+												.find(".comUpBtn")
+												.text("수정")
+												$("div[commentNum="+commentnum+"]").find("input").remove()
+												$("div[commentNum="+commentnum+"]").find(".send").remove()
+												$("div[commentNum="+commentnum+"]").append("<span/>").find("span").text(commentContent);
+	 										}
+	 									})
+ 									})
+ 								);
+							} else if($(this).text() == "취소"){
+								$(this).text("수정");
+								$(this).parent().find("input").remove();
+								$(this).parent().find(".send").remove();
+								$(this).parent().append("<span/>").find("span").text(commentSave); 
 							}
 						});
+						
+						
+						var $commentDeleteBtn = $("<a/>").text("삭제").attr("href","javascript:commentDelete("+data.num+")");
+						$("#modal-comment").append($("<div/>").append($writer)
+															  .append($commentUpdateformBtn)
+															  .append($commentDeleteBtn).append($("<br/>"))
+															  .append($content)
+															  .attr("commentNum", data.num));
+						
+						$(".modalScoll").scrollTop(9999999);
+						
 					} else {
 						loginBoxMove();
 						$("#imgpop").modal("hide");
@@ -304,7 +390,20 @@
 			alert("로그인이 필요합니다");
 			
 			$("#signinForm").find("input[name=id]").focus();
-		} 
+		}
+		
+		// 댓글 삭제
+		function commentDelete(num) {
+			$.ajax({
+				url : "commentdelete.do",
+				method : "post",
+				data : {num:num},
+				success : function(data) {
+					$("div[commentNum="+num+"]").remove();
+				}
+			})
+			return false;
+		};
 	</script>
 </body>
 </html>

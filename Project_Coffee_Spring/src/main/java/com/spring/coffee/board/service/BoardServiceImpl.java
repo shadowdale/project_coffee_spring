@@ -1,6 +1,7 @@
 package com.spring.coffee.board.service;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -13,6 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.coffee.board.dao.BoardDao;
 import com.spring.coffee.board.dto.BoardDto;
+import com.spring.coffee.comment.dao.CommentDao;
+import com.spring.coffee.comment.dto.CommentDto;
 
 @Component
 public class BoardServiceImpl implements BoardService {
@@ -25,6 +28,9 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Autowired
 	private BoardDao boardDao;
+	
+	@Autowired
+	private CommentDao commentDao;
 	
 	@Override
 	public ModelAndView getList(HttpServletRequest request, int pageNum) {
@@ -118,7 +124,7 @@ public class BoardServiceImpl implements BoardService {
 		
 		BoardDto resultDto = boardDao.getData(dto);
 
-		// List<CafeCommentDto> commentList = CafeCommentDao.getInstance().getList(num);
+		List<CommentDto> commentList = commentDao.getList(num);
 		
 		// 자신이 쓴 글인지 확인
 		boolean isWriter = false;
@@ -128,7 +134,7 @@ public class BoardServiceImpl implements BoardService {
 		
 		mView.addObject("dto", resultDto);
 		mView.addObject("isWriter", isWriter);
-		// request.setAttribute("commentList", commentList);
+		mView.addObject("commentList", commentList);
 		
 		boardDao.getData(dto);
 		
