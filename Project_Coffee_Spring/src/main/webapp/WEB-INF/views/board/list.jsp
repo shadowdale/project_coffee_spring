@@ -286,7 +286,7 @@
 						var $content = $("<span/>").text(data.content).addClass("comment-detail");
 						var $commentUpdateformBtn = $("<a/>")
 						.text("수정")
-						.addClass("comUpBtn btn-default btn-xs")
+						.addClass("comUpBtn btn btn-default btn-xs")
 						.attr("href","javascript:")
 						.click(function() {
 							if($(this).text() == "수정") {
@@ -297,7 +297,7 @@
 								$(this).parent().append(
 									$("<a/>")
 									.text("확인")
-									.addClass("btn btn-default btn-xs")
+									.addClass("comUpBtn btn btn-default btn-xs")
 									.attr("href","javascript:")
 									.addClass("send")
 									.click(function(){
