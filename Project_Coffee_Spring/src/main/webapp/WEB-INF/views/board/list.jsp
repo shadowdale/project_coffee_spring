@@ -202,10 +202,11 @@
 					$(data.commentList).each(function(index, item){
 						var commentSave = "";
 						var $writer = $("<strong/>").text(item.writer);
+						var $commentTop = $("<p/>").append($writer);
 						var $content = $("<span/>").text(item.content);
 						var $commentUpdateformBtn = $("<a/>")
 													.text("수정")
-													.addClass("comUpBtn")
+													.addClass("comUpBtn btn btn-default btn-xs")
 													.attr("href","javascript:")
 													.click(function() {
 														if($(this).text() == "수정") {
@@ -216,6 +217,7 @@
 															$(this).parent().append(
 																$("<a/>")
 																.text("확인")
+																.addClass("btn btn-default btn-xs")
 																.attr("href","javascript:")
 																.addClass("send")
 																.click(function(){
@@ -244,11 +246,11 @@
 														}
 													});
 						
-						var $commentDeleteBtn = $("<a/>").text("삭제").attr("href","javascript:commentDelete("+item.num+")");
+						var $commentDeleteBtn = $("<a/>").text("삭제").attr("href","javascript:commentDelete("+item.num+")").addClass("btn btn-default btn-xs");
 						
-						$("#modal-comment").append($("<div/>").append($writer)
-															  .append($commentUpdateformBtn)
-															  .append($commentDeleteBtn).append($("<br/>"))
+						$("#modal-comment").append($("<div/>").append($commentTop)
+															  .append($commentDeleteBtn)
+															  .append($commentUpdateformBtn).append($("<br/>"))
 															  .append($content)
 															  .attr("commentNum", item.num));
 					});
@@ -280,6 +282,7 @@
 					if(data.isLoginCheck) {
 						$("#commentInput").val("");
 						var $writer = $("<strong/>").text(data.writer);
+						var $commentTop = $("<p/>").append($writer);
 						var $content = $("<span/>").text(data.content).addClass("comment-detail");
 						var $commentUpdateformBtn = $("<a/>")
 						.text("수정")
@@ -294,6 +297,7 @@
 								$(this).parent().append(
 									$("<a/>")
 									.text("확인")
+									.addClass("btn btn-default btn-xs")
 									.attr("href","javascript:")
 									.addClass("send")
 									.click(function(){
@@ -323,10 +327,10 @@
 						});
 						
 						
-						var $commentDeleteBtn = $("<a/>").text("삭제").attr("href","javascript:commentDelete("+data.num+")");
-						$("#modal-comment").append($("<div/>").append($writer)
-															  .append($commentUpdateformBtn)
-															  .append($commentDeleteBtn).append($("<br/>"))
+						var $commentDeleteBtn = $("<a/>").text("삭제").attr("href","javascript:commentDelete("+data.num+")").addClass("btn btn-default btn-xs");
+						$("#modal-comment").append($("<div/>").append($commentTop)
+															  .append($commentDeleteBtn)
+															  .append($commentUpdateformBtn).append($("<br/>"))
 															  .append($content)
 															  .attr("commentNum", data.num));
 						

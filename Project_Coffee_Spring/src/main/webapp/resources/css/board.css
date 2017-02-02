@@ -114,10 +114,14 @@
 		}
 		
 		#modal-comment p{
-			
+			display: inline-block;
+			margin: 0;
 		}
-		
+		#modal-comment a{
+			float: right;
+		}
+		#modal-comment input{
+			width: 75%;
+			height: 22px;
+		}
 
-		
-		
-/*//////////////////////////////////////////////*/
