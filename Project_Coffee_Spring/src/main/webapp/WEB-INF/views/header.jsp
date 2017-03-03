@@ -5,8 +5,8 @@
 		<div class="enterance_col col col-xs-9">
 			<div class="enterance_box enterance_box1 row">
 				<div class="enterance_title" id="title2" style="width:13.7%"><a class="enterance_title_text" href="javascript:">MENU</a></div>
-				<div class="enterance_title" id="title3" style="width:15.5%"><a class="enterance_title_text" href="javascript:">RECIPE</a></div>
-				<div class="enterance_title" id="title1" style="width:20.6%"><a class="enterance_title_text" href="${pageContext.request.contextPath }/home.do">COFFEE BOX</a></div>
+				<div class="enterance_title" id="title3" style="width:15.5%"><a class="enterance_title_text" href="${pageContext.request.contextPath }/recipe.do">RECIPE</a></div>
+				<div class="enterance_title" id="title1" style="width:20.6%"><a class="enterance_title_text" href="${pageContext.request.contextPath }/main.do">COFFEE BOX</a></div>
 				<div class="enterance_title" id="title4" style="width:15.4%"><a class="enterance_title_text" href="${pageContext.request.contextPath }/board/list.do">GALLARY</a></div>
 				<div class="enterance_title" id="title4" style="width:5%"><a class="enterance_title_text" href="javascript:">EVENT</a></div>
 			</div>
