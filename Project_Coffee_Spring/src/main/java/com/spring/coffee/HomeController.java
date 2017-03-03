@@ -17,5 +17,17 @@ public class HomeController {
 
 		return "recipe";
 	}
+	
+	@RequestMapping(value = "/event")
+	public String event() {
+
+		return "event";
+	}
+	
+	@RequestMapping(value = "/menu")
+	public String main() {
+
+		return "menu";
+	}
 
 }

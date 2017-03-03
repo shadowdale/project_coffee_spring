@@ -4,11 +4,11 @@
 	<div class="enterance_header">
 		<div class="enterance_col col col-xs-9">
 			<div class="enterance_box enterance_box1 row">
-				<div class="enterance_title" id="title2" style="width:13.7%"><a class="enterance_title_text" href="javascript:">MENU</a></div>
+				<div class="enterance_title" id="title2" style="width:13.7%"><a class="enterance_title_text" href="${pageContext.request.contextPath }/main.do">MENU</a></div>
 				<div class="enterance_title" id="title3" style="width:15.5%"><a class="enterance_title_text" href="${pageContext.request.contextPath }/recipe.do">RECIPE</a></div>
 				<div class="enterance_title" id="title1" style="width:20.6%"><a class="enterance_title_text" href="${pageContext.request.contextPath }/main.do">COFFEE BOX</a></div>
 				<div class="enterance_title" id="title4" style="width:15.4%"><a class="enterance_title_text" href="${pageContext.request.contextPath }/board/list.do">GALLARY</a></div>
-				<div class="enterance_title" id="title4" style="width:5%"><a class="enterance_title_text" href="javascript:">EVENT</a></div>
+				<div class="enterance_title" id="title4" style="width:5%"><a class="enterance_title_text" href="${pageContext.request.contextPath }/event.do">EVENT</a></div>
 			</div>
 			<span class="line" id="line1"></span><span class="line" id="line2"></span><span class="line" id="line3"></span><span class="line" id="line4"></span>
 			<div class="enterance_box enterance_box2 row">
@@ -21,17 +21,17 @@
 					<img src="${pageContext.request.contextPath }/resources/images/loginIcon.png">
 				</div>
 				<div class="enterance_idClick_right col col-xs-9">
-					<form action="users/signin.do" method="post" id="signinForm">
+					<form action="${pageContext.request.contextPath }users/signin.do" method="post" id="signinForm">
 						<input type="text" name ="id" class="enterance_idClick_contents idInput col col-xs-7" placeholder="Identification">
 						<button class="enterance_idClick_contents submit" id="" type="submit">SUBMIT</button>
 						<input type="password" name="pwd" class="enterance_idClick_contents passInput col col-xs-7" placeholder="Password">
 					</form>
-					<form action="../users/signupform.do" method="post">
+					<form action="${pageContext.request.contextPath }/users/signupform.do" method="post">
 						<button class="enterance_idClick_contents join" id="signinForm2"> JOINUS </button>
 					</form>
 					<div id="info">
-						<p class="pop-text"><a href="../users/private/info.do"><strong id="user"></strong></a> 님 로그인 중</p>
-						<a href="users/signout.do" id="signoutLink">Log-Out</a>
+						<p class="pop-text"><a href="${pageContext.request.contextPath }/users/private/info.do"><strong id="user"></strong></a> 님 로그인 중</p>
+						<a href="${pageContext.request.contextPath }/users/signout.do" id="signoutLink">Log-Out</a>
 					</div>
 				</div>
 			</div>
@@ -62,7 +62,7 @@
 			var id = $("input[name=id]").val();
 			var pwd = $("input[name=pwd]").val();
 			$.ajax({
-				url:"../users/signin.do",
+				url:"${pageContext.request.contextPath }/users/signin.do",
 				method:"post",
 				data:{id:id, pwd:pwd},
 				success:function(data){
