@@ -152,7 +152,7 @@
 					<h1></h1>
 					<img src="${pageContext.request.contextPath }/resources/images/coffee1.png" class="" id="cupImage1">
 					<h1></h1>
-					<button id="modalBtn1">More Info</button>
+					<button class="modalBtn">More Info</button>
 				</div>
 			</div>
 		</div>
@@ -165,7 +165,7 @@
 					<h1></h1>
 					<img src="${pageContext.request.contextPath }/resources/images/smoothie1.png" class="" id="cupImage2">
 					<h1></h1>
-					<button id="modalBtn2">More Info</button>
+					<button class="modalBtn">More Info</button>
 				</div>
 			</div>
 		</div>
@@ -178,7 +178,7 @@
 					<h1> </h1>
 					<img src="${pageContext.request.contextPath }/resources/images/tea1.png" class="" id="cupImage3">
 					<h1></h1>
-					<button id="modalBtn3">More Info</button>
+					<button class="modalBtn">More Info</button>
 				</div>
 			</div>
 		</div>
@@ -193,7 +193,7 @@
 					<h1> </h1>
 					<img src="${pageContext.request.contextPath }/resources/images/coffee2.png" class="" id="cupImage4">
 					<h1> </h1>
-					<button id="modalBtn4">More Info</button>
+					<button class="modalBtn">More Info</button>
 				</div>
 			</div>
 		</div>
@@ -206,7 +206,7 @@
 					<h1> </h1>
 					<img src="${pageContext.request.contextPath }/resources/images/smoothie2.png" class="" id="cupImage5">
 					<h1> </h1>
-					<button id="modalBtn5">More Info</button>
+					<button class="modalBtn">More Info</button>
 				</div>
 			</div>
 		</div>
@@ -218,7 +218,7 @@
 					</div><h1> </h1>
 					<img src="${pageContext.request.contextPath }/resources/images/tea2.png" class="" id="cupImage6">
 					<h1> </h1>
-					<button id="modalBtn6">More Info</button>
+					<button class="modalBtn">More Info</button>
 				</div>
 			</div>
 		</div>
@@ -232,7 +232,7 @@
 					</div><h1> </h1>
 					<img src="${pageContext.request.contextPath }/resources/images/coffee3.png" class="" id="cupImage7">
 					<h1> </h1>
-					<button id="modalBtn7">More Info</button>
+					<button class="modalBtn">More Info</button>
 				</div>
 			</div>
 		</div>
@@ -244,7 +244,7 @@
 					</div><h1> </h1>
 					<img src="${pageContext.request.contextPath }/resources/images/smoothie3.png" class="" id="cupImage8">
 					<h1> </h1>
-					<button id="modalBtn8">More Info</button>
+					<button class="modalBtn">More Info</button>
 				</div>
 			</div>
 		</div>
@@ -257,7 +257,7 @@
 					<h1> </h1>
 					<img src="${pageContext.request.contextPath }/resources/images/tea3.png" class="" id="cupImage9">
 					<h1> </h1>
-					<button id="modalBtn9">More Info</button>
+					<button class="modalBtn">More Info</button>
 				</div>
 			</div>
 		</div>
@@ -272,7 +272,7 @@
 					<h1> </h1>
 					<img src="${pageContext.request.contextPath }/resources/images/coffee4.png" class="" id="cupImage10">
 					<h1> </h1>
-					<button id="modalBtn10">More Info</button>
+					<button class="modalBtn">More Info</button>
 				</div>
 			</div>
 		</div>
@@ -285,7 +285,7 @@
 					<h1> </h1>
 					<img src="${pageContext.request.contextPath }/resources/images/smoothie4.png" class="" id="cupImage11">
 					<h1> </h1>
-					<button id="modalBtn11">More Info</button>
+					<button class="modalBtn">More Info</button>
 				</div>
 			</div>
 		</div>
@@ -298,7 +298,7 @@
 					<h1> </h1>
 					<img src="${pageContext.request.contextPath }/resources/images/tea4.png" class="" id="cupImage12">
 					<h1> </h1>
-					<button id="modalBtn12">More Info</button>
+					<button class="modalBtn">More Info</button>
 				</div>
 			</div>
 		</div>
@@ -313,7 +313,7 @@
 					<h1> </h1>
 					<img src="${pageContext.request.contextPath }/resources/images/coffee5.png" class="" id="cupImage13">
 					<h1> </h1>
-					<button id="modalBtn13">More Info</button>
+					<button class="modalBtn">More Info</button>
 				</div>
 			</div>
 		</div>
@@ -326,7 +326,7 @@
 					<h1> </h1>
 					<img src="${pageContext.request.contextPath }/resources/images/smoothie5.png" class="" id="cupImage14">
 					<h1> </h1>
-					<button id="modalBtn14">More Info</button>
+					<button class="modalBtn">More Info</button>
 				</div>
 			</div>
 		</div>
@@ -339,7 +339,7 @@
 					<h1> </h1>
 					<img src="${pageContext.request.contextPath }/resources/images/tea5.png" class="" id="cupImage15">
 					<h1> </h1>
-					<button id="modalBtn15">More Info</button>
+					<button class="modalBtn">More Info</button>
 				</div>
 			</div>
 		</div>
@@ -423,22 +423,22 @@
 	var j=0;
 	var sentence = '';
 	var location1 =2;
-	var element1 =["${pageContext.request.contextPath }/resources/images/coffee1.png","깔끔하고 상큼함이 특징인 시원한 아이스 커피","10","0.1","1g","0g","0g","150mg"];
-	var element2 =["${pageContext.request.contextPath }/resources/images/smoothie1.png","순수한 요거트의 농후한 맛이 그대로 느껴지는 요거트스무디","250","5g","8g","206mg","33g","0mg"];
-	var element3 =["${pageContext.request.contextPath }/resources/images/tea1.png","풍부한 향과 신선하고활기찬맛이 일품인 녹차","6","0g","1g","0mg","0.06g","27mg"];
-	var element4 =["${pageContext.request.contextPath }/resources/images/coffee2.png"," 바닐라 시럽과 우유, 그리고 그 위에 얹어진 에스프레소 샷과 달콤한 카라멜 드리즐의 조화","200","4.5g","8g","100mg","22g","75mg"];
-	var element5 =["${pageContext.request.contextPath }/resources/images/smoothie2.png","파인애플의 달콤, 새콤한 맛이 느껴지는 스무디","195","0g","19g","29mg","63g","0mg"];
-	var element6 =["${pageContext.request.contextPath }/resources/images/tea2.png","깊고 진한 향과 풍미를 느낄 수있는 홍차","5.5","0g","0mg","0.01g","20mg"];
-	var element7 =["${pageContext.request.contextPath }/resources/images/coffee3.png","벨벳 같은 우유 거품과 에스프레소 샷의 절묘한 조화!","110","3g","6g","70mg","8g","75mg"];
-	var element8 =["${pageContext.request.contextPath }/resources/images/smoothie3.png","비타민이 풍부한 스트로베리의 상큼한 맛을 위한 스무디","169","0.2g","7g","59mg","18.5g","0mg"];
-	var element9 =["${pageContext.request.contextPath }/resources/images/tea3.png","홍차의 풍부함과 베르가못의 산뜻함이 조화를 이루는 차","5.3","0g","0g","0g","0.03g","18mg"];
-	var element10 =["${pageContext.request.contextPath }/resources/images/coffee4.png","모카시럽과 스팀밀크에 휘핑크림이 토핑된 에스프레소","290","9g","10g","105mg","25g","95mg"];
-	var element11 =["${pageContext.request.contextPath }/resources/images/smoothie4.png","진한 다크초코의 달콤한 맛과 단백질 보충을 위한 스무디","189","1g","6g","98mg","20g","0mg"];
-	var element12 =["${pageContext.request.contextPath }/resources/images/tea4.png","은은한 사과향과 안정감을 주는 향기와 부드러운 맛","300","5g","6g","110mg","36g","15mg"];
-	var element13 =["${pageContext.request.contextPath }/resources/images/coffee5.png","강렬한 첫 맛, 풍부한 바디감, 깔끔한 뒷 맛이 특징인 커피의 심장","3","0g","0g","0mg","3mg","66mg"];
-	var element14 =["${pageContext.request.contextPath }/resources/images/smoothie5.png"," 풍부한 베리 맛을 느낄 수 있는 단백질 보충 스무디","190","0g","19g","63mg","25.9","0mg"];
-	var element15 =["${pageContext.request.contextPath }/resources/images/tea5.png","톡쏘는 멘톨향이 상쾌함과 기분전환에 도움을주는 허브차","5","0","0g","0mg","0g","0mg"];
 
+	var element = [["${pageContext.request.contextPath }/resources/images/coffee1.png","깔끔하고 상큼함이 특징인 시원한 아이스 커피","10","0.1","1g","0g","0g","150mg"],
+	["${pageContext.request.contextPath }/resources/images/smoothie1.png","순수한 요거트의 농후한 맛이 그대로 느껴지는 요거트스무디","250","5g","8g","206mg","33g","0mg"],
+	["${pageContext.request.contextPath }/resources/images/tea1.png","풍부한 향과 신선하고활기찬맛이 일품인 녹차","6","0g","1g","0mg","0.06g","27mg"],
+	["${pageContext.request.contextPath }/resources/images/coffee2.png"," 바닐라 시럽과 우유, 그리고 그 위에 얹어진 에스프레소 샷과 달콤한 카라멜 드리즐의 조화","200","4.5g","8g","100mg","22g","75mg"],
+	["${pageContext.request.contextPath }/resources/images/smoothie2.png","파인애플의 달콤, 새콤한 맛이 느껴지는 스무디","195","0g","19g","29mg","63g","0mg"],
+	["${pageContext.request.contextPath }/resources/images/tea2.png","깊고 진한 향과 풍미를 느낄 수있는 홍차","5.5","0g","0mg","0.01g","20mg"],
+	["${pageContext.request.contextPath }/resources/images/coffee3.png","벨벳 같은 우유 거품과 에스프레소 샷의 절묘한 조화!","110","3g","6g","70mg","8g","75mg"],
+	["${pageContext.request.contextPath }/resources/images/smoothie3.png","비타민이 풍부한 스트로베리의 상큼한 맛을 위한 스무디","169","0.2g","7g","59mg","18.5g","0mg"],
+	["${pageContext.request.contextPath }/resources/images/tea3.png","홍차의 풍부함과 베르가못의 산뜻함이 조화를 이루는 차","5.3","0g","0g","0g","0.03g","18mg"],
+	["${pageContext.request.contextPath }/resources/images/coffee4.png","모카시럽과 스팀밀크에 휘핑크림이 토핑된 에스프레소","290","9g","10g","105mg","25g","95mg"],
+	["${pageContext.request.contextPath }/resources/images/smoothie4.png","진한 다크초코의 달콤한 맛과 단백질 보충을 위한 스무디","189","1g","6g","98mg","20g","0mg"],
+	["${pageContext.request.contextPath }/resources/images/tea4.png","은은한 사과향과 안정감을 주는 향기와 부드러운 맛","300","5g","6g","110mg","36g","15mg"],
+	["${pageContext.request.contextPath }/resources/images/coffee5.png","강렬한 첫 맛, 풍부한 바디감, 깔끔한 뒷 맛이 특징인 커피의 심장","3","0g","0g","0mg","3mg","66mg"],
+	["${pageContext.request.contextPath }/resources/images/smoothie5.png"," 풍부한 베리 맛을 느낄 수 있는 단백질 보충 스무디","190","0g","19g","63mg","25.9","0mg"],
+	["${pageContext.request.contextPath }/resources/images/tea5.png","톡쏘는 멘톨향이 상쾌함과 기분전환에 도움을주는 허브차","5","0","0g","0mg","0g","0mg"]];
 
 
 
@@ -665,126 +665,17 @@
 	   e.stopPropagation(); 
 	   return false;
 	});
-
-	$("#modalBtn1").click(function(){
-		$("#modalCupImage").attr("src",element1[0]);
-		$("#explain").text(element1[1]);
-		$("#contentElement > td").each(function(index){
-			$(this).text(element1[index+2]);
+	
+	$(".modalBtn").each(function(index, item){
+		$(this).click(function(){
+			var tmp = element[index];
+			$("#modalCupImage").attr("src",tmp[0]);
+			$("#explain").text(tmp[1]);
+			$("#contentElement > td").each(function(index){
+				$(this).text(tmp[index+2]);
 			});
-		$("#myModal").modal("show");
-	});
-	$("#modalBtn2").click(function(){
-		$("#modalCupImage").attr("src",element2[0]);
-		$("#explain").text(element2[1]);
-		$("#contentElement > td").each(function(index){
-			$(this).text(element2[index+2]);
+			$("#myModal").modal("show");
 		});
-		$("#myModal").modal("show");
-	});
-	$("#modalBtn3").click(function(){
-		$("#modalCupImage").attr("src",element3[0]);
-		$("#explain").text(element3[1]);
-		$("#contentElement > td").each(function(index){
-			$(this).text(element3[index+2]);
-		});
-		$("#myModal").modal("show");
-	});
-	$("#modalBtn4").click(function(){
-		$("#modalCupImage").attr("src",element4[0]);
-		$("#explain").text(element4[1]);
-		$("#contentElement > td").each(function(index){
-			$(this).text(element4[index+2]);
-		});
-		$("#myModal").modal("show");
-	});
-	$("#modalBtn5").click(function(){
-		$("#modalCupImage").attr("src",element5[0]);
-		$("#explain").text(element5[1]);
-		$("#contentElement > td").each(function(index){
-			$(this).text(element5[index+2]);
-		});
-		$("#myModal").modal("show");
-	});
-	$("#modalBtn6").click(function(){
-		$("#modalCupImage").attr("src",element6[0]);
-		$("#explain").text(element6[1]);
-		$("#contentElement > td").each(function(index){
-			$(this).text(element6[index+2]);
-		});
-		$("#myModal").modal("show");
-	});
-	$("#modalBtn7").click(function(){
-		$("#modalCupImage").attr("src",element7[0]);
-		$("#explain").text(element7[1]);
-		$("#contentElement > td").each(function(index){
-			$(this).text(element7[index+2]);
-		});
-		$("#myModal").modal("show");
-	});
-	$("#modalBtn8").click(function(){
-		$("#modalCupImage").attr("src",element8[0]);
-		$("#explain").text(element8[1]);
-		$("#contentElement > td").each(function(index){
-			$(this).text(element8[index+2]);
-		});
-		$("#myModal").modal("show");
-	});
-	$("#modalBtn9").click(function(){
-		$("#modalCupImage").attr("src",element9[0]);
-		$("#explain").text(element9[1]);
-		$("#contentElement > td").each(function(index){
-			$(this).text(element9[index+2]);
-		});
-		$("#myModal").modal("show");
-	});
-	$("#modalBtn10").click(function(){
-		$("#modalCupImage").attr("src",element10[0]);
-		$("#explain").text(element10[1]);
-		$("#contentElement > td").each(function(index){
-			$(this).text(element10[index+2]);
-		});
-		$("#myModal").modal("show");
-	});
-	$("#modalBtn11").click(function(){
-		$("#modalCupImage").attr("src",element11[0]);
-		$("#explain").text(element11[1]);
-		$("#contentElement > td").each(function(index){
-			$(this).text(element11[index+2]);
-		});
-		$("#myModal").modal("show");
-	});
-	$("#modalBtn12").click(function(){
-		$("#modalCupImage").attr("src",element12[0]);
-		$("#explain").text(element12[1]);
-		$("#contentElement > td").each(function(index){
-			$(this).text(element12[index+2]);
-		});
-		$("#myModal").modal("show");
-	});
-	$("#modalBtn13").click(function(){
-		$("#modalCupImage").attr("src",element13[0]);
-		$("#explain").text(element13[1]);
-		$("#contentElement > td").each(function(index){
-			$(this).text(element13[index+2]);
-		});
-		$("#myModal").modal("show");
-	});
-	$("#modalBtn14").click(function(){
-		$("#modalCupImage").attr("src",element14[0]);
-		$("#explain").text(element14[1]);
-		$("#contentElement > td").each(function(index){
-			$(this).text(element14[index+2]);
-		});
-		$("#myModal").modal("show");
-	});
-	$("#modalBtn15").click(function(){
-		$("#modalCupImage").attr("src",element15[0]);
-		$("#explain").text(element15[1]);
-		$("#contentElement > td").each(function(index){
-			$(this).text(element15[index+2]);
-		});
-		$("#myModal").modal("show");
 	});
 
 	$("body").on("mousedown",function(){
