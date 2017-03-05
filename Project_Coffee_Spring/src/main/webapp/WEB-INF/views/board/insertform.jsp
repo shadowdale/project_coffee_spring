@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="UTF-8"/>
-<title>views/users/insertform.jsp</title>
+<title>글 등록</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.css" />
 
 <style>

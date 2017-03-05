@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="UTF-8"/>
-	<title>views/users/board_insertform.jsp</title>
+	<title>게시글수정</title>
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.css" />
 	<style>
 		.help-block{

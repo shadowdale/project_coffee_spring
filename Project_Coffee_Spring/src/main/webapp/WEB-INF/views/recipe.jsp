@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1"/>
-	<title>Project1_Game.html</title>
+	<title>레시피</title>
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/jquery-ui.css"/>
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.css"/>
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/remodal.css"/>

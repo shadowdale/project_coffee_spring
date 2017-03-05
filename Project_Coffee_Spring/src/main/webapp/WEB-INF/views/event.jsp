@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>project_Event.html</title>
+	<title>이벤트</title>
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.css"></link>
 	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.1.1.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.js"></script>
@@ -14,7 +15,7 @@
         	 padding: 0;
         }
         section {
-        	 padding: 5% 15%; 
+        	 padding: 5%; 
         	 margin: 0 auto;
         }
         .left-col { 
@@ -34,8 +35,10 @@
         dd{
         	text-align: center;
         }
+        dt{
+        	padding: 20px;
+        }
         img{
-        	padding-right: 20px;
         	width: 300px;
         }
 
@@ -159,7 +162,7 @@
            						<dl>
            							<dt><a href="http://www.ogada.co.kr/sub/board.php?mn=event&fn=notice&md=v&bn=board_25&zest_bn=board_25&seq=21&field=&keyword=&page=2"><img src="${pageContext.request.contextPath }/resources/images/ev_te2.png"/></a></dt>
            							<dd>
-           								<h5>'오가다&오쉐이크' 티몬</h5><br>
+           								<h5>'오가다<c:out value="&" />오쉐이크' 티몬</h5><br>
            								<h4>할인 딜 판매</h4>
            								<p>2016-10-19 ~ 2016-10-26</p>
            							</dd>

@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Cooffee_Board</title>
+	<title>게시판</title>
 	<link href="${pageContext.request.contextPath }/resources/css/bootstrap.css" rel="stylesheet">
 	<link href="${pageContext.request.contextPath }/resources/css/board.css" rel="stylesheet">
 	<style type="text/css">

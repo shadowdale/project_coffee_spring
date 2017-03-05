@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Project_Header.html</title>
+	<title>프론트</title>
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.css" />
 	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.1.1.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.js"></script>

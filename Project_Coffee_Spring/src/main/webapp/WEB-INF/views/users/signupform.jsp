@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="UTF-8"/>
-	<title>views/users/board_update.jsp</title>
+	<title>회원가입</title>
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.css" />
 	<style>
 		html,body{
