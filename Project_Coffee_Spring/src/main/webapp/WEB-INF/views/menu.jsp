@@ -23,8 +23,13 @@
 			position: absolute;
 		}
 		.row-screen button{
-			border: 0;
+			margin-top: 82%;
+			padding: 5px 13px;
+			border-radius: 5px;
+			background: #cc0000;
+			color: white;
 		}
+		
 		.items{
 			height: 100%;
 		}
@@ -107,11 +112,12 @@
 			min-height: 40%;
 			min-width: 30%;
 		}
+		/*
 		button img{
 			position: absolute;
 			margin-top: 43%;
 			left: 47%;
-		}
+		}*/
 		
 		.modal-dialog{
 			margin-top: 100px;
@@ -154,7 +160,7 @@
 								<img src="${pageContext.request.contextPath }/resources/images/coffee1.png" class="" id="cupImage1">
 							</a>
 							<h1> </h1>
-							<button id="modalBtn1"><img src="${pageContext.request.contextPath }/resources/images/more-info-button.png" width="120" height="35" /></button>
+							<button id="modalBtn1">More Info</button>
 						</div>
 					</div>
 		</div>
@@ -168,7 +174,7 @@
 								<img src="${pageContext.request.contextPath }/resources/images/smoothie1.png" class="" id="cupImage2">
 							</a>
 							<h1> </h1>
-							<button id="modalBtn2"><img src="${pageContext.request.contextPath }/resources/images/more-info-button.png" width="120" height="35" /></button>
+							<button id="modalBtn2">More Info</button>
 						</div>
 					</div>
 		</div>
@@ -182,7 +188,7 @@
 								<img src="${pageContext.request.contextPath }/resources/images/tea1.png" class="" id="cupImage3">
 							</a>
 							<h1> </h1>
-							<button id="modalBtn3"><img src="${pageContext.request.contextPath }/resources/images/more-info-button.png" width="120" height="35" /></button>
+							<button id="modalBtn3">More Info</button>
 						</div>
 					</div>
 		</div>
@@ -198,7 +204,7 @@
 								<img src="${pageContext.request.contextPath }/resources/images/coffee2.png" class="" id="cupImage4">
 							</a>
 							<h1> </h1>
-							<button id="modalBtn4"><img src="${pageContext.request.contextPath }/resources/images/more-info-button.png" width="120" height="35" /></button>
+							<button id="modalBtn4">More Info</button>
 						</div>
 					</div>
 		</div>
@@ -212,7 +218,7 @@
 								<img src="${pageContext.request.contextPath }/resources/images/smoothie2.png" class="" id="cupImage5">
 							</a>
 							<h1> </h1>
-							<button id="modalBtn5"><img src="${pageContext.request.contextPath }/resources/images/more-info-button.png" width="120" height="35" /></button>
+							<button id="modalBtn5">More Info</button>
 						</div>
 					</div>
 		</div>
@@ -226,7 +232,7 @@
 								<img src="${pageContext.request.contextPath }/resources/images/tea2.png" class="" id="cupImage6">
 							</a>
 							<h1> </h1>
-							<button id="modalBtn6"><img src="${pageContext.request.contextPath }/resources/images/more-info-button.png" width="120" height="35" /></button>
+							<button id="modalBtn6">More Info</button>
 						</div>
 					</div>
 		</div>
@@ -242,7 +248,7 @@
 								<img src="${pageContext.request.contextPath }/resources/images/coffee3.png" class="" id="cupImage7">
 							</a>
 							<h1> </h1>
-							<button id="modalBtn7"><img src="${pageContext.request.contextPath }/resources/images/more-info-button.png" width="120" height="35" /></button>
+							<button id="modalBtn7">More Info</button>
 						</div>
 					</div>
 		</div>
@@ -256,7 +262,7 @@
 								<img src="${pageContext.request.contextPath }/resources/images/smoothie3.png" class="" id="cupImage8">
 							</a>
 							<h1> </h1>
-							<button id="modalBtn8"><img src="${pageContext.request.contextPath }/resources/images/more-info-button.png" width="120" height="35" /></button>
+							<button id="modalBtn8">More Info</button>
 						</div>
 					</div>
 		</div>
@@ -270,7 +276,7 @@
 								<img src="${pageContext.request.contextPath }/resources/images/tea3.png" class="" id="cupImage9">
 							</a>
 							<h1> </h1>
-							<button id="modalBtn9"><img src="${pageContext.request.contextPath }/resources/images/more-info-button.png" width="120" height="35" /></button>
+							<button id="modalBtn9">More Info</button>
 						</div>
 					</div>
 		</div>
@@ -286,7 +292,7 @@
 								<img src="${pageContext.request.contextPath }/resources/images/coffee4.png" class="" id="cupImage10">
 							</a>
 							<h1> </h1>
-							<button id="modalBtn10"><img src="${pageContext.request.contextPath }/resources/images/more-info-button.png" width="120" height="35" /></button>
+							<button id="modalBtn10">More Info</button>
 						</div>
 					</div>
 		</div>
@@ -301,7 +307,7 @@
 								<img src="${pageContext.request.contextPath }/resources/images/smoothie4.png" class="" id="cupImage11">
 							</a>
 							<h1> </h1>
-							<button id="modalBtn11"><img src="${pageContext.request.contextPath }/resources/images/more-info-button.png" width="120" height="35" /></button>
+							<button id="modalBtn11">More Info</button>
 						</div>
 					</div>
 		</div>
@@ -316,7 +322,7 @@
 								<img src="${pageContext.request.contextPath }/resources/images/tea4.png" class="" id="cupImage12">
 							</a>
 							<h1> </h1>
-							<button id="modalBtn12"><img src="${pageContext.request.contextPath }/resources/images/more-info-button.png" width="120" height="35" /></button>
+							<button id="modalBtn12">More Info</button>
 						</div>
 					</div>
 		</div>
@@ -333,7 +339,7 @@
 								<img src="${pageContext.request.contextPath }/resources/images/coffee5.png" class="" id="cupImage13">
 							</a>
 							<h1> </h1>
-							<button id="modalBtn13"><img src="${pageContext.request.contextPath }/resources/images/more-info-button.png" width="120" height="35" /></button>
+							<button id="modalBtn13">More Info</button>
 						</div>
 					</div>
 		</div>
@@ -348,7 +354,7 @@
 								<img src="${pageContext.request.contextPath }/resources/images/smoothie5.png" class="" id="cupImage14">
 							</a>
 							<h1> </h1>
-							<button id="modalBtn14"><img src="${pageContext.request.contextPath }/resources/images/more-info-button.png" width="120" height="35" /></button>
+							<button id="modalBtn14">More Info</button>
 						</div>
 					</div>
 		</div>
@@ -363,7 +369,7 @@
 								<img src="${pageContext.request.contextPath }/resources/images/tea5.png" class="" id="cupImage15">
 							</a>
 							<h1> </h1>
-							<button id="modalBtn15"><img src="${pageContext.request.contextPath }/resources/images/more-info-button.png" width="120" height="35" /></button>
+							<button id="modalBtn15">More Info</button>
 						</div>
 					</div>
 		</div>
