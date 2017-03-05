@@ -125,6 +125,13 @@ public class BoardServiceImpl implements BoardService {
 		BoardDto resultDto = boardDao.getData(dto);
 
 		List<CommentDto> commentList = commentDao.getList(num);
+		for(CommentDto tmp : commentList) {
+			if(id != null) {
+				if(id.equals(tmp.getWriter())) {
+					tmp.setMyCommnet(true);
+				}			
+			}
+		}
 		
 		// 자신이 쓴 글인지 확인
 		boolean isWriter = false;

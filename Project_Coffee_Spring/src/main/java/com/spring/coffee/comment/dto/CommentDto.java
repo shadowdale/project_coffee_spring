@@ -10,10 +10,12 @@ public class CommentDto {
 	private int deleteContent;
 	private String regdate;
 	
+	private boolean myCommnet; // 자신이 쓴 덧글인지 확인
+	
 	public CommentDto(){}
 
 	public CommentDto(int num, String writer, String content, String target_id, int ref_group, int comment_group,
-			int deleteContent, String regdate) {
+			int deleteContent, String regdate, boolean myCommnet) {
 		super();
 		this.num = num;
 		this.writer = writer;
@@ -23,6 +25,7 @@ public class CommentDto {
 		this.comment_group = comment_group;
 		this.deleteContent = deleteContent;
 		this.regdate = regdate;
+		this.myCommnet = myCommnet;
 	}
 
 	public int getNum() {
@@ -88,5 +91,13 @@ public class CommentDto {
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
-	
+
+	public boolean isMyCommnet() {
+		return myCommnet;
+	}
+
+	public void setMyCommnet(boolean myCommnet) {
+		this.myCommnet = myCommnet;
+	}
+
 }

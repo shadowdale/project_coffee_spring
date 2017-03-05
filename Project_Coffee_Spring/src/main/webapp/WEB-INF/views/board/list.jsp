@@ -175,7 +175,7 @@
 	
 		$(".upDeleteBtn").hide();
 	
-		// 검색기능 정보 저장
+		// 검색키워드 저장
 		var condition = "${condition}";
 		var keyword = "${keyword}";
 		
@@ -187,84 +187,104 @@
 				dataType:"Json",
 				data:{num:num, condition:"${condition}", keyword:"${keyword}"},
 				success:function(data){
+					// 게시글 제목 출력
 					$("#modalTilte").text(data.dto.title);
+					// 게시글 내용 출력
 					$("#modalContent").text(data.dto.content);
+					// 게시글 이미지 출력
 					$("#modalImg").attr("src","${pageContext.request.contextPath}/upload/"+data.dto.imgAddr);
-					if(data.dto.prevNum != 0){
+					// 이전글 있는지 확인
+					if(data.dto.prevNum != 0){ // 있을경우
 						$("#move-left").attr("href","javascript:modal("+data.dto.prevNum+")").show();
-					} else {
+					} else { // 없을 경우
 						$("#move-left").attr("href","javascript:").hide();
 					}
-					if(data.dto.nextNum != 0){
+					// 다음글 있는지 확인
+					if(data.dto.nextNum != 0){ // 있는 경우
 						$("#move-right").attr("href","javascript:modal("+data.dto.nextNum+")").show();
-					} else {
+					} else { // 없는 경우
 						$("#move-right").attr("href","javascript:").hide();
 					}
+					// 검색키워드를 변수에 저장
 					condition = data.dto.condition;
 					keyword = data.dto.keyword;
 					
+					// 게시글 덧글목록 출력 초기화
 					$("#modal-comment").find("div").remove();
-					
+					// 반복문 돌면서 덧글 출력
 					$(data.commentList).each(function(index, item){
+						// 덧글 수정시 초기값 저장할 변수
 						var commentSave = "";
+						// 덧글 작성자
 						var $writer = $("<strong/>").text(item.writer);
 						var $commentTop = $("<p/>").append($writer);
+						// 덧글 내용
 						var $content = $("<span/>").text(item.content);
-						var $commentUpdateformBtn = $("<a/>")
-													.text("수정")
-													.addClass("comUpBtn btn btn-default btn-xs")
-													.attr("href","javascript:")
-													.click(function() {
-														if($(this).text() == "수정") {
-															commentSave = $(this).parent().find("span").text();
-															$(this).text("취소");
-															$(this).parent().find("span").remove();
-															$(this).parent().append("<input/>").find("input").val(commentSave); 
-															$(this).parent().append(
-																$("<a/>")
-																.text("확인")
-																.addClass("btn btn-default btn-xs")
-																.attr("href","javascript:")
-																.addClass("send")
-																.click(function(){
-																	var commentContent = $(this).parent().find("input").val();
-																	var commentnum = $(this).parent().attr("commentNum");
-																	$.ajax({
-								 										url: "commentupdate.do",
-								 										method: "post",
-								 										data: {num:commentnum, content:commentContent},
-								 										success:function(data) {
-								 											// 로그인 되었을 경우
-								 											if(data.isLoginCheck) {
-																				$("div[commentNum="+commentnum+"]")
-																				.find(".comUpBtn")
-																				.text("수정")
-																				$("div[commentNum="+commentnum+"]").find("input").remove()
-																				$("div[commentNum="+commentnum+"]").find(".send").remove()
-																				$("div[commentNum="+commentnum+"]").append("<span/>").find("span").text(commentContent);
-								 											} else { // 로그인 안됬을 경우
-								 												$("div[commentNum="+commentnum+"]")
-																				.find(".comUpBtn")
-																				.text("수정")
-																				$("div[commentNum="+commentnum+"]").find("input").remove()
-																				$("div[commentNum="+commentnum+"]").find(".send").remove()
-								 												$("div[commentNum="+commentnum+"]").append("<span/>").find("span").text(commentSave);
-								 												alert("로그인이 필요합니다")
-								 											}
-								 										}
+						// 내가 쓴 덧글이라면
+						if(item.myCommnet) {
+							var $commentUpdateformBtn = $("<a/>")
+														.text("수정")
+														.addClass("comUpBtn btn btn-default btn-xs")
+														.attr("href","javascript:")
+														.click(function() { // 클릭 이벤트 등록
+															// 수정버튼을 눌렀을 경우
+															if($(this).text() == "수정") {
+																// 수정전 내용을 변수에 저장
+																commentSave = $(this).parent().find("span").text();
+																// 버튼을 취소로 변경
+																$(this).text("취소");
+																// 댓글 내용출력 내용을 삭제
+																$(this).parent().find("span").remove();
+																// 삭제된 내용출력 위치에 input으로 변경
+																$(this).parent().append("<input/>").find("input").val(commentSave); 
+																// 수정 확인 버튼 만들기
+																$(this).parent().append(
+																	$("<a/>")
+																	.text("확인")
+																	.addClass("btn btn-default btn-xs")
+																	.attr("href","javascript:")
+																	.addClass("send")
+																	.click(function(){ // 수정확인 버튼 이벤트 등록
+																		var commentContent = $(this).parent().find("input").val();
+																		var commentnum = $(this).parent().attr("commentNum");
+																		$.ajax({
+									 										url: "commentupdate.do",
+									 										method: "post",
+									 										data: {num:commentnum, content:commentContent},
+									 										success:function(data) {
+									 											// 로그인 되었을 경우
+									 											if(data.isLoginCheck) {
+																					$("div[commentNum="+commentnum+"]")
+																					.find(".comUpBtn")
+																					.text("수정")
+																					$("div[commentNum="+commentnum+"]").find("input").remove()
+																					$("div[commentNum="+commentnum+"]").find(".send").remove()
+																					$("div[commentNum="+commentnum+"]").append("<span/>").find("span").text(commentContent);
+									 											} else { // 로그인 안됬을 경우
+									 												$("div[commentNum="+commentnum+"]")
+																					.find(".comUpBtn")
+																					.text("수정")
+																					$("div[commentNum="+commentnum+"]").find("input").remove()
+																					$("div[commentNum="+commentnum+"]").find(".send").remove()
+									 												$("div[commentNum="+commentnum+"]").append("<span/>").find("span").text(commentSave);
+									 												
+									 											}
+									 										}
+									 									})
 								 									})
-							 									})
-							 								);
-														} else if($(this).text() == "취소"){
-															$(this).text("수정");
-															$(this).parent().find("input").remove();
-															$(this).parent().find(".send").remove();
-															$(this).parent().append("<span/>").find("span").text(commentSave); 
-														}
-													});
-						
-						var $commentDeleteBtn = $("<a/>").text("삭제").attr("href","javascript:commentDelete("+item.num+")").addClass("btn btn-default btn-xs");
-						
+								 								);
+															} else if($(this).text() == "취소"){ // 취소버튼을 눌렀을 경우
+																$(this).text("수정");
+																$(this).parent().find("input").remove();
+																$(this).parent().find(".send").remove();
+																$(this).parent().append("<span/>").find("span").text(commentSave); 
+															}
+														});
+							// 삭제 버튼 만들기
+							var $commentDeleteBtn = $("<a/>").text("삭제").attr("href","javascript:commentDelete("+item.num+")").addClass("btn btn-default btn-xs");
+							
+						};
+						// 생성된 버튼을 덧글에 등록
 						$("#modal-comment").append($("<div/>").append($commentTop)
 															  .append($commentDeleteBtn)
 															  .append($commentUpdateformBtn).append($("<br/>"))
@@ -274,9 +294,10 @@
 					$("#commentRef").val(num)
 					$("#commentTarget").val(data.writer)
 					$("#commentWriter").val(data.loginId)
-					if(data.isWriter) {
+					// 게시글 작성자를 확인해서
+					if(data.isWriter) { // 내가 쓴 글이라면
 						$(".upDeleteBtn").show();
-					} else {
+					} else { // 내가 쓴 글이 아니라면
 						$(".upDeleteBtn").hide();
 					}
 					$("#imgpop").modal("show");
@@ -409,7 +430,6 @@
 					} else {
 						alert("로그인이 필요합니다");
 					}
-					
 				}
 			})
 			return false;
