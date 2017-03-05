@@ -397,7 +397,7 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button class="btn btn-success"  data-dismiss="modal">확인</button>
+				<button class="btn btn-success" data-dismiss="modal">확인</button>
 			</div>
 		</div>
 	</div>
@@ -421,24 +421,27 @@
 	var text1;
 	var i=0;
 	var j=0;
-	var sentence = '';
+	var sentence = "";
 	var location1 =2;
-
-	var element = [["${pageContext.request.contextPath }/resources/images/coffee1.png","깔끔하고 상큼함이 특징인 시원한 아이스 커피","10","0.1","1g","0g","0g","150mg"],
-	["${pageContext.request.contextPath }/resources/images/smoothie1.png","순수한 요거트의 농후한 맛이 그대로 느껴지는 요거트스무디","250","5g","8g","206mg","33g","0mg"],
-	["${pageContext.request.contextPath }/resources/images/tea1.png","풍부한 향과 신선하고활기찬맛이 일품인 녹차","6","0g","1g","0mg","0.06g","27mg"],
-	["${pageContext.request.contextPath }/resources/images/coffee2.png"," 바닐라 시럽과 우유, 그리고 그 위에 얹어진 에스프레소 샷과 달콤한 카라멜 드리즐의 조화","200","4.5g","8g","100mg","22g","75mg"],
-	["${pageContext.request.contextPath }/resources/images/smoothie2.png","파인애플의 달콤, 새콤한 맛이 느껴지는 스무디","195","0g","19g","29mg","63g","0mg"],
-	["${pageContext.request.contextPath }/resources/images/tea2.png","깊고 진한 향과 풍미를 느낄 수있는 홍차","5.5","0g","0mg","0.01g","20mg"],
-	["${pageContext.request.contextPath }/resources/images/coffee3.png","벨벳 같은 우유 거품과 에스프레소 샷의 절묘한 조화!","110","3g","6g","70mg","8g","75mg"],
-	["${pageContext.request.contextPath }/resources/images/smoothie3.png","비타민이 풍부한 스트로베리의 상큼한 맛을 위한 스무디","169","0.2g","7g","59mg","18.5g","0mg"],
-	["${pageContext.request.contextPath }/resources/images/tea3.png","홍차의 풍부함과 베르가못의 산뜻함이 조화를 이루는 차","5.3","0g","0g","0g","0.03g","18mg"],
-	["${pageContext.request.contextPath }/resources/images/coffee4.png","모카시럽과 스팀밀크에 휘핑크림이 토핑된 에스프레소","290","9g","10g","105mg","25g","95mg"],
-	["${pageContext.request.contextPath }/resources/images/smoothie4.png","진한 다크초코의 달콤한 맛과 단백질 보충을 위한 스무디","189","1g","6g","98mg","20g","0mg"],
-	["${pageContext.request.contextPath }/resources/images/tea4.png","은은한 사과향과 안정감을 주는 향기와 부드러운 맛","300","5g","6g","110mg","36g","15mg"],
-	["${pageContext.request.contextPath }/resources/images/coffee5.png","강렬한 첫 맛, 풍부한 바디감, 깔끔한 뒷 맛이 특징인 커피의 심장","3","0g","0g","0mg","3mg","66mg"],
-	["${pageContext.request.contextPath }/resources/images/smoothie5.png"," 풍부한 베리 맛을 느낄 수 있는 단백질 보충 스무디","190","0g","19g","63mg","25.9","0mg"],
-	["${pageContext.request.contextPath }/resources/images/tea5.png","톡쏘는 멘톨향이 상쾌함과 기분전환에 도움을주는 허브차","5","0","0g","0mg","0g","0mg"]];
+	
+	var url = "${pageContext.request.contextPath }/resources/images/";
+	var element = [
+		[url+"coffee1.png","깔끔하고 상큼함이 특징인 시원한 아이스 커피","10","0.1","1g","0g","0g","150mg"],
+		[url+"smoothie1.png","순수한 요거트의 농후한 맛이 그대로 느껴지는 요거트스무디","250","5g","8g","206mg","33g","0mg"],
+		[url+"tea1.png","풍부한 향과 신선하고활기찬맛이 일품인 녹차","6","0g","1g","0mg","0.06g","27mg"],
+		[url+"coffee2.png"," 바닐라 시럽과 우유, 그리고 그 위에 얹어진 에스프레소 샷과 달콤한 카라멜 드리즐의 조화","200","4.5g","8g","100mg","22g","75mg"],
+		[url+"smoothie2.png","파인애플의 달콤, 새콤한 맛이 느껴지는 스무디","195","0g","19g","29mg","63g","0mg"],
+		[url+"tea2.png","깊고 진한 향과 풍미를 느낄 수있는 홍차","5.5","0g","0mg","0.01g","20mg"],
+		[url+"coffee3.png","벨벳 같은 우유 거품과 에스프레소 샷의 절묘한 조화!","110","3g","6g","70mg","8g","75mg"],
+		[url+"smoothie3.png","비타민이 풍부한 스트로베리의 상큼한 맛을 위한 스무디","169","0.2g","7g","59mg","18.5g","0mg"],
+		[url+"tea3.png","홍차의 풍부함과 베르가못의 산뜻함이 조화를 이루는 차","5.3","0g","0g","0g","0.03g","18mg"],
+		[url+"coffee4.png","모카시럽과 스팀밀크에 휘핑크림이 토핑된 에스프레소","290","9g","10g","105mg","25g","95mg"],
+		[url+"smoothie4.png","진한 다크초코의 달콤한 맛과 단백질 보충을 위한 스무디","189","1g","6g","98mg","20g","0mg"],
+		[url+"tea4.png","은은한 사과향과 안정감을 주는 향기와 부드러운 맛","300","5g","6g","110mg","36g","15mg"],
+		[url+"coffee5.png","강렬한 첫 맛, 풍부한 바디감, 깔끔한 뒷 맛이 특징인 커피의 심장","3","0g","0g","0mg","3mg","66mg"],
+		[url+"smoothie5.png"," 풍부한 베리 맛을 느낄 수 있는 단백질 보충 스무디","190","0g","19g","63mg","25.9","0mg"],
+		[url+"tea5.png","톡쏘는 멘톨향이 상쾌함과 기분전환에 도움을주는 허브차","5","0","0g","0mg","0g","0mg"]
+	];
 
 
 
