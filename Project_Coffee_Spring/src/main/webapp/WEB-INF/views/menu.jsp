@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.css"></link>
 	<style>
 		.container{
-				width: 100%;
+			width: 100%;
 		}
 		.transition{
 			-webkit-transition: all 0.7s ease;
@@ -15,26 +15,31 @@
    				 -o-transition: all 0.7s ease;
    			    	transition: all 0.7s ease;
 		}
-		.row{
+		.row-screen{
 			width: 100%;
 			position: relative;
 		}
-		.col{
-			height: 100%;
+		.row-screen > .col{
 			position: absolute;
 		}
+		.row-screen button{
+			border: 0;
+		}
+		.items{
+			height: 100%;
+		}
 		.subject{
+			margin-top: 95px;
 			position: fixed;
 			z-index: 100;
 			margin-left: 6%;
-			height: 10%;
 		}
 		.subject-index{
 			border:1px solid black;
 			border-radius: 5px;
 			margin: 0 30px;
 			height: 50px;
-			top: 170%;
+
 			padding-top: 10px;
 			font-weight: 200;
 			font-size: 20px;
@@ -107,109 +112,18 @@
 			margin-top: 43%;
 			left: 47%;
 		}
-		button{
-			border:0;
+		
+		.modal-dialog{
+			margin-top: 100px;
 		}
-		.enterance_header{
-			position: fixed;
-			width: 100%;
-			height: 90px;
-			background-color: rgba(255,255,255,0.5);
-			z-index: 103;
-			font-family: arial;
+		.modal-header, .modal-footer{
+			border: 0px;
 		}
-		.enterance_box1{
-			height: 35%;
-			width: 70%;
-			padding-left: 0%;
-			padding-top: 1%;
-			margin-left: 30.4%;
-		}
-		.enterance_title{
-			height: 100%;
-			font-weight: 500;
-			font-size: 15px;
-			color: rgba(100,200,230,1);
-			display: inline-block;
-		}
-		.enterance_title_text{
-			display: inline;
-			border-bottom:1px solid rgba(91,192,230,0.3);
-
-		}
-		.enterance_title_text:hover{
-			transition: all 0.4s;
-			color: rgba(250,50,50,0.8);
-			border-bottom:1px solid rgba(250,10,10,0.3);
-			cursor: pointer;
-		}
-		.enterance_box2{
-			height: 40%;
-			width: 100%;
-			padding-top: 6px; 
-			font-size: 17px;
-			font-weight: 200;
-		}
-		.enterance_box_text{
-			margin-left: 29.2%;
-		}
-		.line{
-			display: inline-block;
-			height: 1px;
-		}
-		#line1{
-			background: -webkit-linear-gradient(left,rgba(0,0,0,0) 0%,rgba(0,0,0,0) 29%,rgba(0,0,0,0.4) 39%, rgba(0,0,0,0.4) 63%,rgba(0,0,0,0) 73%,rgba(0,0,0,0) 100%);
-			width: 100%;			
-		}
-		#title1 .enterance_title_text{
-			font-family: arial;
-			font-weight: 600;
-			font-size: 17px;
-			color: black;
-			border-bottom: none;
-		}
-		.enterance_col{
-			height: 12%;
-			position: absolute;
-		}
-		.enterance_idClick{
-			position: relative;
-			background-color: rgba(250,100,100,0.2);
-			height: 80%;
-			width: 75%;
-			margin-left: 91%;
-
-		}
-		.enterance_idClick:hover{
-			background-color: rgba(250,100,100,0.3);
-		}
-		.enterance_idClick_contents{
-			opacity: 0;
-			margin-top: 4%;
-			margin-left: 2%;
-			margin-right: 3%;
-			padding-left: 5px;
-		}
-		.enterance_escape{
-			height: 100%;
-		}
-		.enterance_escape img{
-			height: 50%;
-			width: 100%;
-			margin-top: 60%;
-			opacity: 0.4;
-		}
-			
-		@media (max-width: 1200px){
-			.enterance_box{
-				margin-left: 30%;
-			}
-		}
-
 	</style>	
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/header.jsp" />
+	
 	<div class="subject col-xs-8 col-xs-push-2" >
 		<div class="subject-index col-xs-2 col-xs-push-1" id="rowBtn1">Coffee</div>
 		<div class="subject-index col-xs-2 col-xs-push-1" id="rowBtn2">Smoothie</div>
@@ -229,8 +143,8 @@
 
 
 <div class="container">
-	<div class="row">
-		<div class="col col-xs-8 col-xs-pull-10 a">
+	<div class="row row-screen">
+		<div class="col col-xs-8 col-xs-pull-10 a items">
 					<div class="box" style="text-align:center">
 						<div data-type="slide" class="" data-title="coffee">
 							<div class="b" style="text-align:center" id="coffeeName1">
@@ -244,7 +158,7 @@
 						</div>
 					</div>
 		</div>
-		<div class="col col-xs-8 col-xs-push-2 a">
+		<div class="col col-xs-8 col-xs-push-2 a items">
 					<div class="box" style="text-align:center">
 						<div data-type="slide" class="" data-title="coffee">
 							<div class="b" style="text-align:center" id="coffeeName2">
@@ -258,7 +172,7 @@
 						</div>
 					</div>
 		</div>
-		<div class="col col-xs-8 col-xs-push-10 a">
+		<div class="col col-xs-8 col-xs-push-10 a items">
 					<div class="box" style="text-align:center">
 						<div data-type="slide" class="" data-title="coffee">
 							<div class="b" style="text-align:center" id="coffeeName3">
@@ -273,8 +187,8 @@
 					</div>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col col-xs-8 col-xs-pull-10 a">
+	<div class="row row-screen">
+		<div class="col col-xs-8 col-xs-pull-10 a items">
 					<div class="box" style="text-align:center">
 						<div data-type="slide" class="" data-title="coffee">
 							<div class="b" style="text-align:center" id="coffeeName4">
@@ -288,7 +202,7 @@
 						</div>
 					</div>
 		</div>
-		<div class="col col-xs-8 col-xs-push-2 a">
+		<div class="col col-xs-8 col-xs-push-2 a items">
 					<div class="box" style="text-align:center">
 						<div data-type="slide" class="" data-title="coffee">
 							<div class="b" style="text-align:center" id="coffeeName5">
@@ -302,7 +216,7 @@
 						</div>
 					</div>
 		</div>
-		<div class="col col-xs-8 col-xs-push-10 a">
+		<div class="col col-xs-8 col-xs-push-10 a items">
 					<div class="box" style="text-align:center">
 						<div data-type="slide" class="" data-title="coffee">
 							<div class="b" style="text-align:center" id="coffeeName6">
@@ -317,8 +231,8 @@
 					</div>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col col-xs-8 col-xs-pull-10 a">
+	<div class="row row-screen">
+		<div class="col col-xs-8 col-xs-pull-10 a items">
 					<div class="box" style="text-align:center">
 						<div data-type="slide" class="" data-title="coffee">
 							<div class="b" style="text-align:center" id="coffeeName7">
@@ -332,7 +246,7 @@
 						</div>
 					</div>
 		</div>
-		<div class="col col-xs-8 col-xs-push-2 a">
+		<div class="col col-xs-8 col-xs-push-2 a items">
 					<div class="box" style="text-align:center">
 						<div data-type="slide" class="" data-title="coffee">
 							<div class="b" style="text-align:center" id="coffeeName8">
@@ -346,7 +260,7 @@
 						</div>
 					</div>
 		</div>
-		<div class="col col-xs-8 col-xs-push-10 a">
+		<div class="col col-xs-8 col-xs-push-10 a items">
 					<div class="box" style="text-align:center">
 						<div data-type="slide" class="" data-title="coffee">
 							<div class="b" style="text-align:center" id="coffeeName9">
@@ -361,8 +275,8 @@
 					</div>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col col-xs-8 col-xs-pull-10 a">
+	<div class="row row-screen">
+		<div class="col col-xs-8 col-xs-pull-10 a items">
 					<div class="box" style="text-align:center">
 						<div data-type="slide" class="" data-title="coffee">
 							<div class="b" style="text-align:center" id="coffeeName10">
@@ -376,12 +290,13 @@
 						</div>
 					</div>
 		</div>
-		<div class="col col-xs-8 col-xs-push-2 a">
+		<div class="col col-xs-8 col-xs-push-2 a items">
 					<div class="box" style="text-align:center">
 						<div data-type="slide" class="" data-title="coffee">
 							<div class="b" style="text-align:center" id="coffeeName11">
-									<h3 class="sub-title">Dark Chocolate Smoothie</h3>
-							</div><h1> </h1>
+								<h3 class="sub-title">Dark Chocolate Smoothie</h3>
+							</div>
+							<h1> </h1>
 							<a href="#" class="">
 								<img src="${pageContext.request.contextPath }/resources/images/smoothie4.png" class="" id="cupImage11">
 							</a>
@@ -390,12 +305,13 @@
 						</div>
 					</div>
 		</div>
-		<div class="col col-xs-8 col-xs-push-10 a">
+		<div class="col col-xs-8 col-xs-push-10 a items">
 					<div class="box" style="text-align:center">
 						<div data-type="slide" class="" data-title="coffee">
 							<div class="b" style="text-align:center" id="coffeeName12">
-									<h3 class="sub-title">Chamomile</h3>
-							</div><h1> </h1>
+								<h3 class="sub-title">Chamomile</h3>
+							</div>
+							<h1> </h1>
 							<a href="#" class="">
 								<img src="${pageContext.request.contextPath }/resources/images/tea4.png" class="" id="cupImage12">
 							</a>
@@ -405,13 +321,14 @@
 					</div>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col col-xs-8 col-xs-pull-10 a">
+	<div class="row row-screen">
+		<div class="col col-xs-8 col-xs-pull-10 a items">
 					<div class="box" style="text-align:center">
 						<div data-type="slide" class="" data-title="coffee">
 							<div class="b" style="text-align:center" id="coffeeName13">
-									<h3 class="sub-title">Cafe Mocha</h3>
-							</div><h1> </h1>
+								<h3 class="sub-title">Cafe Mocha</h3>
+							</div>
+							<h1> </h1>
 							<a href="#" class="">
 								<img src="${pageContext.request.contextPath }/resources/images/coffee5.png" class="" id="cupImage13">
 							</a>
@@ -420,12 +337,13 @@
 						</div>
 					</div>
 		</div>
-		<div class="col col-xs-8 col-xs-push-2 a">
+		<div class="col col-xs-8 col-xs-push-2 a items">
 					<div class="box" style="text-align:center">
 						<div data-type="slide" class="" data-title="coffee">
 							<div class="b" style="text-align:center" id="coffeeName14">
-									<h3 class="sub-title">Blueberry Smoothie</h3>
-							</div><h1> </h1>
+								<h3 class="sub-title">Blueberry Smoothie</h3>
+							</div>
+							<h1> </h1>
 							<a href="#" class="">
 								<img src="${pageContext.request.contextPath }/resources/images/smoothie5.png" class="" id="cupImage14">
 							</a>
@@ -434,12 +352,13 @@
 						</div>
 					</div>
 		</div>
-		<div class="col col-xs-8 col-xs-push-10 a">
+		<div class="col col-xs-8 col-xs-push-10 a items">
 					<div class="box" style="text-align:center">
 						<div data-type="slide" class="" data-title="coffee">
 							<div class="b" style="text-align:center" id="coffeeName15">
-									<h3 class="sub-title">Pepper Mint</h3>
-							</div><h1> </h1>
+								<h3 class="sub-title">Pepper Mint</h3>
+							</div>
+							<h1> </h1>
 							<a href="#" class="">
 								<img src="${pageContext.request.contextPath }/resources/images/tea5.png" class="" id="cupImage15">
 							</a>
@@ -529,7 +448,7 @@
 	var j=0;
 	var sentence = '';
 	var location1 =2;
-	var element1 = ["${pageContext.request.contextPath }/resources/images/coffee1.png","깔끔하고 상큼함이 특징인 시원한 아이스 커피","10","0.1","1g","0g","0g","150mg"];
+	var element1 =["${pageContext.request.contextPath }/resources/images/coffee1.png","깔끔하고 상큼함이 특징인 시원한 아이스 커피","10","0.1","1g","0g","0g","150mg"];
 	var element2 =["${pageContext.request.contextPath }/resources/images/smoothie1.png","순수한 요거트의 농후한 맛이 그대로 느껴지는 요거트스무디","250","5g","8g","206mg","33g","0mg"];
 	var element3 =["${pageContext.request.contextPath }/resources/images/tea1.png","풍부한 향과 신선하고활기찬맛이 일품인 녹차","6","0g","1g","0mg","0.06g","27mg"];
 	var element4 =["${pageContext.request.contextPath }/resources/images/coffee2.png"," 바닐라 시럽과 우유, 그리고 그 위에 얹어진 에스프레소 샷과 달콤한 카라멜 드리즐의 조화","200","4.5g","8g","100mg","22g","75mg"];
@@ -548,12 +467,12 @@
 
 
 
-	$(".row").css("height",winHeight);
+	$(".row-screen").css("height",winHeight);
 
 	$(window).resize(function(){
 		winHeight = window.innerHeight;
 		winwidth = window.innerWidth;
-		$(".row").css("height",winHeight);
+		$(".row-screen").css("height", winHeight);
 	});
 	move();
 	textChange();
@@ -766,7 +685,7 @@
 	
 	$('html, body').css({'overflow': 'hidden', 'height': '100%'});
 
-	$('#element').on('scroll touchmove mousewheel', function(e) {
+	$("#element").on('scroll touchmove mousewheel', function(e) {
 	   e.preventDefault();
 	   e.stopPropagation(); 
 	   return false;
