@@ -234,12 +234,23 @@
 								 										method: "post",
 								 										data: {num:commentnum, content:commentContent},
 								 										success:function(data) {
-																			$("div[commentNum="+commentnum+"]")
-																			.find(".comUpBtn")
-																			.text("수정")
-																			$("div[commentNum="+commentnum+"]").find("input").remove()
-																			$("div[commentNum="+commentnum+"]").find(".send").remove()
-																			$("div[commentNum="+commentnum+"]").append("<span/>").find("span").text(commentContent);
+								 											// 로그인 되었을 경우
+								 											if(data.isLoginCheck) {
+																				$("div[commentNum="+commentnum+"]")
+																				.find(".comUpBtn")
+																				.text("수정")
+																				$("div[commentNum="+commentnum+"]").find("input").remove()
+																				$("div[commentNum="+commentnum+"]").find(".send").remove()
+																				$("div[commentNum="+commentnum+"]").append("<span/>").find("span").text(commentContent);
+								 											} else { // 로그인 안됬을 경우
+								 												$("div[commentNum="+commentnum+"]")
+																				.find(".comUpBtn")
+																				.text("수정")
+																				$("div[commentNum="+commentnum+"]").find("input").remove()
+																				$("div[commentNum="+commentnum+"]").find(".send").remove()
+								 												$("div[commentNum="+commentnum+"]").append("<span/>").find("span").text(commentSave);
+								 												alert("로그인이 필요합니다")
+								 											}
 								 										}
 								 									})
 							 									})
@@ -351,22 +362,6 @@
 			return false;
 		});
 		
-/*		
-		// 글쓰기 이벤트 처리
-		$("#newContentForm").click(function() {
-			$.ajax({
-				url: "../users/logincheck.do",
-				method: "get",
-				success: function(data){
-					if(data.isLoginCheck) {
-						location.href = "private/insertform.do";
-					} else {
-						loginBoxMove();
-					}
-				}
-			})
-		})
-*/
 		// 게시글 삭제
 		$("#contentDeleteBtn").click(function() {
 			var isDelete=confirm("글을 삭제 하시겠습니까?");
@@ -409,7 +404,12 @@
 				method : "post",
 				data : {num:num},
 				success : function(data) {
-					$("div[commentNum="+num+"]").remove();
+					if(date.isLoginCheck) {
+						$("div[commentNum="+num+"]").remove();
+					} else {
+						alert("로그인이 필요합니다");
+					}
+					
 				}
 			})
 			return false;

@@ -24,7 +24,7 @@ public class CommentController {
 	// 댓글 입력 요청 처리
 	@RequestMapping("/board/commentinsert")
 	@ResponseBody
-	public Map<String, Object> commentInsert(HttpSession session, @ModelAttribute CommentDto dto) {
+	public Map<String, Object> commentAuthInsert(HttpSession session, @ModelAttribute CommentDto dto) {
 		dto.setWriter((String)session.getAttribute("id"));
 		int num = commentService.insert(dto);
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -38,10 +38,10 @@ public class CommentController {
 	// 댓글 삭제 요청 처리
 	@RequestMapping("/board/commentdelete")
 	@ResponseBody
-	public Map<String, Object> commentDelete(@RequestParam int num) {
+	public Map<String, Object> commentAuthDelete(@RequestParam int num) {
 		commentService.delete(num);
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("isDeleteCheck", true);
+		map.put("isLoginCheck", true);
 		
 		return map;
 	}
@@ -49,12 +49,10 @@ public class CommentController {
 	// 댓글 수정 요청 처리
 	@RequestMapping("/board/commentupdate")
 	@ResponseBody
-	public Map<String, Object> commentUpdate(@ModelAttribute CommentDto dto) {
-		System.out.println(dto.getNum());
-		System.out.println(dto.getContent());
+	public Map<String, Object> commentAuthUpdate(@ModelAttribute CommentDto dto) {
 		commentService.update(dto);
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("isSuccess", true);
+		map.put("isLoginCheck", true);
 		return map;
 	}
 }

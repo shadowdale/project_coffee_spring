@@ -49,7 +49,7 @@ public class LoginAspect {
 		}
 	}
 	
-	@Around("execution(* commentInsert(..))")
+	@Around("execution(* commentAuth*(..))")
 	public Object loginCheckReturnMap(ProceedingJoinPoint joinPoint) throws Throwable {
 		
 		// 컨트롤러에 aop를 적용했을 때 HttpServletRequest 참조값 얻어오기
@@ -59,10 +59,6 @@ public class LoginAspect {
 		// 세션객체의 참조값 얻어오기
 		HttpSession session = request.getSession();
 		if(session.getAttribute("id") == null ) {
-			
-			//원래 요청 uri 정보 얻어오기
-			String uri = request.getRequestURI();
-			String path = "/board/list.do?uri="+uri;
 			
 			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("isLoginCheck", false);
