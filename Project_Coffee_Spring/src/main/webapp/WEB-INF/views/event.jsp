@@ -10,16 +10,23 @@
 	<script src="${pageContext.request.contextPath }/resources/js/jquery.imageScroll.js"></script>
 	<style>
         body {
-        	 margin: 0; padding: 0;
+        	 margin: 0;
+        	 padding: 0;
         }
         section {
-        	 padding: 5% 15%; margin: 0 auto;
+        	 padding: 5% 15%; 
+        	 margin: 0 auto;
         }
         .left-col { 
-        		float: left; position: relative; z-index: 1; width: 10%; min-height: 1000px; background-color: #666; 
+        	float: left; 
+        	position: relative; 
+        	z-index: 1; 
+        	width: 10%; 
+        	min-height: 1000px; 
+        	background-color: #666; 
         }
         .right-col { 
-        		overflow: hidden; 
+        	overflow: hidden; 
         }
         li{
         	display: inline-block;

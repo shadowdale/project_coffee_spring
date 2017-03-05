@@ -7,6 +7,12 @@
 	<title>Cooffee_Board</title>
 	<link href="${pageContext.request.contextPath }/resources/css/bootstrap.css" rel="stylesheet">
 	<link href="${pageContext.request.contextPath }/resources/css/board.css" rel="stylesheet">
+	<style type="text/css">
+		.content-title {
+			margin-top: 10px;
+			margin-bottom: 20px;
+		}
+	</style>
 	
 </head>
 <body>
@@ -38,7 +44,7 @@
 					<a href="javascript:modal(${tmp.num })">
 						<img class="img-responsive img-thumbnail" src="${pageContext.request.contextPath}/upload/${tmp.imgAddr}">
 					</a>
-					<h3>
+					<h3 class="content-title">
 						<a href="javascript:modal(${tmp.num })">${tmp.title }</a>
 					</h3>
 				</div>
