@@ -14,4 +14,5 @@ public interface UsersService {
 	public void delete(String id);
 	public ModelAndView getList();
 	public Map<String, Object> canUseId(String id);
+	public boolean suspended(UsersDto dto, boolean isChecked);
 }

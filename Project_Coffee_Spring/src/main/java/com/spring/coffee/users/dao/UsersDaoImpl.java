@@ -60,4 +60,10 @@ public class UsersDaoImpl implements UsersDao{
 		}
 	}
 
+	@Override
+	public boolean suspended(UsersDto usersDto) {
+		session.update("users.suspended", usersDto);
+		return false;
+	}
+
 }

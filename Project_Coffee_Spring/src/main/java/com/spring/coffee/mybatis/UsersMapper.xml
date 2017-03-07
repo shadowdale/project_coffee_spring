@@ -12,7 +12,7 @@
 	</select>
 	
 	<select id="getList" resultType="usersDto">
-		SELECT id, pwd, email, <include refid="dateFormat"/>
+		SELECT id, pwd, email, suspended, <include refid="dateFormat"/>
 		FROM coffee_login
 	</select>
 	
@@ -44,4 +44,10 @@
 		FROM coffee_login
 		WHERE id=#{id}
 	</select>
+	
+	<update id="suspended" parameterType="usersDto">
+		UPDATE coffee_login
+		SET suspended=#{suspended}
+		WHERE id=#{id}
+	</update>
 </mapper>

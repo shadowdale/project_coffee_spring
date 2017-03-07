@@ -22,6 +22,7 @@
 						<th>아이디</th>
 						<th>이메일</th>
 						<th>가입일</th>
+						<th>관리</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -30,11 +31,37 @@
 						<td>${tmp.id }</td>
 						<td>${tmp.email }</td>
 						<td>${tmp.regdate }</td>
+						<td><input type="checkbox" name="suspended" value="${tmp.id }" <c:if test="${tmp.suspended eq '1' }">checked</c:if>/></td>
 					</tr>
 				</c:forEach>
 				</tbody>
 			</table>
 		</div>
 	</div>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.1.1.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.js"></script>
+	<script>
+		
+	$("input:checkbox").each(function(){
+		$(this).on("change", function(){
+			var isChecked = $(this)[0].checked;
+			var id = $(this).val();
+			var ele = $(this);
+			$.ajax({
+				url: "suspended.do",
+				method: "post",
+				data: {id:id, isChecked: isChecked},
+				success: function(data){
+/* 					if(data.isChecked) {
+						ele.attr("checked", "checked");
+					} else {
+						ele.removeAttr("checked");
+					} */
+				}
+			})
+		})
+	});
+	
+	</script>
 </body>
 </html>

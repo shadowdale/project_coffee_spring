@@ -131,4 +131,15 @@ public class UsersController{
 		
 		return mView;
 	}
+	
+	// 회원 계정 관리
+	@RequestMapping("/users/private/suspended")
+	@ResponseBody
+	public Map<Object, String> suspended(@ModelAttribute UsersDto dto , @RequestParam boolean isChecked) {
+		usersService.suspended(dto, isChecked);
+		
+		Map<Object, String> map = new HashMap<Object, String>();
+		map.put("isChecked", "");
+		return map;
+	}
 }

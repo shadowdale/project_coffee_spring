@@ -5,9 +5,19 @@ public class UsersDto {
 	private String pwd;
 	private String email;
 	private String regdate;
+	private int suspended;
 
 	public UsersDto(){}
-	
+
+	public UsersDto(String id, String pwd, String email, String regdate, int suspended) {
+		super();
+		this.id = id;
+		this.pwd = pwd;
+		this.email = email;
+		this.regdate = regdate;
+		this.suspended = suspended;
+	}
+
 	public String getId() {
 		return id;
 	}
@@ -40,11 +50,12 @@ public class UsersDto {
 		this.regdate = regdate;
 	}
 
-	public UsersDto(String id, String pwd, String email, String regdate) {
-		super();
-		this.id = id;
-		this.pwd = pwd;
-		this.email = email;
-		this.regdate = regdate;
+	public int getSuspended() {
+		return suspended;
 	}
+
+	public void setSuspended(int suspended) {
+		this.suspended = suspended;
+	}
+	
 }
