@@ -1,5 +1,6 @@
 package com.spring.coffee.users.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -16,10 +17,7 @@ public class UsersDaoImpl implements UsersDao{
 	
 	@Override
 	public void insert(UsersDto dto) {
-		session.insert("users.insert", dto);
-		System.out.println(dto.getId());
-		System.out.println(dto.getPwd());
-		
+		session.insert("users.insert", dto); 
 	}
 
 	@Override
@@ -46,8 +44,9 @@ public class UsersDaoImpl implements UsersDao{
 
 	@Override
 	public List<UsersDto> getList() {
-		// TODO Auto-generated method stub
-		return null;
+		List<UsersDto> list = new ArrayList<UsersDto>();
+		list = session.selectList("users.getList");
+		return list;
 	}
 
 	@Override

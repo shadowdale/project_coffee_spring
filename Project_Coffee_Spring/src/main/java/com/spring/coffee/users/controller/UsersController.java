@@ -51,12 +51,19 @@ public class UsersController{
 	public Map<String, Object> signin(HttpSession session, @ModelAttribute UsersDto dto) {
 		// 세션을 초기화 한다
 		session.removeAttribute("id");
+		session.removeAttribute("admin");
 		// 입력된 아이디와 비밀번호를 확인한다.
 		boolean isValid = usersService.isValid(dto);
+		
 		// 입력된 값이 참이라면
 		if(isValid) {
 			// 세션에 아이디를 저장한다.
 			session.setAttribute("id", dto.getId());
+			// 로그인 사용자가 관리자인지 확인해서
+			if(dto.getId().equals("gura")) {
+				// 관리자라면
+				session.setAttribute("admin", true);
+			}
 		}
 		// Map에 담아서
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -113,6 +120,15 @@ public class UsersController{
 		session.invalidate();
 		ModelAndView mView = new ModelAndView();
 		mView.setViewName("redirect:/board/list.do");
+		return mView;
+	}
+	
+	// 회원 목록보기 폼 요청 처리
+	@RequestMapping("/users/private/list")
+	public ModelAndView getList() {
+		ModelAndView mView = usersService.getList();
+		mView.setViewName("/users/private/user-list");
+		
 		return mView;
 	}
 }

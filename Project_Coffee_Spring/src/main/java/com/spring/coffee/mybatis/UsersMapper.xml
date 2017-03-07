@@ -11,6 +11,11 @@
 		WHERE id=#{id}
 	</select>
 	
+	<select id="getList" resultType="usersDto">
+		SELECT id, pwd, email, <include refid="dateFormat"/>
+		FROM coffee_login
+	</select>
+	
 	<update id="update" parameterType="usersDto">
 		UPDATE coffee_login
 		SET pwd=#{pwd}, email=#{email}

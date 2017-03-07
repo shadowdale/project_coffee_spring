@@ -78,9 +78,11 @@ public class UsersServiseImpl implements UsersService {
 	}
 
 	@Override
-	public List<UsersDto> getList() {
-		// TODO Auto-generated method stub
-		return null;
+	public ModelAndView getList() {
+		List<UsersDto> list = usersDao.getList();
+		ModelAndView mView = new ModelAndView();
+		mView.addObject("list", list);
+		return mView;
 	}
 
 	@Override

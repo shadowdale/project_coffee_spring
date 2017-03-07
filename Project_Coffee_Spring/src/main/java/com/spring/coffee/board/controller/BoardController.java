@@ -111,7 +111,6 @@ public class BoardController {
 	@RequestMapping("/board/update")
 	public ModelAndView authUpdate(HttpServletRequest request, @ModelAttribute BoardDto dto) {
 		
-		
 		// 파라미터로 전송된 값을 전달한다.
 		boardService.update(request, dto);
 		

@@ -1,6 +1,5 @@
 package com.spring.coffee.users.service;
 
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.web.servlet.ModelAndView;
@@ -13,6 +12,6 @@ public interface UsersService {
 	public ModelAndView getData(String id);
 	public void update(UsersDto dto);
 	public void delete(String id);
-	public List<UsersDto> getList();
+	public ModelAndView getList();
 	public Map<String, Object> canUseId(String id);
 }
