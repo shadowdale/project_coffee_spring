@@ -1,22 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link href="${pageContext.request.contextPath }/resources/css/headers.css" rel="stylesheet">
+
 	<div class="enterance_header">
 		<div class="enterance_col col col-xs-9">
 			<div class="enterance_box enterance_box1 row">
-				<div class="enterance_title" id="title2" style="width:13.7%"><a class="enterance_title_text" href="${pageContext.request.contextPath }/menu.do">MENU</a></div>
-				<div class="enterance_title" id="title3" style="width:15.5%"><a class="enterance_title_text" href="${pageContext.request.contextPath }/recipe.do">RECIPE</a></div>
-				<div class="enterance_title" id="title1" style="width:20.6%"><a class="enterance_title_text" href="${pageContext.request.contextPath }/main.do">COFFEE BOX</a></div>
-				<div class="enterance_title" id="title4" style="width:15.4%"><a class="enterance_title_text" href="${pageContext.request.contextPath }/board/list.do">GALLARY</a></div>
-				<div class="enterance_title" id="title4" style="width:5%"><a class="enterance_title_text" href="${pageContext.request.contextPath }/event.do">EVENT</a></div>
+				<div class="enterance_title" id="title2" style="width:13.7%">
+					<a class="enterance_title_text" href="${pageContext.request.contextPath }/menu.do">MENU</a>
+				</div>
+				<div class="enterance_title" id="title3" style="width:15.5%">
+					<a class="enterance_title_text" href="${pageContext.request.contextPath }/recipe.do">RECIPE</a>
+				</div>
+				<div class="enterance_title" id="title1" style="width:20.6%">
+					<a class="enterance_title_text" href="${pageContext.request.contextPath }/main.do">COFFEE BOX</a>
+				</div>
+				<div class="enterance_title" id="title4" style="width:15.4%">
+					<a class="enterance_title_text" href="${pageContext.request.contextPath }/board/list.do">BOARD</a>
+				</div>
+				<div class="enterance_title" id="title4" style="width:5%">
+					<a class="enterance_title_text" href="${pageContext.request.contextPath }/event.do">EVENT</a>
+				</div>
 			</div>
-			<span class="line" id="line1"></span><span class="line" id="line2"></span><span class="line" id="line3"></span><span class="line" id="line4"></span>
+			<span class="line line-1"></span><span class="line line-2"></span><span class="line line-3"></span><span class="line line-4"></span>
 			<div class="enterance_box enterance_box2 row">
 				<div class="enterance_box_text col col-xs-4">A simple, stunning, powerful Object</div>
 			</div>
 		</div>
 		<div class="enterance_col col col-xs-3">
-			<div class="enterance_idClick" isHide="0">
+			<div class="enterance_idClick" data-hide="0">
 				<div class="enterance_escape col col-xs-2">
 					<img src="${pageContext.request.contextPath }/resources/images/loginIcon.png">
 				</div>
@@ -104,7 +115,7 @@
 	
 		var clickNumCount=0;
 		$(".enterance_escape").click(function(){
-			if($("div[isHide]").attr("isHide")==0){
+			if($("div[data-hide]").attr("data-hide")==0){
 				$(".enterance_idClick")
 				.css("background-color","rgba(250,100,100,0.1)")
 				.css("transition","all 0.4s")
@@ -114,9 +125,9 @@
 				.css("transition","all 0.6s");
 				$(this)
 				.css("background-color","rgba(250,100,100,0.2)");
-				$("div[isHide]").attr("isHide",1)
+				$("div[data-hide]").attr("data-hide",1)
 
-			}else if($("div[isHide]").attr("isHide")==1){
+			}else if($("div[data-hide]").attr("data-hide")==1){
 				$(".enterance_idClick")
 				.css("background-color","rgba(250,100,100,0.2)")
 				.css("transition","all 0.4s")
@@ -126,7 +137,7 @@
 				.css("transition","all 0.4s");
 				$(this)
 				.css("background-color","rgba(250,100,100,0.2)");
-				$("div[isHide]").attr("isHide",0)
+				$("div[data-hide]").attr("data-hide",0)
 			}
 			clickNumCount++;
 		}).mouseover(function(){

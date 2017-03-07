@@ -1,19 +1,21 @@
-@CHARSET "UTF-8";
 
 html, body{
 	background-color:rgba(10,10,50,0.05);
+
 }
 .enterance_header{
 	position: fixed;
 	width: 100%;
-	height: 90px;
+	height: 75px;
 	background-color: rgba(255,255,255,0.8);
 	font-family: arial;
 	z-index:999999;
+	font-size: 10px;
 }
 .enterance_col{
 	height: 100%;
 	padding:0px;
+	font-size: 13px;
 }
 .enterance_box{
 	position: relative;
@@ -24,7 +26,7 @@ html, body{
 .enterance_box1{
 	height: 35%;
 	width: 75%;
-	padding-top: 1%;
+	padding-top: 5px;;
 	padding-left: 0%;
 }
 .enterance_title{
@@ -47,15 +49,13 @@ html, body{
 	cursor: pointer;
 }
 .enterance_box.enterance_box2{
-	height: 40%;
 	width: 60%;
 	margin-left: 41.1%;
-	font-size: 17px;
+	font-size: 15px;
 	font-weight: 200;
 }
 .enterance_box_text{
 	width: 100%;
-	padding-top: 0.5%;
 	padding-left: 0;
 	text-align: left !important;
 }
@@ -63,21 +63,21 @@ html, body{
 	display: inline-block;
 	height: 1px;
 }
-#line1{
+.line.line-1{
 	background-color: rgba(0,0,0,0);
-	width: 50%;
+	width: 41.1%;
 }
-#line2{
+.line.line-2{
 	background: linear-gradient(to right,rgba(0,0,0,0),rgba(0,0,0,0.4));
 	width: 10%;			
 }
-#line3{
+.line.line-3{
 	background-color: rgba(0,0,0,0.4);
 	width: 30%;
 }
-#line4{
+.line.line-4{
 	background: linear-gradient(to left,rgba(0,0,0,0),rgba(0,0,0,0.4));
-	width: 10%;
+	width: 18.9%;
 }
 #title1 a.enterance_title_text{
 	font-family: arial;
@@ -102,8 +102,7 @@ html, body{
 	width:50px;
 }
 .enterance_escape img{
-	height: 60%;
-	margin-top:35%;
+	margin-top:22%;
 	width: 100%;
 	opacity: 0.4;
 }
@@ -112,8 +111,8 @@ html, body{
 }
 .enterance_idClick_contents{
 	opacity: 0;
-	margin-top: 12px;
-	margin-left: 10px;
+	margin-top: 8px;
+	margin-left: 11px;
 
 }
 .enterance_idClick2{
@@ -149,10 +148,10 @@ html, body{
 	margin-top: 8px;
 }
 #info{
-	font-size:20px;
+	font-size:14px;
 	text-align:center;
 }
 .pop-text{
 	text-align:center;
-	padding-top:15px;
+	padding-top:11px;
 }
