@@ -77,15 +77,19 @@
 				method:"post",
 				data:{id:id, pwd:pwd},
 				success:function(data){
-					if(data.isValid){
+					if(data.isValid && !data.isSuspended){
 						alert(id+"님 로그인 되었습니다.");
 						$("#signinForm").hide();
 						$("#signinForm2").hide();
 						$("#info").show();
 						$("#user").text(id);
 						$("#newContentForm").attr("data-stat","1")
+					} else if(data.isValid && data.isSuspended){
+						alert("계정이 정지 되었습니다.");
+						
 					} else {
 						alert("로그인에 실패 하셨습니다");
+						
 					}
 				}
 			});

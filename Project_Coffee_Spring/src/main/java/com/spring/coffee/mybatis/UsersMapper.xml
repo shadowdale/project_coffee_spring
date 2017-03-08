@@ -6,7 +6,7 @@
 	</sql>
 	
 	<select id="getData" parameterType="string" resultType="usersDto">
-		SELECT id, pwd, email, <include refid="dateFormat"/>
+		SELECT id, pwd, email, suspended, <include refid="dateFormat"/>
 		FROM coffee_login
 		WHERE id=#{id}
 	</select>

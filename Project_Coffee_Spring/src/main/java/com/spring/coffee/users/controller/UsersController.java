@@ -53,10 +53,10 @@ public class UsersController{
 		session.removeAttribute("id");
 		session.removeAttribute("admin");
 		// 입력된 아이디와 비밀번호를 확인한다.
-		boolean isValid = usersService.isValid(dto);
+		Map<String, Object> map = usersService.isValid(dto);
 		
 		// 입력된 값이 참이라면
-		if(isValid) {
+		if((Boolean)map.get("isValid") && !(Boolean)map.get("isSuspended")) {
 			// 세션에 아이디를 저장한다.
 			session.setAttribute("id", dto.getId());
 			// 로그인 사용자가 관리자인지 확인해서
@@ -65,9 +65,6 @@ public class UsersController{
 				session.setAttribute("admin", true);
 			}
 		}
-		// Map에 담아서
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("isValid", isValid);
 		// 리턴해준다.
 		return map;
 	}
