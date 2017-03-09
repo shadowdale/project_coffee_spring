@@ -28,7 +28,7 @@
 				<tbody>
 				<c:forEach var="tmp" items="${list }">
 					<tr>
-						<td>${tmp.id }</td>
+						<td><a href="${pageContext.request.contextPath }/board/list.do?condition=writer&keyword=${tmp.id }">${tmp.id }</a></td>
 						<td>${tmp.email }</td>
 						<td>${tmp.regdate }</td>
 						<td><input type="checkbox" name="suspended" value="${tmp.id }" <c:if test="${tmp.suspended eq '1' }">checked</c:if>/></td>
@@ -41,8 +41,9 @@
 	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.1.1.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.js"></script>
 	<script>
-		
+	// checkbox에 이벤트 등록
 	$("input:checkbox").each(function(){
+		// change 이벤트가 발생할 경우
 		$(this).on("change", function(){
 			var isChecked = $(this)[0].checked;
 			var id = $(this).val();
@@ -52,11 +53,7 @@
 				method: "post",
 				data: {id:id, isChecked: isChecked},
 				success: function(data){
-/* 					if(data.isChecked) {
-						ele.attr("checked", "checked");
-					} else {
-						ele.removeAttr("checked");
-					} */
+
 				}
 			})
 		})

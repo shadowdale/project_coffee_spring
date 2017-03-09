@@ -32,9 +32,10 @@ public class BoardServiceImpl implements BoardService {
 	@Autowired
 	private CommentDao commentDao;
 	
+	// 글 목록을 불러올 메소드
 	@Override
 	public ModelAndView getList(HttpServletRequest request, int pageNum) {
-		
+		// 검색과 관련된 파라미터를 읽어와 본다.
 		String keyword = request.getParameter("keyword");
 		String condition = request.getParameter("condition");
 		
@@ -94,6 +95,7 @@ public class BoardServiceImpl implements BoardService {
 		return mView;
 	}
 
+	// 글 하나의 정보를 불러올 메소드
 	@Override
 	public ModelAndView getData(HttpServletRequest request, int num) {
 		// 세션에서 id를 읽어 온다.
@@ -118,20 +120,10 @@ public class BoardServiceImpl implements BoardService {
 			request.setAttribute("keyword", keyword);
 		}
 		
+		// 불러올 글번호를 Dto에 담는다.
 		dto.setNum(num);
 		
-		ModelAndView mView = new ModelAndView();
-		
 		BoardDto resultDto = boardDao.getData(dto);
-
-		List<CommentDto> commentList = commentDao.getList(num);
-		for(CommentDto tmp : commentList) {
-			if(id != null) {
-				if(id.equals(tmp.getWriter())) {
-					tmp.setMyCommnet(true);
-				}			
-			}
-		}
 		
 		// 자신이 쓴 글인지 확인
 		boolean isWriter = false;
@@ -139,15 +131,30 @@ public class BoardServiceImpl implements BoardService {
 			isWriter = true;				
 		}
 		
+		// 댓글을 받아와서  List에 담는다.
+		List<CommentDto> commentList = commentDao.getList(num);
+		for(CommentDto tmp : commentList) {
+			// 로그인된 유저가 요청한 댓글일경우
+			if(id != null) {
+				// 로그인된 유저와 댓글을 쓴 사용자가 같다면 
+				if(id.equals(tmp.getWriter())) {
+					tmp.setMyCommnet(true);
+				}			
+			}
+		}
+		
+		// ModelAndView 객체를 생성해서 
+		ModelAndView mView = new ModelAndView();
+		// 모델을 담는다.
 		mView.addObject("dto", resultDto);
 		mView.addObject("isWriter", isWriter);
 		mView.addObject("commentList", commentList);
 		
-		boardDao.getData(dto);
-		
+		// ModelAndView 객체를 리턴한다.
 		return mView;
 	}
 
+	// 새글을 저장할 메소드
 	@Override
 	public void insert(HttpServletRequest request, BoardDto dto) {
 		// 파일을 저장할 폴더의 절대 경로를 얻어온다.
@@ -185,6 +192,7 @@ public class BoardServiceImpl implements BoardService {
 		
 	}
 
+	// 글을 삭제할 메소드
 	@Override
 	public void delete(HttpServletRequest request, BoardDto dto) {
 		ServletContext application = request.getServletContext();
@@ -203,6 +211,7 @@ public class BoardServiceImpl implements BoardService {
 		
 	}
 
+	// 글을 수정할 메소드
 	@Override
 	public void update(HttpServletRequest request, BoardDto dto) {
 		// 파일을 저장할 폴더의 절대 경로를 얻어온다.
@@ -212,10 +221,7 @@ public class BoardServiceImpl implements BoardService {
 		MultipartFile mFile = dto.getFile();
 		
 		// 전송된 파일이 있는지 확인해보고
-		if(mFile.isEmpty()) { // 새로 입력받은 파일이 없을 경우
-			
-
-		} else { // 새로 입력 받은 파일이 있을 경우
+		if(!mFile.isEmpty()) { // 새로 입력 받은 파일이 있을 경우
 			ServletContext application = request.getServletContext();
 			
 			// 삭제할 파일 이름을 불러온다.
@@ -235,6 +241,7 @@ public class BoardServiceImpl implements BoardService {
 			
 			// 디렉토리를 만들 파일 객체 생성
 			File file = new File(filePath);
+			
 			if(!file.exists()){ // 디렉토리가 존재하지 않는다면
 				file.mkdir(); // 디렉토리를 만든다.
 			}
@@ -254,7 +261,6 @@ public class BoardServiceImpl implements BoardService {
 
 		// FileDao 객체를 이용해서 DB 에 저장하기
 		boardDao.update(dto);
-		
 	}
 
 }

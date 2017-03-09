@@ -184,7 +184,6 @@
 			$.ajax({
 				url:"detail.do",
 				method:"get",
-				dataType:"Json",
 				data:{num:num, condition:"${condition}", keyword:"${keyword}"},
 				success:function(data){
 					// 게시글 제목 출력

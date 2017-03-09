@@ -32,7 +32,7 @@
 					<img src="${pageContext.request.contextPath }/resources/images/loginIcon.png">
 				</div>
 				<div class="enterance_idClick_right col col-xs-9">
-					<form action="${pageContext.request.contextPath }users/signin.do" method="post" id="signinForm">
+					<form action="${pageContext.request.contextPath }/users/signin.do" method="post" id="signinForm">
 						<input type="text" name ="id" class="enterance_idClick_contents idInput col col-xs-7" placeholder="Identification">
 						<button class="enterance_idClick_contents submit" id="" type="submit">SUBMIT</button>
 						<input type="password" name="pwd" class="enterance_idClick_contents passInput col col-xs-7" placeholder="Password">

@@ -37,12 +37,8 @@
 		.modal-dialog.modal-size{
 			width: 60%;
 			max-width: 80%;
-			
 			margin: auto;
-			padding-top: 10%;
-			padding-left: 0;
-			padding-right: 0;
-			padding-bottom: 0;
+			padding: 7% 0 0;
 		}
 		.modal-content.modal-size{
 			height: auto;
