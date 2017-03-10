@@ -68,13 +68,13 @@
 			</div>
 			<div class="form-group has-feedback">
 				<label class="control-label" for="pwd">비밀번호</label>
-				<input class="form-control" type="text" id="pwd" name="pwd"/>
+				<input class="form-control" type="password" id="pwd" name="pwd"/>
 				<span class="glyphicon form-control-feedback"></span>
 				<p class="help-block">비밀번호는 8자 이상입력해 주세요.</p>
 			</div>
 			<div class="form-group has-feedback">
 				<label class="control-label" for="pwd2">비밀번호 확인</label>
-				<input class="form-control" type="text" id="pwd2" />
+				<input class="form-control" type="password" id="pwd2" />
 				<span class="glyphicon form-control-feedback"></span>
 				<p class="help-block">비밀번호를 확인해 주세요.</p>
 			</div>
@@ -100,10 +100,11 @@
 				method:"get",
 				data:{inputId:inputId},
 				success:function(data){
-					if(data.canUse && inputId.length != 0){
-						pwdSuccess("id");
-					}else{
-						pwdError("id");
+					// 입력된 아이디가 사용가능한지 확인
+					if(data.canUse && inputId.length != 0){ // 사용가능하고 길이가 0보다 크다면
+						checkSuccess("id");
+					}else{ // 사용가능하지 않다면
+						checkError("id");
 					}
 				}
 			});
@@ -111,21 +112,24 @@
 		
 		// 비밀번호 입력란에 keyup 이벤트가 발생할때 실행할 함수
 		$("#pwd").on("keyup", function(){
+			// 입력된 비밀번호를 읽어온다.
 			var inputPwd = $("#pwd").val();
 			var inputPwd2 = $("#pwd2").val();
-			if(inputPwd.length >= 8){ // 
-				pwdWarning("pwd");
-				if(inputPwd == inputPwd2) {
-					pwdSuccess("pwd");
-					pwdSuccess("pwd2");
+			// 입력된 비밀번호를 확인한다.
+			if(inputPwd.length >= 8){ // 길이가 8이상일 경우
+				if(inputPwd == inputPwd2) { // 입력된 비밀번호가 같을 경우
+					checkSuccess("pwd");
+					checkSuccess("pwd2");
+				} else {
+					checkWarning("pwd");					
 				}
-			} else {
-				pwdError("pwd");
-				if(inputPwd2.length != 0){
-					pwdError("pwd2");
+			} else { // 길이가 8 미만일경우
+				if(inputPwd2.length != 0){ // inputPwd2가 0보다 클경우
+					checkError("pwd2");
+				} else {
+					checkError("pwd");
 				}
 			}
-			
 		});
 		
 		// 비밀번호 확인 입력란에 keyup 이벤트가 발생할때 실행할 함수
@@ -133,13 +137,18 @@
 			var inputPwd = $("#pwd").val();
 			var inputPwd2 = $("#pwd2").val();
 			if(inputPwd == inputPwd2){
-				pwdSuccess("pwd");
-				pwdSuccess("pwd2");
+				if(inputPwd2.length >= 8){
+					checkSuccess("pwd");
+					checkSuccess("pwd2");
+				}
 			} else {
-				pwdWarning("pwd")
-				pwdError("pwd2");
+				if(inputPwd.length >= 8){
+					checkError("pwd");
+				} else {
+					checkWarning("pwd");
+					checkError("pwd2");
+				}
 			}
-			
 		});
 		
 		// 이메일 입력란에 keyup이벤트가 발생할때 실행할 함수
@@ -147,15 +156,14 @@
 			var email = $("#email").val();
 			var regex=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;   
 			if(regex.test(email) === false) {  // 이메일이 형식에 맞지 않는다면
-				pwdError("email")
+				checkError("email")
 			} else {
-				pwdSuccess("email")
+				checkSuccess("email")
 			}
 		});
 		
-		
-		
-		function pwdSuccess(e){
+		// 	
+		function checkSuccess(e){
 			$("#"+e)
 			.parent()
 			.removeClass("has-success has-error has-warning")
@@ -168,7 +176,7 @@
 			.addClass("glyphicon-ok");
 		}
 		
-		function pwdWarning(e){
+		function checkWarning(e){
 			$("#"+e)
 			.parent()
 			.removeClass("has-success has-error has-warning")
@@ -181,7 +189,7 @@
 			.addClass("glyphicon-warning-sign");
 		}
 		
-		function pwdError(e){
+		function checkError(e){
 			$("#"+e)
 			.parent()
 			.removeClass("has-success has-error has-warning")
