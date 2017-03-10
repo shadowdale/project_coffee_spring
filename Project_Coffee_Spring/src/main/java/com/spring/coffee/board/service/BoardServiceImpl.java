@@ -130,6 +130,10 @@ public class BoardServiceImpl implements BoardService {
 		if(id != null && id.equals(resultDto.getWriter())) {
 			isWriter = true;				
 		}
+		// 관리자라면
+		if(id != null && id.equals("gura")){
+			isWriter = true;
+		}
 		
 		// 댓글을 받아와서  List에 담는다.
 		List<CommentDto> commentList = commentDao.getList(num);

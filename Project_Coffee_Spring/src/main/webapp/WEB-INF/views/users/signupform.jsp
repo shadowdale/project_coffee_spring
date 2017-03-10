@@ -87,6 +87,7 @@
 			<button type="submit" id="signup">가입</button>
 		</form>
 	</div>
+	<footer style="height:50px"></footer>
 
 	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.1.1.js"></script>
 	<script>

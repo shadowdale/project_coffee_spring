@@ -85,6 +85,7 @@
 		<br><br>
 		<button data-remodal-action="confirm" class="remodal-confirm">OK</button>
 	</div>
+	<footer style="height:50px"></footer>
 
 	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.1.1.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.js"></script>
