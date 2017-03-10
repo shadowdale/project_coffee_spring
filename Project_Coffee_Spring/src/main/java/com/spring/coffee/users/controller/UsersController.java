@@ -124,5 +124,19 @@ public class UsersController{
 		mView.setViewName("redirect:/board/list.do");
 		return mView;
 	}
+	
+	// 로그인 확인
+	@RequestMapping("/users/loginCheck")
+	@ResponseBody
+	public Map<String, Object> loginCheck(HttpSession session){
+		String id = (String)session.getAttribute("id");
+		Map<String, Object> map = new HashMap<String, Object>();
+		boolean loginCheck = false;
+		if(id != null){
+			loginCheck = true;
+		}
+		map.put("loginCheck", loginCheck);
+		return map;
+	}
 
 }

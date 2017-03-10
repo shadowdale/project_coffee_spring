@@ -24,15 +24,7 @@
 			<!-- 동적으로 띄울 Modal 준비 -->
 
 			<!-- 새글 작성 버튼 만들기 -->
-			<a href="insertform.do" id="newContentForm" class="btn btn_shape button1" 
-			data-stat="<c:choose>
-						<c:when test="${empty id }">
-							0
-						</c:when>
-						<c:otherwise>
-							1
-						</c:otherwise>
-			</c:choose>">게시글작성</a><br/>
+			<a href="insertform.do" id="newContentForm" class="btn btn_shape button1" >게시글작성</a><br/>
 			<hr>
 			<div class="row">
 			<c:forEach var="tmp" items="${list }" varStatus="stat">
@@ -437,6 +429,24 @@
 			})
 			return false;
 		};
+		
+		// 새글 작성 버튼 이벤트
+		$("#newContentForm").click(function(){
+			$.ajax({
+				url:"${pageContext.request.contextPath }/users/loginCheck.do",
+				method: "post",
+				success: function(data){
+					console.log(data);
+					if(data.loginCheck){
+						location.href = "insertform.do";
+					} else {
+						loginBoxMove();
+					}
+				}
+			})
+			return false;
+		});
+		
 	</script>
 </body>
 </html>
