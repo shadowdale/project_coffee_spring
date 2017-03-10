@@ -4,7 +4,7 @@ id VARCHAR2(100) PRIMARY KEY,
 pwd VARCHAR2(100) NOT NULL,
 email VARCHAR2(100),
 regdate DATE,
-suspended NUMBER DEFAULT '0' CHECK(suspended IN('0','1')) -- 계정 정지 여부
+suspended VARCHAR2(1) DEFAULT '0' CHECK(suspended IN('0','1')) -- 계정 정지 여부
 );
 
 -- 게시글 테이블
@@ -36,3 +36,13 @@ regdate DATE
 
 -- 댓글 시퀀스
 CREATE SEQUENCE coffee_comment_seq NOCACHE;
+
+-- 이벤트 테이블
+CREATE TABLE coffee_event(
+num NUMBER PRIMARY KEY,
+img_name VARCHAR2(100) NOT NULL,
+title VARCHAR2(100),
+event_date VARCHAR2(100),
+event_url VARCHAR2(100),
+end_event VARCHAR2(1) DEFAULT '0' CHECK(suspended IN('0','1')) -- 이벤트 종료 여부
+);

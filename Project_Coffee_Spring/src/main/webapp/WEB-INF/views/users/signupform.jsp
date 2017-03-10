@@ -84,7 +84,7 @@
 				<p class="help-block">이메일 형식을 맞춰주세요.</p>
 				<span class="glyphicon form-control-feedback"></span>
 			</div>
-			<button type="submit" id="signup">가입</button>
+			<button class="btn btn-info" type="submit" id="signup">가입</button>
 		</form>
 	</div>
 	<footer style="height:50px"></footer>
@@ -142,13 +142,13 @@
 					checkSuccess("pwd");
 					checkSuccess("pwd2");
 				}
+				
 			} else {
+				checkError("pwd2");
 				if(inputPwd.length >= 8){
 					checkError("pwd");
-				} else {
-					checkWarning("pwd");
-					checkError("pwd2");
-				}
+				} 
+				checkWarning("pwd");
 			}
 		});
 		

@@ -141,267 +141,267 @@
 
 
 
-<div class="container">
-	<div class="row row-screen">
-		<div class="col col-xs-8 col-xs-pull-10 a items">
-			<div class="box" style="text-align:center">
-				<div data-type="slide" class="" data-title="coffee">
-					<div class="b" style="text-align:center" id="coffeeName1">
-						<h3 class="sub-title">Americano</h3>
-					</div>
-					<h1></h1>
-					<img src="${pageContext.request.contextPath }/resources/images/coffee1.png" class="" id="cupImage1">
-					<h1></h1>
-					<button class="modalBtn">More Info</button>
-				</div>
-			</div>
-		</div>
-		<div class="col col-xs-8 col-xs-push-2 a items">
-			<div class="box" style="text-align:center">
-				<div data-type="slide" class="" data-title="coffee">
-					<div class="b" style="text-align:center" id="coffeeName2">
-						<h3 class="sub-title">Plain Yogurt Smoothie</h3>
-					</div>
-					<h1></h1>
-					<img src="${pageContext.request.contextPath }/resources/images/smoothie1.png" class="" id="cupImage2">
-					<h1></h1>
-					<button class="modalBtn">More Info</button>
-				</div>
-			</div>
-		</div>
-		<div class="col col-xs-8 col-xs-push-10 a items">
-			<div class="box" style="text-align:center">
-				<div data-type="slide" class="" data-title="coffee">
-					<div class="b" style="text-align:center" id="coffeeName3">
-						<h3 class="sub-title">Grean Tea</h3>
-					</div>
-					<h1> </h1>
-					<img src="${pageContext.request.contextPath }/resources/images/tea1.png" class="" id="cupImage3">
-					<h1></h1>
-					<button class="modalBtn">More Info</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row row-screen">
-		<div class="col col-xs-8 col-xs-pull-10 a items">
-			<div class="box" style="text-align:center">
-				<div data-type="slide" class="" data-title="coffee">
-					<div class="b" style="text-align:center" id="coffeeName4">
-						<h3 class="sub-title">Cafe Latte</h3>
-					</div>
-					<h1> </h1>
-					<img src="${pageContext.request.contextPath }/resources/images/coffee2.png" class="" id="cupImage4">
-					<h1> </h1>
-					<button class="modalBtn">More Info</button>
-				</div>
-			</div>
-		</div>
-		<div class="col col-xs-8 col-xs-push-2 a items">
-			<div class="box" style="text-align:center">
-				<div data-type="slide" class="" data-title="coffee">
-					<div class="b" style="text-align:center" id="coffeeName5">
-						<h3 class="sub-title">Pine Apple Smoothie</h3>
-					</div>
-					<h1> </h1>
-					<img src="${pageContext.request.contextPath }/resources/images/smoothie2.png" class="" id="cupImage5">
-					<h1> </h1>
-					<button class="modalBtn">More Info</button>
-				</div>
-			</div>
-		</div>
-		<div class="col col-xs-8 col-xs-push-10 a items">
-			<div class="box" style="text-align:center">
-				<div data-type="slide" class="" data-title="coffee">
-					<div class="b" style="text-align:center" id="coffeeName6">
-						<h3 class="sub-title">English Breakfast</h3>
-					</div><h1> </h1>
-					<img src="${pageContext.request.contextPath }/resources/images/tea2.png" class="" id="cupImage6">
-					<h1> </h1>
-					<button class="modalBtn">More Info</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row row-screen">
-		<div class="col col-xs-8 col-xs-pull-10 a items">
-			<div class="box" style="text-align:center">
-				<div data-type="slide" class="" data-title="coffee">
-					<div class="b" style="text-align:center" id="coffeeName7">
-						<h3 class="sub-title">Caramel Macchiato</h3>
-					</div><h1> </h1>
-					<img src="${pageContext.request.contextPath }/resources/images/coffee3.png" class="" id="cupImage7">
-					<h1> </h1>
-					<button class="modalBtn">More Info</button>
-				</div>
-			</div>
-		</div>
-		<div class="col col-xs-8 col-xs-push-2 a items">
-			<div class="box" style="text-align:center">
-				<div data-type="slide" class="" data-title="coffee">
-					<div class="b" style="text-align:center" id="coffeeName8">
-						<h3 class="sub-title">Strawberry Smoothie</h3>
-					</div><h1> </h1>
-					<img src="${pageContext.request.contextPath }/resources/images/smoothie3.png" class="" id="cupImage8">
-					<h1> </h1>
-					<button class="modalBtn">More Info</button>
-				</div>
-			</div>
-		</div>
-		<div class="col col-xs-8 col-xs-push-10 a items">
-			<div class="box" style="text-align:center">
-				<div data-type="slide" class="" data-title="coffee">
-					<div class="b" style="text-align:center" id="coffeeName9">
-						<h3 class="sub-title">Earl Gray</h3>
-					</div>
-					<h1> </h1>
-					<img src="${pageContext.request.contextPath }/resources/images/tea3.png" class="" id="cupImage9">
-					<h1> </h1>
-					<button class="modalBtn">More Info</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row row-screen">
-		<div class="col col-xs-8 col-xs-pull-10 a items">
-			<div class="box" style="text-align:center">
-				<div data-type="slide" class="" data-title="coffee">
-					<div class="b" style="text-align:center" id="coffeeName10">
-						<h3 class="sub-title">Cappuccino</h3>
-					</div>
-					<h1> </h1>
-					<img src="${pageContext.request.contextPath }/resources/images/coffee4.png" class="" id="cupImage10">
-					<h1> </h1>
-					<button class="modalBtn">More Info</button>
-				</div>
-			</div>
-		</div>
-		<div class="col col-xs-8 col-xs-push-2 a items">
-			<div class="box" style="text-align:center">
-				<div data-type="slide" class="" data-title="coffee">
-					<div class="b" style="text-align:center" id="coffeeName11">
-						<h3 class="sub-title">Dark Chocolate Smoothie</h3>
-					</div>
-					<h1> </h1>
-					<img src="${pageContext.request.contextPath }/resources/images/smoothie4.png" class="" id="cupImage11">
-					<h1> </h1>
-					<button class="modalBtn">More Info</button>
-				</div>
-			</div>
-		</div>
-		<div class="col col-xs-8 col-xs-push-10 a items">
-			<div class="box" style="text-align:center">
-				<div data-type="slide" class="" data-title="coffee">
-					<div class="b" style="text-align:center" id="coffeeName12">
-						<h3 class="sub-title">Chamomile</h3>
-					</div>
-					<h1> </h1>
-					<img src="${pageContext.request.contextPath }/resources/images/tea4.png" class="" id="cupImage12">
-					<h1> </h1>
-					<button class="modalBtn">More Info</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row row-screen">
-		<div class="col col-xs-8 col-xs-pull-10 a items">
-			<div class="box" style="text-align:center">
-				<div data-type="slide" class="" data-title="coffee">
-					<div class="b" style="text-align:center" id="coffeeName13">
-						<h3 class="sub-title">Cafe Mocha</h3>
-					</div>
-					<h1> </h1>
-					<img src="${pageContext.request.contextPath }/resources/images/coffee5.png" class="" id="cupImage13">
-					<h1> </h1>
-					<button class="modalBtn">More Info</button>
-				</div>
-			</div>
-		</div>
-		<div class="col col-xs-8 col-xs-push-2 a items">
-			<div class="box" style="text-align:center">
-				<div data-type="slide" class="" data-title="coffee">
-					<div class="b" style="text-align:center" id="coffeeName14">
-						<h3 class="sub-title">Blueberry Smoothie</h3>
-					</div>
-					<h1> </h1>
-					<img src="${pageContext.request.contextPath }/resources/images/smoothie5.png" class="" id="cupImage14">
-					<h1> </h1>
-					<button class="modalBtn">More Info</button>
-				</div>
-			</div>
-		</div>
-		<div class="col col-xs-8 col-xs-push-10 a items">
-			<div class="box" style="text-align:center">
-				<div data-type="slide" class="" data-title="coffee">
-					<div class="b" style="text-align:center" id="coffeeName15">
-						<h3 class="sub-title">Pepper Mint</h3>
-					</div>
-					<h1> </h1>
-					<img src="${pageContext.request.contextPath }/resources/images/tea5.png" class="" id="cupImage15">
-					<h1> </h1>
-					<button class="modalBtn">More Info</button>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-
-<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-
-
-
-<div id="myModal" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button class="close" data-dismiss="modal">&times;</button>
-			</div>
-			<div class="modal-body">
-				<div class="row1">
-					<div class="col-xs-4">
-						<img src="" style="width:150px; height:150px" id="modalCupImage">
-			    	</div>
-			    	<div class="col-xs-8">
-						<div class="row1">
-							<h4 align="left" id="explain"></h4>
+	<div class="container">
+		<div class="row row-screen">
+			<div class="col col-xs-8 col-xs-pull-10 a items">
+				<div class="box" style="text-align:center">
+					<div data-type="slide" class="" data-title="coffee">
+						<div class="b" style="text-align:center" id="coffeeName1">
+							<h3 class="sub-title">Americano</h3>
 						</div>
-						<div class="row1">
-							<table class="table table-hover" align="center">
-					            <thead>
-					            	<tr>
-					            		<th colspan="5" align="left">제품 영양정보 (12oz 기준)</th>
-					            	</tr>
-					                <tr>
-					                    <th>Calories</th>
-					                    <th>Fat</th>
-					                    <th>Protein</th>
-					                    <th>Sodium</th>
-					                    <th>Suggr</th>
-					                    <th>Caffeine</th>
-					                </tr>
-					            </thead>
-					            <tbody>
-					                <tr align="center" id="contentElement">
-					                    <td></td>
-					                    <td></td>
-					                    <td></td>
-					                    <td></td>
-					                    <td></td>
-					                    <td></td>
-					                </tr>
-					            </tbody>
-					        </table>
-						</div>
-			    	</div>
+						<h1></h1>
+						<img src="${pageContext.request.contextPath }/resources/images/coffee1.png" class="" id="cupImage1">
+						<h1></h1>
+						<button class="modalBtn">More Info</button>
+					</div>
 				</div>
 			</div>
-			<div class="modal-footer">
-				<button class="btn btn-success" data-dismiss="modal">확인</button>
+			<div class="col col-xs-8 col-xs-push-2 a items">
+				<div class="box" style="text-align:center">
+					<div data-type="slide" class="" data-title="coffee">
+						<div class="b" style="text-align:center" id="coffeeName2">
+							<h3 class="sub-title">Plain Yogurt Smoothie</h3>
+						</div>
+						<h1></h1>
+						<img src="${pageContext.request.contextPath }/resources/images/smoothie1.png" class="" id="cupImage2">
+						<h1></h1>
+						<button class="modalBtn">More Info</button>
+					</div>
+				</div>
+			</div>
+			<div class="col col-xs-8 col-xs-push-10 a items">
+				<div class="box" style="text-align:center">
+					<div data-type="slide" class="" data-title="coffee">
+						<div class="b" style="text-align:center" id="coffeeName3">
+							<h3 class="sub-title">Grean Tea</h3>
+						</div>
+						<h1></h1>
+						<img src="${pageContext.request.contextPath }/resources/images/tea1.png" class="" id="cupImage3">
+						<h1></h1>
+						<button class="modalBtn">More Info</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row row-screen">
+			<div class="col col-xs-8 col-xs-pull-10 a items">
+				<div class="box" style="text-align:center">
+					<div data-type="slide" class="" data-title="coffee">
+						<div class="b" style="text-align:center" id="coffeeName4">
+							<h3 class="sub-title">Cafe Latte</h3>
+						</div>
+						<h1> </h1>
+						<img src="${pageContext.request.contextPath }/resources/images/coffee2.png" class="" id="cupImage4">
+						<h1> </h1>
+						<button class="modalBtn">More Info</button>
+					</div>
+				</div>
+			</div>
+			<div class="col col-xs-8 col-xs-push-2 a items">
+				<div class="box" style="text-align:center">
+					<div data-type="slide" class="" data-title="coffee">
+						<div class="b" style="text-align:center" id="coffeeName5">
+							<h3 class="sub-title">Pine Apple Smoothie</h3>
+						</div>
+						<h1> </h1>
+						<img src="${pageContext.request.contextPath }/resources/images/smoothie2.png" class="" id="cupImage5">
+						<h1> </h1>
+						<button class="modalBtn">More Info</button>
+					</div>
+				</div>
+			</div>
+			<div class="col col-xs-8 col-xs-push-10 a items">
+				<div class="box" style="text-align:center">
+					<div data-type="slide" class="" data-title="coffee">
+						<div class="b" style="text-align:center" id="coffeeName6">
+							<h3 class="sub-title">English Breakfast</h3>
+						</div><h1> </h1>
+						<img src="${pageContext.request.contextPath }/resources/images/tea2.png" class="" id="cupImage6">
+						<h1> </h1>
+						<button class="modalBtn">More Info</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row row-screen">
+			<div class="col col-xs-8 col-xs-pull-10 a items">
+				<div class="box" style="text-align:center">
+					<div data-type="slide" class="" data-title="coffee">
+						<div class="b" style="text-align:center" id="coffeeName7">
+							<h3 class="sub-title">Caramel Macchiato</h3>
+						</div><h1> </h1>
+						<img src="${pageContext.request.contextPath }/resources/images/coffee3.png" class="" id="cupImage7">
+						<h1> </h1>
+						<button class="modalBtn">More Info</button>
+					</div>
+				</div>
+			</div>
+			<div class="col col-xs-8 col-xs-push-2 a items">
+				<div class="box" style="text-align:center">
+					<div data-type="slide" class="" data-title="coffee">
+						<div class="b" style="text-align:center" id="coffeeName8">
+							<h3 class="sub-title">Strawberry Smoothie</h3>
+						</div><h1> </h1>
+						<img src="${pageContext.request.contextPath }/resources/images/smoothie3.png" class="" id="cupImage8">
+						<h1> </h1>
+						<button class="modalBtn">More Info</button>
+					</div>
+				</div>
+			</div>
+			<div class="col col-xs-8 col-xs-push-10 a items">
+				<div class="box" style="text-align:center">
+					<div data-type="slide" class="" data-title="coffee">
+						<div class="b" style="text-align:center" id="coffeeName9">
+							<h3 class="sub-title">Earl Gray</h3>
+						</div>
+						<h1> </h1>
+						<img src="${pageContext.request.contextPath }/resources/images/tea3.png" class="" id="cupImage9">
+						<h1> </h1>
+						<button class="modalBtn">More Info</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row row-screen">
+			<div class="col col-xs-8 col-xs-pull-10 a items">
+				<div class="box" style="text-align:center">
+					<div data-type="slide" class="" data-title="coffee">
+						<div class="b" style="text-align:center" id="coffeeName10">
+							<h3 class="sub-title">Cappuccino</h3>
+						</div>
+						<h1> </h1>
+						<img src="${pageContext.request.contextPath }/resources/images/coffee4.png" class="" id="cupImage10">
+						<h1> </h1>
+						<button class="modalBtn">More Info</button>
+					</div>
+				</div>
+			</div>
+			<div class="col col-xs-8 col-xs-push-2 a items">
+				<div class="box" style="text-align:center">
+					<div data-type="slide" class="" data-title="coffee">
+						<div class="b" style="text-align:center" id="coffeeName11">
+							<h3 class="sub-title">Dark Chocolate Smoothie</h3>
+						</div>
+						<h1> </h1>
+						<img src="${pageContext.request.contextPath }/resources/images/smoothie4.png" class="" id="cupImage11">
+						<h1> </h1>
+						<button class="modalBtn">More Info</button>
+					</div>
+				</div>
+			</div>
+			<div class="col col-xs-8 col-xs-push-10 a items">
+				<div class="box" style="text-align:center">
+					<div data-type="slide" class="" data-title="coffee">
+						<div class="b" style="text-align:center" id="coffeeName12">
+							<h3 class="sub-title">Chamomile</h3>
+						</div>
+						<h1> </h1>
+						<img src="${pageContext.request.contextPath }/resources/images/tea4.png" class="" id="cupImage12">
+						<h1> </h1>
+						<button class="modalBtn">More Info</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row row-screen">
+			<div class="col col-xs-8 col-xs-pull-10 a items">
+				<div class="box" style="text-align:center">
+					<div data-type="slide" class="" data-title="coffee">
+						<div class="b" style="text-align:center" id="coffeeName13">
+							<h3 class="sub-title">Cafe Mocha</h3>
+						</div>
+						<h1> </h1>
+						<img src="${pageContext.request.contextPath }/resources/images/coffee5.png" class="" id="cupImage13">
+						<h1> </h1>
+						<button class="modalBtn">More Info</button>
+					</div>
+				</div>
+			</div>
+			<div class="col col-xs-8 col-xs-push-2 a items">
+				<div class="box" style="text-align:center">
+					<div data-type="slide" class="" data-title="coffee">
+						<div class="b" style="text-align:center" id="coffeeName14">
+							<h3 class="sub-title">Blueberry Smoothie</h3>
+						</div>
+						<h1> </h1>
+						<img src="${pageContext.request.contextPath }/resources/images/smoothie5.png" class="" id="cupImage14">
+						<h1> </h1>
+						<button class="modalBtn">More Info</button>
+					</div>
+				</div>
+			</div>
+			<div class="col col-xs-8 col-xs-push-10 a items">
+				<div class="box" style="text-align:center">
+					<div data-type="slide" class="" data-title="coffee">
+						<div class="b" style="text-align:center" id="coffeeName15">
+							<h3 class="sub-title">Pepper Mint</h3>
+						</div>
+						<h1> </h1>
+						<img src="${pageContext.request.contextPath }/resources/images/tea5.png" class="" id="cupImage15">
+						<h1> </h1>
+						<button class="modalBtn">More Info</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+	
+	
+	<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+	
+	
+	
+	<div id="myModal" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body">
+					<div class="row1">
+						<div class="col-xs-4">
+							<img src="" style="width:150px; height:150px" id="modalCupImage">
+				    	</div>
+				    	<div class="col-xs-8">
+							<div class="row1">
+								<h4 align="left" id="explain"></h4>
+							</div>
+							<div class="row1">
+								<table class="table table-hover" align="center">
+						            <thead>
+						            	<tr>
+						            		<th colspan="5" align="left">제품 영양정보 (12oz 기준)</th>
+						            	</tr>
+						                <tr>
+						                    <th>Calories</th>
+						                    <th>Fat</th>
+						                    <th>Protein</th>
+						                    <th>Sodium</th>
+						                    <th>Suggr</th>
+						                    <th>Caffeine</th>
+						                </tr>
+						            </thead>
+						            <tbody>
+						                <tr align="center" id="contentElement">
+						                    <td></td>
+						                    <td></td>
+						                    <td></td>
+						                    <td></td>
+						                    <td></td>
+						                    <td></td>
+						                </tr>
+						            </tbody>
+						        </table>
+							</div>
+				    	</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-success" data-dismiss="modal">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.1.1.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/bootstrap.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/js/jquery.touchSwipe.js"></script>
@@ -603,6 +603,7 @@
 		}
 
 	};
+	
 	function move2(){
 		$(".container")
 		.css("-webkit-transform","translateX("+tXnum+"px) translateY(-"+tYnum+"px)");
