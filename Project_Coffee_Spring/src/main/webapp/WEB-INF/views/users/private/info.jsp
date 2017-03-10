@@ -15,15 +15,8 @@
 		<div class="container" style="width:60%">
 			<div style="float:right">
 				<a href="updateform.do" style="color:green;">정보수정</a>
-				/
-				<c:choose> 
-					<c:when test="${admin }">
-						<a href="${pageContext.request.contextPath }/users/private/list.do" style="color:green;">회원목록보기</a>
-					</c:when>
-					<c:otherwise>
-						<a href="javascript:userConfirm()" style="color:red">탈퇴</a>					
-					</c:otherwise>
-				</c:choose>
+				<span>/</span>
+				<a href="javascript:userConfirm()" style="color:red">탈퇴</a>					
 			</div>
 			<br />
 			<table class="table">

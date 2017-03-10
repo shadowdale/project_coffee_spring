@@ -104,18 +104,4 @@ public class UsersServiseImpl implements UsersService {
 		
 	}
 
-	@Override
-	public boolean suspended(UsersDto dto, boolean isChecked) {
-		
-		if(isChecked) {
-			dto.setSuspended(1);
-			usersDao.suspended(dto);
-		} else {
-			dto.setSuspended(0);
-			usersDao.suspended(dto);
-		}
-		
-		return false;
-	}
-
 }

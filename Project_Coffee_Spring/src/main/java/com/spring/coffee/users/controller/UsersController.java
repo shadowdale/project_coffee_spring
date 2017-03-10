@@ -88,7 +88,11 @@ public class UsersController{
 	public ModelAndView info(HttpSession session){
 		String id = (String)session.getAttribute("id");
 		ModelAndView mView = usersService.getData(id);
-		mView.setViewName("users/private/info");
+		if(id.equals("gura")) {
+			mView.setViewName("/admin/info");
+		} else {			
+			mView.setViewName("/users/private/info");
+		}
 		return mView;
 	}
 	
@@ -100,6 +104,7 @@ public class UsersController{
 		mView.setViewName("/users/private/updateform");	
 		return mView;
 	}
+	
 	//회원정보 수정 요청 처리
 	@RequestMapping("/users/private/update")
 	public ModelAndView update(@ModelAttribute UsersDto dto, HttpServletRequest request){
@@ -119,24 +124,5 @@ public class UsersController{
 		mView.setViewName("redirect:/board/list.do");
 		return mView;
 	}
-	
-	// 회원 목록보기 폼 요청 처리
-	@RequestMapping("/users/private/list")
-	public ModelAndView getList() {
-		ModelAndView mView = usersService.getList();
-		mView.setViewName("/users/private/user-list");
-		
-		return mView;
-	}
-	
-	// 회원 계정 관리
-	@RequestMapping("/users/private/suspended")
-	@ResponseBody
-	public Map<Object, String> suspended(@ModelAttribute UsersDto dto , @RequestParam boolean isChecked) {
-		usersService.suspended(dto, isChecked);
-		
-		Map<Object, String> map = new HashMap<Object, String>();
-		map.put("isChecked", "");
-		return map;
-	}
+
 }

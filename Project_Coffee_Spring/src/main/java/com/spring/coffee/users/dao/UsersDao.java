@@ -12,5 +12,4 @@ public interface UsersDao {
 	public void delete(String id);
 	public List<UsersDto> getList();
 	public boolean canUseId(String id);
-	public boolean suspended(UsersDto Dto);
 }
