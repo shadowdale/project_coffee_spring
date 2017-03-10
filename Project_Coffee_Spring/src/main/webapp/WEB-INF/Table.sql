@@ -46,3 +46,6 @@ event_date VARCHAR2(100),
 event_url VARCHAR2(100),
 end_event VARCHAR2(1) DEFAULT '0' CHECK(suspended IN('0','1')) -- 이벤트 종료 여부
 );
+
+-- 이벤트 시퀀스
+CREATE SEQUENCE coffee_event_seq NOCACHE;
