@@ -45,14 +45,6 @@ public class AdminController {
 		return mView;
 	}
 	
-	// 이벤트 종료 요청 처리
-	@RequestMapping("/admin/end-event")
-	@ResponseBody
-	public Map<String, Object> adminEndEvent(@ModelAttribute EventDto dto) {
-		
-		return null;
-	}
-	
 	// 회원 목록보기 폼 요청 처리
 	@RequestMapping("/admin/user-list")
 	public ModelAndView adminGetList() {
@@ -62,10 +54,18 @@ public class AdminController {
 		return mView;
 	}
 	
+	// 이벤트 종료 요청 처리
+	@RequestMapping("/admin/end-event")
+	@ResponseBody
+	public Map<String, Object> ajaxAdminEndEvent(@ModelAttribute EventDto dto) {
+		
+		return null;
+	}
+	
 	// 회원 계정 관리
 	@RequestMapping("/admin/suspended")
 	@ResponseBody
-	public Map<Object, String> adminSuspended(@ModelAttribute UsersDto dto , @RequestParam boolean isChecked) {
+	public Map<Object, String> ajaxAdminSuspended(@ModelAttribute UsersDto dto , @RequestParam boolean isChecked) {
 		adminService.suspended(dto, isChecked);
 		
 		Map<Object, String> map = new HashMap<Object, String>();

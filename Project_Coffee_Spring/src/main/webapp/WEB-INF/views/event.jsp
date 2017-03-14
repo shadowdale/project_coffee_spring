@@ -41,10 +41,6 @@
         img{
         	width: 300px;
         }
-
-		html,body{
-			height: 100%;
-		}
     </style>
 </head>
 <body>

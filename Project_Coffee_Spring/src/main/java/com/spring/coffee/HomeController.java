@@ -26,7 +26,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/event")
-	public ModelAndView adminEventList() {
+	public ModelAndView eventList() {
 		
 		ModelAndView mView = eventService.getList();
 		mView.setViewName("/event");
