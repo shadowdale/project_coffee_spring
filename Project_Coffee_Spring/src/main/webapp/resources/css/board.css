@@ -2,7 +2,7 @@
 
 		.container{
 			margin: 0 auto;
-			padding-top: 140px;
+			padding-top: 100px;
 		}
 		
 		.button1{
@@ -61,7 +61,7 @@
 			z-index: 500;
 		}
 		.modal-move > a{
-			font-size: 50px;
+			font-size: 40px;
 			text-decoration: none;
 		}
 		.picture1 > a > img{
@@ -117,7 +117,7 @@
 			float: right;
 		}
 		#modal-comment input{
-			width: 75%;
+			width: 80%;
 			height: 22px;
 		}
 		h3{

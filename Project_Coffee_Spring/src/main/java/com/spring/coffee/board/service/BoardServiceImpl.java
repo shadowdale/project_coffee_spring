@@ -188,10 +188,10 @@ public class BoardServiceImpl implements BoardService {
 			e.printStackTrace();
 		}
 		
-		// FileDto 객체에 추가 정보를 담는다.
+		// BoardDto 객체에 추가 정보를 담는다.
 		dto.setImgAddr(imgAddr);
 
-		// FileDao 객체를 이용해서 DB 에 저장하기
+		// BoardDao 객체를 이용해서 DB 에 저장하기
 		boardDao.insert(dto);
 		
 	}

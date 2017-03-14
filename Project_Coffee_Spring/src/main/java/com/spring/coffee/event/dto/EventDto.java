@@ -5,25 +5,23 @@ import org.springframework.web.multipart.MultipartFile;
 public class EventDto {
 	private int num;
 	private String title;
-	private String imgName;
-	private String eventDate;
-	private String eventUrl;
-	private String endEvent;
-	private String regDate;
+	private String img_name;
+	private String event_date;
+	private String event_url;
+	private String end_event;
 	private MultipartFile file;
 	
 	public EventDto(){}
 
-	public EventDto(int num, String title, String imgName, String eventDate, String eventUrl, String endEvent,
-			String regDate, MultipartFile file) {
+	public EventDto(int num, String title, String img_name, String event_date, String event_url, String end_event,
+			MultipartFile file) {
 		super();
 		this.num = num;
 		this.title = title;
-		this.imgName = imgName;
-		this.eventDate = eventDate;
-		this.eventUrl = eventUrl;
-		this.endEvent = endEvent;
-		this.regDate = regDate;
+		this.img_name = img_name;
+		this.event_date = event_date;
+		this.event_url = event_url;
+		this.end_event = end_event;
 		this.file = file;
 	}
 
@@ -43,44 +41,36 @@ public class EventDto {
 		this.title = title;
 	}
 
-	public String getImgName() {
-		return imgName;
+	public String getImg_name() {
+		return img_name;
 	}
 
-	public void setImgName(String imgName) {
-		this.imgName = imgName;
+	public void setImg_name(String img_name) {
+		this.img_name = img_name;
 	}
 
-	public String getEventDate() {
-		return eventDate;
+	public String getEvent_date() {
+		return event_date;
 	}
 
-	public void setEventDate(String eventDate) {
-		this.eventDate = eventDate;
+	public void setEvent_date(String event_date) {
+		this.event_date = event_date;
 	}
 
-	public String getEventUrl() {
-		return eventUrl;
+	public String getEvent_url() {
+		return event_url;
 	}
 
-	public void setEventUrl(String eventUrl) {
-		this.eventUrl = eventUrl;
+	public void setEvent_url(String event_url) {
+		this.event_url = event_url;
 	}
 
-	public String getEndEvent() {
-		return endEvent;
+	public String getEnd_event() {
+		return end_event;
 	}
 
-	public void setEndEvent(String endEvent) {
-		this.endEvent = endEvent;
-	}
-
-	public String getRegDate() {
-		return regDate;
-	}
-
-	public void setRegDate(String regDate) {
-		this.regDate = regDate;
+	public void setEnd_event(String end_event) {
+		this.end_event = end_event;
 	}
 
 	public MultipartFile getFile() {

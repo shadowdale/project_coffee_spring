@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin">
+	<select id="getEventData" resultType="eventDto" parameterType="eventDto">
+		SELECT num, img_name, title, event_date, event_url, end_event
+		FROM coffee_event
+		WHERE num = #{num}
+	</select>
+	<update id="eventUpdate" parameterType="eventDto">
+		UPDATE coffee_event
+		SET
+		<if test="img_name != null">
+			title=#{title}, event_date=#{event_date}, event_url=#{event_url}, img_name=#{img_name}
+		</if>
+		<if test="img_name == null">
+			title=#{title}, event_date=#{event_date}, event_url=#{event_url}
+		</if>
+		WHERE num=#{num}	
+	</update>
+</mapper>

@@ -47,11 +47,11 @@
 		<div id="imgpop" class="modal modal-center fade">
 		   <div class="modal-dialog modal-center modal-size">
 		      	<div class="modal-content modal-size">
-			      	<button class="close" data-dismiss="modal" id="btn_close">&times;</button>
+			      	<button class="close" data-dismiss="modal" id="btn_close"><span class="glyphicon glyphicon-remove-circle"></span></button>
 			      	<div class="row">
 			      		<!-- 게시글 이동 버튼  -->
 						<div class="modal-move col-xs-1 m-left">
-							<a id="move-left" href="" class="glyphicon glyphicon-chevron-left"><span class="sr-only">left</span></a>
+							<a id="move-left" href="" class="glyphicon glyphicon-triangle-left"><span class="sr-only">left</span></a>
 						</div>
 						<!-- 게시글 컨테이너 -->
 				      	<div class="col-xs-10 m-center" style="height: 600px">
@@ -102,7 +102,7 @@
 		      			</div>
 		      			<!-- 게시글 이동 버튼 -->
 		      			<div class="modal-move col-xs-1 m-right">
-							<a id="move-right" href="" class="glyphicon glyphicon-chevron-right" style="top:-39px"><span class="sr-only">right</span></a>
+							<a id="move-right" href="" class="glyphicon glyphicon-triangle-right" style="top:-44px"><span class="sr-only">right</span></a>
 	      				</div>
 		      		</div>
 		   		</div>

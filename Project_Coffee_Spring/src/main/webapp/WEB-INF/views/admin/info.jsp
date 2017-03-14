@@ -13,7 +13,6 @@
 	<div class="container">
 		<ul>
 			<li><a href="${pageContext.request.contextPath }/users/private/updateform.do">정보수정</a></li>
-			<li><a href="${pageContext.request.contextPath }/ddmin/event.do">이벤트</a></li>
 			<li><a href="${pageContext.request.contextPath }/admin/user-list.do">회원관리</a></li>
 		</ul>
 	</div>

@@ -1,10 +1,17 @@
 package com.spring.coffee;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.spring.coffee.event.service.EventService;
 
 @Controller
 public class HomeController {
+	
+	@Autowired
+	private EventService eventService; 
 
 	@RequestMapping(value = "/main")
 	public String home() {
@@ -19,9 +26,12 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/event")
-	public String event() {
-
-		return "event";
+	public ModelAndView adminEventList() {
+		
+		ModelAndView mView = eventService.getList();
+		mView.setViewName("/event");
+		
+		return mView;
 	}
 	
 	@RequestMapping(value = "/menu")

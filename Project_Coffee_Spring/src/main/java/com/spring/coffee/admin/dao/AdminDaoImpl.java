@@ -1,9 +1,12 @@
 package com.spring.coffee.admin.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.spring.coffee.event.dto.EventDto;
 import com.spring.coffee.users.dto.UsersDto;
 
 @Repository
@@ -13,9 +16,27 @@ public class AdminDaoImpl implements AdminDao {
 	private SqlSession session;
 
 	@Override
-	public boolean suspended(UsersDto usersDto) {
-		session.update("users.suspended", usersDto);
+	public boolean suspended(UsersDto dto) {
+		session.update("users.suspended", dto);
 		return false;
+	}
+
+	@Override
+	public void eventUpdate(EventDto dto) {
+		session.update("admin.eventUpdate", dto);
+		
+	}
+
+	@Override
+	public List<EventDto> getEventList() {
+		List<EventDto> list = session.selectList("admin.getEventList");
+		return list;
+	}
+
+	@Override
+	public EventDto getEventData(int num) {
+		EventDto resultDto = session.selectOne("admin.getEventData", num);
+		return resultDto;
 	}
 
 }

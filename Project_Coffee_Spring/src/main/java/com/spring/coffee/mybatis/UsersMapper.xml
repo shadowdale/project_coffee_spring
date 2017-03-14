@@ -14,6 +14,7 @@
 	<select id="getList" resultType="usersDto">
 		SELECT id, pwd, email, suspended, <include refid="dateFormat"/>
 		FROM coffee_login
+		WHERE id != 'gura'
 	</select>
 	
 	<update id="update" parameterType="usersDto">

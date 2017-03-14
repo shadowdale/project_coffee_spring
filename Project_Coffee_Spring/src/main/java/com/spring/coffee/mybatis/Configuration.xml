@@ -8,6 +8,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="com.spring.coffee.board.dto.BoardDto" alias="boardDto" />
 		<typeAlias type="com.spring.coffee.users.dto.UsersDto" alias="usersDto" />
 		<typeAlias type="com.spring.coffee.comment.dto.CommentDto" alias="commentDto" />
+		<typeAlias type="com.spring.coffee.event.dto.EventDto" alias="eventDto"/>
 	</typeAliases>
 
 	<!-- sql 문을 정의하고 있는 xml 문서 정보 -->
@@ -15,5 +16,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="com/spring/coffee/mybatis/BoardMapper.xml" />
 		<mapper resource="com/spring/coffee/mybatis/UsersMapper.xml" />
 		<mapper resource="com/spring/coffee/mybatis/CommentMapper.xml" />
+		<mapper resource="com/spring/coffee/mybatis/EventMapper.xml" />
+		<mapper resource="com/spring/coffee/mybatis/AdminMapper.xml" />
 	</mappers>
 </configuration>

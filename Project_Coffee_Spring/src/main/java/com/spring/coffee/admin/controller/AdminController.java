@@ -3,6 +3,8 @@ package com.spring.coffee.admin.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -25,17 +27,28 @@ public class AdminController {
 	@Autowired
 	private UsersService usersService;
 	
-	// 이벤트 글 작성페이지 요청처리
-	@RequestMapping("/admin/event/insertform")
-	public ModelAndView adminEventIndertForm() {
-		ModelAndView mView = new ModelAndView();
-		mView.setViewName("/adim/insertform");
+	// 이벤트 수정 페이지 요청처리
+	@RequestMapping("/admin/event-updateform")
+	public ModelAndView adminEventUpdateForm(@RequestParam int num) {
+		ModelAndView mView = adminService.getEventData(num);
+		mView.setViewName("/admin/event-updateform");
 		return mView;
 	}
 	
-	// 이벤트 글 작석 요청 처리
-	@RequestMapping("/admin/event/insert")
-	public ModelAndView adminEventIndert(@ModelAttribute EventDto dto){
+	// 이벤트 수정 요청 처리
+	@RequestMapping("/admin/event-update")
+	public ModelAndView adminEventUpdate(HttpServletRequest request, @ModelAttribute EventDto dto){
+		adminService.eventUpdate(request, dto);
+		ModelAndView mView = new ModelAndView();
+		mView.setViewName("redirect:/event.do");
+		
+		return mView;
+	}
+	
+	// 이벤트 종료 요청 처리
+	@RequestMapping("/admin/end-event")
+	@ResponseBody
+	public Map<String, Object> adminEndEvent(@ModelAttribute EventDto dto) {
 		
 		return null;
 	}
