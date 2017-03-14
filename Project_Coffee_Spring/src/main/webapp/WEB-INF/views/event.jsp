@@ -7,8 +7,6 @@
 	<title></title>
 	<link href="${pageContext.request.contextPath }/resources/css/bootstrap.css" rel="stylesheet">
 	<link href="${pageContext.request.contextPath }/resources/css/board.css" rel="stylesheet">
-	<script src="${pageContext.request.contextPath }/resources/js/jquery-3.1.1.js"></script>
-	<script src="${pageContext.request.contextPath }/resources/js/jquery.imageScroll.js"></script>
 	<style>
         body {
         	 margin: 0;
@@ -32,6 +30,11 @@
         li{
         	display: inline-block;
         }
+        .endEvent{
+        	color: red;
+        	background-color: 
+        }
+
         .eventItem{
         	text-align: center;
         }
@@ -53,18 +56,25 @@
       			<div class="eventItem">
       				<ul>
       				<c:forEach items="${list }" var="tmp" begin="0" end="2">
-      					<li>
+      					<li <c:if test="${tmp.end_event eq '1' }">class="endEvent"</c:if>>
       						<div class="eventImg">
-      							<a href="${tmp.event_url }">
+      							<a <c:if test="${tmp.end_event eq '1' }">style="opacity:0.8;"</c:if> href="${tmp.event_url }">
       								<img src="${pageContext.request.contextPath}/upload/${tmp.img_name }"/>
       							</a>
       						</div>
       						<div class="eventItem">
-      							<h5>${tmp.title }</h5>
-      							<p>${tmp.event_date }</p>
+     						<c:choose>
+     							<c:when test="${tmp.end_event eq '1' }">
+     							<h5>종료된 이벤트입니다.</h5>
+     							</c:when>
+     							<c:otherwise>
+     							<h5>${tmp.title }</h5>
+     							</c:otherwise>
+     						</c:choose>
+     							<p>${tmp.event_date }</p>
       						<c:if test="${not empty admin }">
       							<a class="btn btn-default btn-xs" href="${pageContext.request.contextPath }/admin/event-updateform.do?num=${tmp.num }">수정</a>
-      							<input type="checkbox" name="end_event" id="end_event" value="${tmp.num }"/>			
+      							<input type="checkbox" name="end_event" id="end_event" value="${tmp.num }" <c:if test="${tmp.end_event eq '1' }">checked</c:if> />			
       						</c:if>
       						</div>
       					</li>
@@ -91,7 +101,7 @@
       							<p>${tmp.event_date }</p>
       						<c:if test="${not empty admin }">
       							<a class="btn btn-default btn-xs" href="${pageContext.request.contextPath }/admin/event-updateform.do?num=${tmp.num }">수정</a>
-      							<input type="checkbox" name="end_event" id="end_event" value="${tmp.num }"/>			
+      							<input type="checkbox" name="end_event" id="end_event" value="${tmp.num }"  <c:if test="${tmp.end_event eq '1' }">checked</c:if>/>			
       						</c:if>
       						</div>
       					</li>
@@ -120,7 +130,8 @@
       							<p>${tmp.event_date }</p>
       						<c:if test="${not empty admin }">
       							<a class="btn btn-default btn-xs" href="${pageContext.request.contextPath }/admin/event-updateform.do?num=${tmp.num }">수정</a>
-      							<input type="checkbox" name="end_event" id="end_event" value="${tmp.num }"/>			
+      							<input type="checkbox" name="end_event" id="end_event" value="${tmp.num }" <c:if test="${tmp.end_event eq '1' }">checked</c:if> />			
+      							
       						</c:if>
       						</div>
       					</li>
@@ -136,6 +147,23 @@
         $(".img-holder").imageScroll({
             container: $('.right-col')
         });
+        
+	<c:if test="${not empty admin }">
+		$("[type=checkbox]").each(function(){
+			$(this).on("change",function(){
+				var isChecked = $(this)[0].checked;
+				var num = $(this).val();
+				$.ajax({
+					url: "${pageContext.request.contextPath }/admin/eventCheck.do",
+					method: "post",
+					data: {isChecked:isChecked, num:num},
+					success: function(data){
+						
+					}
+				});
+			});
+		});
+	</c:if>
     </script>
 </body>
 </html>

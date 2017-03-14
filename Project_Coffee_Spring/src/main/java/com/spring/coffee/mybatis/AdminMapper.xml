@@ -17,4 +17,14 @@
 		</if>
 		WHERE num=#{num}	
 	</update>
+	<update id="suspended" parameterType="usersDto">
+		UPDATE coffee_login
+		SET suspended=#{suspended}
+		WHERE id=#{id}
+	</update>
+	<update id="endEvent" parameterType="eventDto">
+		UPDATE coffee_event
+		SET end_event=#{end_event}
+		WHERE num=#{num}
+	</update>
 </mapper>

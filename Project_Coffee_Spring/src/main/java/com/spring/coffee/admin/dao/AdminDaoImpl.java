@@ -17,7 +17,7 @@ public class AdminDaoImpl implements AdminDao {
 
 	@Override
 	public boolean suspended(UsersDto dto) {
-		session.update("users.suspended", dto);
+		session.update("admin.suspended", dto);
 		return false;
 	}
 
@@ -37,6 +37,12 @@ public class AdminDaoImpl implements AdminDao {
 	public EventDto getEventData(int num) {
 		EventDto resultDto = session.selectOne("admin.getEventData", num);
 		return resultDto;
+	}
+
+	@Override
+	public boolean endEvent(EventDto dto) {
+		session.update("admin.endEvent", dto);
+		return false;
 	}
 
 }

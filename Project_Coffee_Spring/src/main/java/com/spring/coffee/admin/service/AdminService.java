@@ -12,4 +12,5 @@ public interface AdminService {
 	public void eventUpdate(HttpServletRequest session, EventDto dto);
 	public ModelAndView getEventList();
 	public ModelAndView getEventData(int num);
+	public boolean endEvent(EventDto dto, boolean isChecked);
 }

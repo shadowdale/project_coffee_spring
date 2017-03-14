@@ -55,20 +55,23 @@ public class AdminController {
 	}
 	
 	// 이벤트 종료 요청 처리
-	@RequestMapping("/admin/end-event")
+	@RequestMapping("/admin/eventCheck")
 	@ResponseBody
-	public Map<String, Object> ajaxAdminEndEvent(@ModelAttribute EventDto dto) {
+	public Map<String, Object> ajaxAdminEndEvent(@ModelAttribute EventDto dto, @RequestParam boolean isChecked) {
+		adminService.endEvent(dto, isChecked);
 		
-		return null;
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("isChecked", "");
+		return map;
 	}
 	
 	// 회원 계정 관리
 	@RequestMapping("/admin/suspended")
 	@ResponseBody
-	public Map<Object, String> ajaxAdminSuspended(@ModelAttribute UsersDto dto , @RequestParam boolean isChecked) {
+	public Map<String, Object> ajaxAdminSuspended(@ModelAttribute UsersDto dto, @RequestParam boolean isChecked) {
 		adminService.suspended(dto, isChecked);
 		
-		Map<Object, String> map = new HashMap<Object, String>();
+		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("isChecked", "");
 		return map;
 	}

@@ -34,6 +34,19 @@ public class AdminServiceImpl implements AdminService {
 		
 		return false;
 	}
+	
+	@Override
+	public boolean endEvent(EventDto dto, boolean isChecked) {
+		
+		if(isChecked) {
+			dto.setEnd_event("1");
+			adminDao.endEvent(dto);
+		} else {
+			dto.setEnd_event("0");
+			adminDao.endEvent(dto);
+		}
+		return false;
+	}
 
 	@Override
 	public void eventUpdate(HttpServletRequest request, EventDto dto) {
@@ -92,5 +105,6 @@ public class AdminServiceImpl implements AdminService {
 		mView.addObject("dto", dto);
 		return mView;
 	}
+
 	
 }

@@ -10,4 +10,5 @@ public interface AdminDao {
 	public void eventUpdate(EventDto dto);
 	public List<EventDto> getEventList();
 	public EventDto getEventData(int num);
+	public boolean endEvent(EventDto dto);
 }

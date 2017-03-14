@@ -45,10 +45,4 @@
 		FROM coffee_login
 		WHERE id=#{id}
 	</select>
-	
-	<update id="suspended" parameterType="usersDto">
-		UPDATE coffee_login
-		SET suspended=#{suspended}
-		WHERE id=#{id}
-	</update>
 </mapper>
