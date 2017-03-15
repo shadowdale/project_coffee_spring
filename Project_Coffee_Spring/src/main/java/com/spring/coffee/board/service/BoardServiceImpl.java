@@ -140,8 +140,8 @@ public class BoardServiceImpl implements BoardService {
 		for(CommentDto tmp : commentList) {
 			// 로그인된 유저가 요청한 댓글일경우
 			if(id != null) {
-				// 로그인된 유저와 댓글을 쓴 사용자가 같다면 
-				if(id.equals(tmp.getWriter())) {
+				// 로그인된 유저와 댓글을 쓴 사용자가 같거나 관리자라면
+				if(id.equals(tmp.getWriter()) || id.equals("gura")) {
 					tmp.setMyCommnet(true);
 				}			
 			}
